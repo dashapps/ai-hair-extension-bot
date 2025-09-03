@@ -11,20 +11,38 @@ import Col from '../../ui/Col.astro'
 // - UI
 import CTA from '../../ui/CTA.astro'
 import Button from '../../ui/Button.astro'
-import Ratings from '../../ui/Rating.astro'
+import ChipNotification from '../../ui/ChipNotification.astro'
+import { Image } from 'astro:assets'
+import badge from '../../../assets/badge.svg'
+// Props
+type Props = {
+  title?: string
+  text?: string
+  buttonLabel?: string
+  buttonLink?: string
+  ctaClasses?: string
+  sectionClasses?: string
+}
+const {
+  title = 'Готова к трансформации?',
+  text = 'Осторожно! После примерки может возникнуть острое желание записаться к мастеру — мы предупредили.',
+  buttonLabel = 'Попробовать бесплатно',
+  buttonLink = '/',
+  ctaClasses,
+  sectionClasses
+} = Astro.props
 ---
 
-<Section>
+<Section classes={sectionClasses}>
 	<Row>
 		<Col span="1" />
 		<Col span="10">
-			<CTA
-				title="Join the Foxi Revolution!"
-				text="Discover why thousands of professionals trust our platform to streamline their workflow and enhance productivity. Get started today and see the difference for yourself!"
-				classes="!shadow-none"
-			>
-				<Ratings rating={5} text="30K customer ratings" classes="mb-4" />
-				<Button size="lg" style="primary"> Get started now! </Button>
+			<CTA title={title} text={text} classes={ctaClasses ?? '!shadow-none'}>
+				<ChipNotification radius="rounded-full" classes="mb-4">
+					<Image src={badge} alt="Trophy" class="h-12 w-12" slot="button" />
+					<strong>Мастера рекомендуют</strong>
+				</ChipNotification>
+				<Button size="lg" style="primary" link={buttonLink}>{buttonLabel}</Button>
 			</CTA>
 		</Col>
 		<Col span="1" />

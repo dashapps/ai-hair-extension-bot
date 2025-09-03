@@ -7,7 +7,7 @@ import Hero from '../components/blocks/hero/HomeCTA.astro'
 import FeatureRow from '../components/blocks/features/FeatureRow.astro'
 import Testimonial from '../components/blocks/testimonials/BasicDark.astro'
 import FAQ from '../components/blocks/FAQ/Basic.astro'
-import CTA from '../components/blocks/CTA/BasicDark.astro'
+import CTA from '../components/blocks/CTA/BasicLight.astro'
 
 // Content
 // - Testimonial background
@@ -31,11 +31,9 @@ const SEO = {
     <FAQ classes="bg-slate-50 dark:bg-neutral-900/40" />
     <CTA 
       sectionClasses="bg-neutral-100 dark:bg-neutral-900/40"
-      mode="dark"
-      bg={undefined}
       ctaClasses="!shadow-none"
       title="Готова к трансформации?"
-      text="Осторожно! После примерки может возникнуть острое желание записаться к мастеру — мы предупредили. Но если не боишься — просто начни: всё бесплатно и быстро."
+      text="Осторожно! После примерки может возникнуть острое желание записаться к мастеру — мы предупредили."
       buttonLabel="Попробовать бесплатно"
       buttonLink="/"
     />

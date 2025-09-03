@@ -10,6 +10,8 @@ const { screenshots = [] } = Astro.props
   space-between="32"
   grab-cursor="true"
   free-mode="true"
+  slides-offset-before="0"
+  slides-offset-after="0"
 >
   {screenshots.map((src) => (
     <swiper-slide>
@@ -26,7 +28,7 @@ const { screenshots = [] } = Astro.props
 </style>
 
 <style>
-  .hero-swiper { @apply items-end; }
+  .hero-swiper { @apply items-end; overflow: visible !important; }
   swiper-slide { width: auto !important; }
   .no-scrollbar::-webkit-scrollbar { display: none; }
   .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
