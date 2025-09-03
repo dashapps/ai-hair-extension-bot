@@ -1,7 +1,7 @@
 ---
 // Hero Swiper using Swiper Element (no React needed)
-// Props: screenshots: string[] (public paths)
-const { screenshots = [] } = Astro.props
+// Props: screenshots: string[] (public paths), eager?: boolean
+const { screenshots = [], eager = false } = Astro.props
 ---
 
 <swiper-container
@@ -18,7 +18,7 @@ const { screenshots = [] } = Astro.props
   {screenshots.map((src, i) => (
     <swiper-slide>
       <div class="hero-slide">
-        <img src={src} alt="Скриншот демо AI Hair Extension Bot" loading={i === 0 ? 'eager' : 'lazy'} fetchpriority={i === 0 ? 'high' : 'auto'} decoding="async" />
+        <img src={src} alt="Скриншот демо AI Hair Extension Bot" loading={(eager || i === 0) ? 'eager' : 'lazy'} fetchpriority={(eager || i === 0) ? 'high' : 'auto'} decoding="async" />
       </div>
     </swiper-slide>
   ))}
