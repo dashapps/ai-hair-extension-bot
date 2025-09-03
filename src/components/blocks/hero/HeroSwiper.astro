@@ -1,0 +1,42 @@
+---
+// Hero Swiper using Swiper Element (no React needed)
+// Props: screenshots: string[] (public paths)
+const { screenshots = [] } = Astro.props
+---
+
+<swiper-container
+  class="hero-swiper no-scrollbar"
+  slides-per-view="auto"
+  space-between="32"
+  grab-cursor="true"
+  free-mode="true"
+>
+  {screenshots.map((src) => (
+    <swiper-slide>
+      <div class="hero-slide">
+        <img src={src} alt="Скриншот демо AI Hair Extension Bot" loading="lazy" />
+      </div>
+    </swiper-slide>
+  ))}
+</swiper-container>
+
+<style is:global>
+  @import 'swiper/css';
+  @import 'swiper/css/free-mode';
+</style>
+
+<style>
+  .hero-swiper { @apply items-end; }
+  swiper-slide { width: auto !important; }
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+  .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+  .hero-slide {
+    @apply inline-block h-[60vh] max-h-[640px] overflow-hidden rounded-t-[4px] shadow-2xl shadow-neutral-200 dark:shadow-neutral-950;
+  }
+  .hero-slide img { @apply block h-full w-auto object-contain; }
+</style>
+
+<script>
+  import { register } from 'swiper/element/bundle'
+  if (!customElements.get('swiper-container')) register()
+</script>

@@ -1,0 +1,57 @@
+---
+// Feature Row (4 items)
+// ------------
+// A single row of 4 feature items, header optional.
+import Section from '../../ui/Section.astro'
+import Row from '../../ui/Row.astro'
+import Col from '../../ui/Col.astro'
+import Feature from '../../ui/Feature.astro'
+
+const items = [
+  {
+    title: 'BB Hair Expert',
+    role: 'Мастер по наращиванию',
+    desc: 'Анализирует структуру и текстуру волос, подбирает безопасный вариант удлинения и формы.',
+    icon: 'user',
+    highlight: true
+  },
+  {
+    title: 'AI Stylist',
+    role: '',
+    desc: 'Смотрит на весь образ: лицо, черты, стиль одежды на фото → даёт общий вектор, что подходит именно тебе.',
+    icon: 'paint-brush'
+  },
+  {
+    title: 'AI Neuro‑Physiognomist',
+    role: 'Нейро‑физиогномист',
+    desc: 'Интерпретирует характер и «энергетику» лица, чтобы образ выглядел органично и комфортно — новая версия именно ты, только лучше.',
+    icon: 'eye',
+    highlight: true
+  },
+  {
+    title: 'Visualizer',
+    role: 'Визуализатор',
+    desc: 'Собирает решения первых трёх и показывает результат — фото, а при желании оживит на видео.',
+    icon: 'rectangle-stack'
+  }
+]
+---
+
+<Section id="feature-row">
+  <Row>
+    <Col span="12" align="center" classes="mb-12 max-w-4xl mx-auto">
+      <h2 class="text-pretty">Над твоим образом работают<br class="hidden md:block" /> сразу <strong>4 нейронки</strong></h2>
+      <p class="pb-0 text-lg">Мы обучили их совместно с лучшими экспертами</p>
+    </Col>
+  </Row>
+  <Row>
+    {items.map((it) => (
+      <Col span="3">
+        <Feature title={it.title} icon={it.icon} align="left" classes="mb-0">
+          {it.role && <p class="mb-2 text-primary-500 font-semibold">{it.role}</p>}
+          {it.desc}
+        </Feature>
+      </Col>
+    ))}
+  </Row>
+</Section>

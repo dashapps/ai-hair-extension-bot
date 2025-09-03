@@ -4,9 +4,9 @@
 import Layout from '../layouts/Layout.astro'
 // - UI
 import Hero from '../components/blocks/hero/HomeCTA.astro'
-import Features from '../components/blocks/features/FeatureCards.astro'
+import FeatureRow from '../components/blocks/features/FeatureRow.astro'
 import Testimonial from '../components/blocks/testimonials/BasicDark.astro'
-import HighlightBlocks from '../components/blocks/highlights/HightlightRows.astro'
+import FAQ from '../components/blocks/FAQ/Basic.astro'
 import CTA from '../components/blocks/CTA/BasicDark.astro'
 
 // Content
@@ -14,16 +14,25 @@ import CTA from '../components/blocks/CTA/BasicDark.astro'
 import testimonialBackground from '../assets/testimonial-bg-01.webp'
 // - SEO
 const SEO = {
-	title: 'Foxi | Your Productivity Toolkit',
-	description:
-		'Foxi is a powerful productivity toolkit designed to enhance your workflow and boost your productivity. With features like analytics, security, and integrations, Foxi is the perfect solution for your business.'
+	title: 'AI Hair Extension',
+	description: 'AI Hair Extension — превью результата до наращивания, комьюнити и инструменты для мастеров и бизнеса.'
 }
 ---
 
 <Layout title={SEO.title} description={SEO.description}>
 	<Hero />
-	<Features />
-	<Testimonial bg={testimonialBackground} bgPosition="right" />
-	<HighlightBlocks />
-	<CTA />
+	<FeatureRow />
+    <Testimonial 
+      classes="bg-primary-500"
+      blockquote="Волосы — это оружие женщины. Они меняют не только образ, но и возраст в глазах окружающих."
+      figcaption=""
+      cite=""
+    />
+    <FAQ classes="bg-slate-50 dark:bg-neutral-900/40" />
+    <CTA 
+      title="Осторожно! После примерки может возникнуть острое желание записаться к мастеру — мы предупредили."
+      text="Но если не боишься — просто начни: всё бесплатно и быстро."
+      buttonLabel="Попробовать бесплатно"
+      buttonLink="/"
+    />
 </Layout>

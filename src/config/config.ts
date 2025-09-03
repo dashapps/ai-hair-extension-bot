@@ -21,9 +21,9 @@ export interface Config {
 }
 
 export const configData: Config = {
-	siteTitle: 'Foxi. Tailwind CSS Astro Starter Kit by Oxygenna',
+	siteTitle: 'AI Hair Extension',
 	siteDescription:
-		'Foxi is a design and development agency that specializes in creating beautiful and functional websites.',
+		'AI-помощник для мастеров и бизнеса: лендинг, телеграм-бот и комьюнити-инструменты.',
 	ogImage: '/og.jpg',
 	logo: {
 		src: '/logo.svg',

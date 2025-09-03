@@ -10,13 +10,20 @@ import Row from '../../ui/Row.astro'
 import Col from '../../ui/Col.astro'
 // - UI
 import ChipNotification from '../../ui/ChipNotification.astro'
-import { Image } from 'astro:assets'
 import Button from '../../ui/Button.astro'
 import AvatarGroup from '../../ui/AvatarGroup.astro'
+import HeroSwiper from './HeroSwiper.astro'
 
 // Content
 // - Hero Image
-import heroImage from '../../../assets/hero-01.png'
+// Screenshots (served from /public)
+const screenshots = [
+  '/demo_he_ru_1.webp',
+  '/demo_he_ru_2.webp',
+  '/demo_he_ru_3.webp',
+  '/demo_he_ru_4.webp',
+  '/demo_he_ru_5.webp'
+]
 // - Avatars
 import user1 from '../../../assets/avatars/avatar-01.webp'
 import user2 from '../../../assets/avatars/avatar-02.webp'
@@ -36,21 +43,28 @@ const avatars = [
 				<strong>30K+</strong> satisfied customers
 				<AvatarGroup avatars={avatars} radius="rounded-full" slot="button" />
 			</ChipNotification>
-			<h1>Enhance team <strong>performance</strong> with seamless integration</h1>
+			<h1>Примерь <strong>волосы</strong> до наращивания</h1>
 
-			<p class="pb-0 text-lg">Work smarter, not harder, with our innovative platform</p>
-			<Button size="lg" link="/">Get started for free</Button>
+			<p class="pb-0 text-lg">Получи реальный прогноз результата, а не просто чужую прическу на твоей голове</p>
+			<Button size="lg" link="/">Попробуй бесплатно</Button>
 		</Col>
 		<Col span="2" />
 		<Col span="2" />
 		<Col span="8">
-			<Image
-				src={heroImage}
-				alt="Foxi. The tailwind astro theme"
-				class="translate-y-8 shadow-2xl shadow-neutral-200 dark:shadow-neutral-950"
-				format="webp"
-			/></Col
-		>
+			<div class="edge-right relative mt-16">
+				<HeroSwiper screenshots={screenshots} />
+			</div>
+		</Col>
+		
 		<Col span="2" />
 	</Row>
 </Section>
+
+<style>
+  /* Extend to right viewport edge on desktop */
+  @media (min-width: 1024px) { .edge-right { margin-right: calc(50% - 50vw); } }
+</style>
+
+<script>
+  // Swiper Element handles interactions; no local JS needed
+</script>

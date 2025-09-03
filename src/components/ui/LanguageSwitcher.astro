@@ -1,0 +1,30 @@
+---
+import { Icon } from 'astro-icon/components'
+// Language Switcher (menu-style)
+// ------------
+// Reuses header menu dropdown styles/behavior. RU default for now.
+---
+
+
+<div class="header__menu-item">
+  <span role="menuitem" class="header__menu-link">
+    RU
+    <Icon name="chevron-down" class="header__menu-chevron" />
+  </span>
+
+  <ul class="header__submenu">
+    <li role="none" class="header__submenu-item">
+      <a href="#" role="menuitem" class="header__submenu-link">RU</a>
+    </li>
+    <li role="none" class="header__submenu-item">
+      <a href="#" role="menuitem" class="header__submenu-link">EN</a>
+    </li>
+    <li role="none" class="header__submenu-item">
+      <a href="#" role="menuitem" class="header__submenu-link">ES</a>
+    </li>
+  </ul>
+</div>
+
+<style>
+  .header__menu-item { @apply order-3; }
+</style>

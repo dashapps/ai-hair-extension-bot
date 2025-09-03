@@ -18,35 +18,44 @@ type Props = {
 	cite?: string
 	bg?: any
 	bgPosition?: 'left' | 'right' | 'center'
+    classes?: string
 }
 const {
 	blockquote = 'Foxi is like a rocket boost for our productivity! Its sleek design and out-of-this-world features make managing projects and team communication a breeze.',
 	figcaption = 'Sheryl Sandberg',
 	cite = 'CEO, Facebook',
 	bg,
-	bgPosition = 'center'
+	bgPosition = 'center',
+    classes
 } = Astro.props
 ---
 
 <Section
-	id="testimonial"
-	mode="dark"
-	bg={bg}
-	bgPosition={bgPosition}
-	classes="dark:border-t border-y border-neutral-800"
+    id="testimonial"
+    mode="dark"
+    bg={bg}
+    bgPosition={bgPosition}
+    classes={`${classes ? classes + ' ' : ''}dark:border-t border-y border-neutral-800`}
 >
 	<Row>
 		<Col span="12">
-			<Testimonial
-				blockquote={blockquote}
-				figcaption={figcaption}
-				cite={cite}
-				align="center"
-				size="4xl"
-				mobileSize="2xl"
-				classes="!leading-tight font-bold xl:text-5xl max-w-4xl mx-auto"
-				quoteSize={112}
-			/>
-		</Col>
-	</Row>
+            <Testimonial
+                blockquote={blockquote}
+                figcaption={figcaption}
+                cite={cite}
+                align="center"
+                size="4xl"
+                mobileSize="2xl"
+                classes="!leading-tight font-bold xl:text-5xl max-w-4xl mx-auto text-white"
+                quoteSize={112}
+            />
+        </Col>
+    </Row>
 </Section>
+
+<style>
+  /* Make opening quote subtler and text white on colored backgrounds */
+  #testimonial .testimonial--quote { @apply text-white/30; }
+  #testimonial .testimonial__blockquote > p { @apply text-white; }
+  #testimonial .testimonial__figcaption { @apply text-white; }
+</style>

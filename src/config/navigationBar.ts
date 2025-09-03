@@ -32,26 +32,26 @@ export interface NavData {
 }
 
 export const navigationBarData: NavData = {
-	logo: {
-		src: '/logo.svg',
-		alt: 'The tailwind astro theme',
-		text: 'Foxi.'
-	},
-	navItems: [
-		{ name: 'Home', link: '/' },
-		{ name: 'Pricing', link: '/pricing' },
-		{ name: 'Features', link: '/features' },
-		{
-			name: 'Resources',
-			link: '#',
-			submenu: [
-				{ name: 'Blog', link: '/blog' },
-				{ name: 'Changelog', link: '/changelog' },
-				{ name: 'FAQ', link: '/faq' },
-				{ name: 'Terms', link: '/terms' }
-			]
-		},
-		{ name: 'Contact', link: '/contact' }
-	],
-	navActions: [{ name: 'Try it now', link: '/', style: 'primary', size: 'lg' }]
+    logo: {
+        src: '/hair_extension_64.webp',
+        alt: 'AI Hair Extension',
+        text: 'AI Hair Extension'
+    },
+    navItems: [
+        { name: 'Телеграм‑бот', link: '/' },
+        { name: 'Мастерам', link: '/features' },
+        { name: 'Создай сообщество', link: '/pricing' },
+        {
+            name: 'Бизнесу',
+            link: '#',
+            submenu: [
+                { name: 'Блог', link: '/blog' },
+                { name: 'История изменений', link: '/changelog' },
+                { name: 'FAQ', link: '/faq' },
+                { name: 'Условия', link: '/terms' }
+            ]
+        },
+        { name: 'Контакты', link: '/contact' }
+    ],
+    navActions: [{ name: 'Попробовать', link: '/', style: 'primary', size: 'lg' }]
 }

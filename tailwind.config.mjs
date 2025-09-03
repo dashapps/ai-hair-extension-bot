@@ -2,7 +2,7 @@
 import defaultTheme from "tailwindcss/defaultTheme";
 export default {
   content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
-  darkMode: ["selector"],
+  darkMode: false,
   safelist: [
     {
       pattern: /col-span-(\d+)/,
@@ -33,17 +33,17 @@ export default {
       colors: {
         transparent: "transparent",
         primary: {
-          50: "#fdf2f8",
-          100: "#fce7f3",
-          200: "#fbcfe8",
-          300: "#f9a8d4",
-          400: "#f472b6",
-          500: "#E2187D",
-          600: "#db2777",
-          700: "#be185d",
-          800: "#9d174d",
-          900: "#831843",
-          950: "#500724",
+          50: "#F6F1E9",
+          100: "#EEE4D6",
+          200: "#E0CFB6",
+          300: "#D2BA96",
+          400: "#C6A97E",
+          500: "#AC9468", // base requested color
+          600: "#927C54",
+          700: "#786643",
+          800: "#5E5032",
+          900: "#4B3F28",
+          950: "#332A1B",
         },
         neutral: {
           50: "#f8fafc",
@@ -64,7 +64,7 @@ export default {
       },
       fontFamily: {
         sans: ["Inter Variable", ...defaultTheme.fontFamily.sans],
-        headings: ["Outfit Variable", ...defaultTheme.fontFamily.sans],
+        headings: ["Geologica", ...defaultTheme.fontFamily.sans],
       },
       keyframes: {
         dropdown: {
@@ -101,8 +101,5 @@ export default {
   },
   plugins: [
     require("@tailwindcss/typography"),
-    require("tailwindcss/plugin")(function ({ addVariant }) {
-      addVariant("dark-me", ".dark_&");
-    }),
   ],
 };

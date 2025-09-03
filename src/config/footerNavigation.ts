@@ -34,16 +34,16 @@ export interface FooterData {
 }
 
 export const footerNavigationData: FooterData = {
-	footerAbout: {
-		title: 'Foxi.',
-		aboutText:
-			'Expertly made, responsive, accessible components in React and HTML ready to be used on your website or app. Just copy and paste them on your Tailwind CSS project.',
-		logo: {
-			src: '/logo.svg',
-			alt: 'The tailwind astro theme',
-			text: 'Foxi.'
-		}
-	},
+    footerAbout: {
+        title: 'AI Hair Extension',
+        aboutText:
+            'AI‑ассистент для расширений волос: лендинги, боты и автоматизация. Строим сообщество мастеров и помогаем бизнесу расти.',
+        logo: {
+            src: '/hair_extension_64.webp',
+            alt: 'AI Hair Extension',
+            text: 'AI Hair Extension'
+        }
+    },
 	footerColumns: [
 		{
 			category: 'Product',
@@ -105,7 +105,7 @@ export const footerNavigationData: FooterData = {
 			]
 		}
 	],
-	subFooter: {
-		copywriteText: '© Foxi 2024.'
-	}
+    subFooter: {
+        copywriteText: '© AI Hair Extension 2024.'
+    }
 }
