@@ -9,7 +9,11 @@ const { screenshots = [] } = Astro.props
   slides-per-view="auto"
   space-between="32"
   grab-cursor="true"
-  free-mode="true"
+  slides-per-group="1"
+  speed="500"
+  centered-slides="true"
+  initial-slide="0"
+  
 >
   {screenshots.map((src) => (
     <swiper-slide>
@@ -26,7 +30,7 @@ const { screenshots = [] } = Astro.props
 </style>
 
 <style>
-  .hero-swiper { @apply items-end; }
+  .hero-swiper { @apply block w-full items-end; }
   swiper-slide { width: auto !important; }
   .no-scrollbar::-webkit-scrollbar { display: none; }
   .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
@@ -34,23 +38,65 @@ const { screenshots = [] } = Astro.props
     @apply inline-block h-[60vh] max-h-[640px] overflow-hidden rounded-t-2xl shadow-2xl shadow-neutral-200 dark:shadow-neutral-950;
   }
   .hero-slide img { @apply block h-full w-auto object-contain; }
+
+  /* Scope overflow fix only to this hero swiper */
+  .hero-swiper,
+  .hero-swiper :is(.swiper, .swiper-wrapper, .swiper-slide),
+  .hero-swiper swiper-slide {
+    overflow: visible !important;
+    will-change: transform, opacity;
+    transform: translateZ(0);
+  }
 </style>
 
 <script>
   import { register } from 'swiper/element/bundle'
   if (!customElements.get('swiper-container')) register()
-
-  const setOffset = () => {
+  if (typeof window !== 'undefined') {
+    // no offset; rely on centered-slides
+    const updateAll = () => {
+      document.querySelectorAll('swiper-container.hero-swiper').forEach((el) => el.update?.())
+    }
+    updateAll()
+    window.addEventListener('resize', updateAll)
+    // Interactions: click/tap or keys move exactly one slide (no scaling)
     const els = document.querySelectorAll('swiper-container.hero-swiper')
     els.forEach((el) => {
-      // Start from middle of the viewport (in px)
-      el.slidesOffsetBefore = Math.round(window.innerWidth * 0.5)
-      el.update?.()
+      // Force start from first slide centered
+      let tries = 0
+      const ensureFirstCentered = () => {
+        if (el.swiper?.slideTo) {
+          el.swiper.slideTo(0, 0)
+        } else if (tries++ < 40) {
+          requestAnimationFrame(ensureFirstCentered)
+        }
+      }
+      ensureFirstCentered()
+      el.slidesPerGroup = 1
+      el.speed = 500
+      // focusable for keyboard
+      el.tabIndex = 0
+      // click anywhere except interactive child -> next by one
+      el.addEventListener('click', (e) => {
+        const t = e.target
+        if (t && (t.closest?.('a,button,[role="button"],input,textarea,select'))) return
+        el.swiper?.slideNext()
+      })
+      el.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowRight' || e.key === 'Enter' || e.key === ' ' || e.key === 'Tab') {
+          e.preventDefault()
+          el.swiper?.slideNext()
+        } else if (e.key === 'ArrowLeft') {
+          e.preventDefault()
+          el.swiper?.slidePrev()
+        }
+      })
+      // extra: ensure tap/pointer triggers next as well
+      el.addEventListener('pointerup', (e) => {
+        const t = e.target
+        if (t && (t.closest?.('a,button,[role="button"],input,textarea,select'))) return
+        el.swiper?.slideNext()
+      })
     })
-  }
-  if (typeof window !== 'undefined') {
-    // set on load and on resize
-    setOffset()
-    window.addEventListener('resize', setOffset)
   }
 </script>
