@@ -15,10 +15,10 @@ const { screenshots = [] } = Astro.props
   initial-slide="0"
   
 >
-  {screenshots.map((src) => (
+  {screenshots.map((src, i) => (
     <swiper-slide>
       <div class="hero-slide">
-        <img src={src} alt="Скриншот демо AI Hair Extension Bot" loading="lazy" />
+        <img src={src} alt="Скриншот демо AI Hair Extension Bot" loading={i === 0 ? 'eager' : 'lazy'} fetchpriority={i === 0 ? 'high' : 'auto'} decoding="async" />
       </div>
     </swiper-slide>
   ))}
