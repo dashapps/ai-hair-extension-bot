@@ -1,8 +1,9 @@
 /** @type {import('tailwindcss').Config} */
 import defaultTheme from "tailwindcss/defaultTheme";
+import typography from "@tailwindcss/typography";
 export default {
   content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
-  darkMode: false,
+  darkMode: "class",
   safelist: [
     {
       pattern: /col-span-(\d+)/,
@@ -96,10 +97,7 @@ export default {
       },
     },
   },
-  variants: {
-    animation: ["responsive"],
-  },
   plugins: [
-    require("@tailwindcss/typography"),
+    typography,
   ],
 };

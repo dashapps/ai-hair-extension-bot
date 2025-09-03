@@ -1,21 +1,26 @@
+---
 // Props
 type Props = {
   title?: string
   text?: string
   buttonLabel?: string
   buttonLink?: string
+  // Optional overrides
+  mode?: 'light' | 'dark'
+  bg?: any
+  ctaClasses?: string
+  sectionClasses?: string
 }
 const {
   title = 'Join Over 30,000 Satisfied Users!',
   text = 'Discover why thousands of professionals trust our platform to streamline their workflow and enhance productivity. Get started today and see the difference for yourself!',
   buttonLabel = 'Get started now!',
-  buttonLink = '/'
+  buttonLink = '/',
+  mode,
+  bg,
+  ctaClasses,
+  sectionClasses
 } = Astro.props
----
-// Basic Dark Call To Action section
-// ------------
-// Description: A centered call to action section that contains: a title, text, background image, notification and a button.
-
 // Components
 // - Layout
 import Section from '../../ui/Section.astro'
@@ -33,15 +38,16 @@ import ctaImage from '../../../assets/cta-dark-bg.webp'
 import badge from '../../../assets/badge.svg'
 ---
 
-<Section>
+<Section classes={sectionClasses}>
 	<Row>
 		<Col span="1" />
 		<Col span="10">
             <CTA
                 title={title}
                 text={text}
-                mode="dark"
-                bg={ctaImage}
+                mode={mode ?? 'dark'}
+                bg={bg === undefined ? ctaImage : bg}
+                classes={ctaClasses}
             >
 				<ChipNotification radius="rounded-full" classes="mb-6 box">
 					<Image src={badge} alt="Product of the Year" class="h-12 w-12" slot="button" />

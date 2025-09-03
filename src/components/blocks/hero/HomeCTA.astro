@@ -24,18 +24,18 @@ const screenshots = [
   '/demo_he_ru_4.webp',
   '/demo_he_ru_5.webp'
 ]
-// - Avatars
+// Avatars (back again)
 import user1 from '../../../assets/avatars/avatar-01.webp'
 import user2 from '../../../assets/avatars/avatar-02.webp'
 import user3 from '../../../assets/avatars/avatar-03.webp'
 const avatars = [
-	{ image: { src: user1.src, alt: 'user name' }, link: '/' },
-	{ image: { src: user2.src, alt: 'user name' }, link: '/' },
-	{ image: { src: user3.src, alt: 'user name' }, link: '/' }
+  { image: { src: user1.src, alt: 'user name' }, link: '/' },
+  { image: { src: user2.src, alt: 'user name' }, link: '/' },
+  { image: { src: user3.src, alt: 'user name' }, link: '/' }
 ]
 ---
 
-<Section id="intro" padding="top" classes="bg-neutral-50 dark:bg-neutral-900">
+<Section id="intro" padding="top" classes="bg-neutral-100 dark:bg-neutral-900/40 !overflow-visible">
 	<Row>
 		<Col span="2" />
 		<Col span="8" align="center">
@@ -43,7 +43,9 @@ const avatars = [
 				<strong>30K+</strong> satisfied customers
 				<AvatarGroup avatars={avatars} radius="rounded-full" slot="button" />
 			</ChipNotification>
-			<h1>Примерь <strong>волосы</strong> до наращивания</h1>
+			<h1>
+				Примерь <strong>волосы</strong> <br class="hidden md:block"/>до наращивания
+			</h1>
 
 			<p class="pb-0 text-lg">Получи реальный прогноз результата, а не просто чужую прическу на твоей голове</p>
 			<Button size="lg" link="/">Попробуй бесплатно</Button>

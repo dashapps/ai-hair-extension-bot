@@ -47,4 +47,7 @@ const {
 	.cta__text {
 		@apply max-w-4xl text-lg leading-relaxed;
 	}
+  /* Force better contrast on dark variant */
+  .cta.dark .cta__heading { color: #fff; }
+  .cta.dark .cta__text { color: rgba(255,255,255,0.85); }
 </style>

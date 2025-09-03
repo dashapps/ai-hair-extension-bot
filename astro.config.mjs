@@ -4,13 +4,22 @@ import tailwind from "@astrojs/tailwind";
 import icon from "astro-icon";
 
 import sitemap from "@astrojs/sitemap";
-import remarkTypography from "remark-typography";
+
+// Make remark-typography optional to avoid build issues
+// If it fails to load, we proceed without it.
+let remarkPlugins = [];
+try {
+  const { default: remarkTypography } = await import("remark-typography");
+  remarkPlugins.push(remarkTypography);
+} catch (e) {
+  console.warn("remark-typography not loaded:", e?.message || e);
+}
 
 // https://astro.build/config
 export default defineConfig({
   site: "https://foxi.netlify.app/",
   markdown: {
-    remarkPlugins: [remarkTypography],
+    remarkPlugins,
   },
   integrations: [
     tailwind(),
