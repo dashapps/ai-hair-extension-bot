@@ -1,0 +1,53 @@
+---
+// Masters page bullets section
+import Section from '../../ui/Section.astro'
+import Row from '../../ui/Row.astro'
+import Col from '../../ui/Col.astro'
+import Feature from '../../ui/Feature.astro'
+
+const bullets = [
+  {
+    title: 'Виртуальная примерка',
+    desc: 'Покажи клиентке её новые волосы до того, как она сядет в кресло. Эффект «вау» с первой секунды.',
+    icon: 'rectangle-stack',
+  },
+  {
+    title: 'Подбор стилем ИИ',
+    desc: 'Алгоритм анализирует фото и тип волос, подбирая оптимальную длину и оттенок.',
+    icon: 'rocket',
+  },
+  {
+    title: 'Видео‑демо для клиентов',
+    desc: 'Сгенерируй короткое видео «до‑после», которое убирает все возражения.',
+    icon: 'chat-bubble-left-ellipsis',
+  },
+  {
+    title: 'Поиск мастера',
+    desc: 'Бот рекомендует ближайшего специалиста — никаких потерь клиентов.',
+    icon: 'chat-bubble-left-right',
+  },
+  {
+    title: 'Рост продаж без усилий',
+    desc: 'Каждая демонстрация превращается в сделку. Работает как твой персональный продавец 24/7.',
+    icon: 'arrow-treding-up',
+  },
+]
+---
+
+<Section id="masters-bullets">
+  <Row>
+    <Col span="12" align="center" classes="mb-12 max-w-4xl mx-auto">
+      <h2 class="text-pretty">Продажи с демо «до‑после»</h2>
+      <p class="pb-0 text-lg">Первый умный телеграм бот специально для мастеров наращивания</p>
+    </Col>
+  </Row>
+  <Row>
+    {bullets.map((b) => (
+      <Col span="3" spanMobile="12">
+        <Feature title={b.title} icon={b.icon} align="left" classes="mb-0">
+          {b.desc}
+        </Feature>
+      </Col>
+    ))}
+  </Row>
+</Section>

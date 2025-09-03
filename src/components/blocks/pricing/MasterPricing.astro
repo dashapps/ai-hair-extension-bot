@@ -1,0 +1,82 @@
+---
+// Pricing for masters (3 cards)
+import Section from '../../ui/Section.astro'
+import Row from '../../ui/Row.astro'
+import Col from '../../ui/Col.astro'
+import PricingTable from '../../ui/pricing-tables/PricingTable.astro'
+
+const plans = [
+  {
+    type: 'basic',
+    header: {
+      title: 'Basic — для самостоятельной генерации',
+      subtitle: '',
+      currency: '₽',
+      price: '2000',
+      priceLabel: 'разово',
+      buttonName: 'Купить токены',
+      buttonLink: 'https://t.me/hair_extention_bot?utm_source=landing&utm_medium=pricing&utm_campaign=ai_hair_extension&utm_content=basic'
+    },
+    body: {
+      listItems: [
+        { listItem: '2000 токенов (хватает на 15–60 фото и видео примерок, зависит от количества вариантов)' },
+        { listItem: 'Токены не сгорают: купил и пользуешься, когда удобно' },
+        { listItem: 'Подходит мастерам, кто хочет попробовать бота сам и показывать клиенткам готовый результат' },
+      ]
+    }
+  },
+  {
+    type: 'featured',
+    header: {
+      title: 'PRO — для продвижения в соцсетях',
+      subtitle: '',
+      currency: '₽',
+      price: '6000',
+      priceLabel: 'месяц',
+      buttonName: 'Оформить PRO',
+      buttonLink: 'https://t.me/hair_extention_bot?utm_source=landing&utm_medium=pricing&utm_campaign=ai_hair_extension&utm_content=pro'
+    },
+    body: {
+      listItems: [
+        { listItem: '3000 несгораемых токенов ежемесячно' },
+        { listItem: 'Ссылка в профиле ведёт в бота' },
+        { listItem: 'Каталог региона: бот рекомендует именно тебя рядом' },
+        { listItem: 'Рефералы: пришедшие по твоей ссылке видят только «Записаться к тебе»' },
+        { listItem: 'Лимиты на генерации: контролируй токены на каждого клиента' },
+        { listItem: 'Статистика в Телеграме по рефералам' },
+      ]
+    }
+  },
+  {
+    type: 'basic',
+    header: {
+      title: 'PRO+ — для лидеров рынка',
+      subtitle: '',
+      currency: '₽',
+      price: '9000',
+      priceLabel: 'месяц',
+      buttonName: 'Оформить PRO+',
+      buttonLink: 'https://t.me/hair_extention_bot?utm_source=landing&utm_medium=pricing&utm_campaign=ai_hair_extension&utm_content=pro_plus'
+    },
+    body: {
+      listItems: [
+        { listItem: '5000 несгораемых токенов ежемесячно' },
+        { listItem: 'Всё из PRO + high‑res контент для портфолио и соцсетей' },
+        { listItem: 'Субрефералка: если клиентка шарит бота подруге — подруга видит только тебя (генерации за твой счёт)' },
+        { listItem: 'Бонус: первая генерация новой рефералки — бесплатно для тебя (до 3 фото)' },
+      ]
+    }
+  },
+]
+---
+
+<Section>
+  <Row>
+    {plans.map((plan, idx) => (
+      <Col span="4">
+        <PricingTable data={plan} listType="checklist" id={`master-plan-${idx}`} />
+      </Col>
+    ))}
+  </Row>
+</Section>
+

@@ -5,16 +5,34 @@ import Layout from '../layouts/Layout.astro'
 // - UI
 import Feature from '../components/blocks/features/FeatureSticky.astro'
 import MasterHero from '../components/blocks/hero/MasterHero.astro'
+import MasterSwiper from '../components/blocks/hero/MasterSwiper.astro'
+import MasterSwiperPro from '../components/blocks/hero/MasterSwiperPro.astro'
+import MasterPricing from '../components/blocks/pricing/MasterPricing.astro'
+// MasterBullets no longer used; inline sticky section instead
 import CTA from '../components/blocks/CTA/BasicDark.astro'
 
 // Data
-import featuresData from '../data/json-files/featuresData.json'
-// - Feature Categories
-const featuresAnalytics = featuresData.filter((feature) => feature.category === 'Analytics')
-const featuresProductivity = featuresData.filter((feature) => feature.category === 'Productivity')
-const featuresSecurity = featuresData.filter((feature) => feature.category === 'Security')
-const featuresIntegrations = featuresData.filter((feature) => feature.category === 'Integrations')
-const featuresSupport = featuresData.filter((feature) => feature.category === 'Support')
+// Custom sticky bullets replacing default feature categories
+const bullets = [
+  { title: 'Виртуальная примерка', icon: 'rectangle-stack', description: 'Покажи клиентке её новые волосы до того, как она сядет в кресло. Эффект «вау» с первой секунды.' },
+  { title: 'Подбор стилем ИИ', icon: 'rocket', description: 'Алгоритм анализирует фото и тип волос, подбирая оптимальную длину и оттенок.' },
+  { title: 'Видео‑демо для клиентов', icon: 'chat-bubble-left-ellipsis', description: 'Сгенерируй короткое видео «до‑после», которое убирает все возражения.' },
+  { title: 'Поиск мастера', icon: 'chat-bubble-left-right', description: 'Бот рекомендует ближайшего специалиста — никаких потерь клиентов.' },
+  { title: 'Рост продаж без усилий', icon: 'arrow-treding-up', description: 'Каждая демонстрация превращается в сделку. Работает как твой персональный продавец 24/7.' },
+]
+
+// PRO subscription bullets
+const proBullets = [
+  { title: 'В каталоге региона', icon: 'chat-bubble-left-right', description: 'С PRO бот рекомендует именно тебя клиентам рядом.' },
+  { title: 'Реферал без конкурентов', icon: 'shield-check', description: 'Клиенты по твоей ссылке не видят других мастеров; у них одна кнопка — «Записаться».' },
+  { title: 'Пуш к записи', icon: 'chat-bubble-left-ellipsis', description: 'После «примерки» бот мягко подталкивает клиента оформить визит.' },
+  { title: 'Лимиты на генерации', icon: 'eye', description: 'Выставляй лимит токенов на каждого клиента, чтобы не было перерасхода.' },
+  { title: 'Шеринг по твоим правилам', icon: 'chat-bubble-left-right', description: 'Если клиент делится ботом подруге, можно включить режим, при котором и подруге показывается только ты (генерации идут за твой счёт).' },
+  { title: 'PRO‑качество контента', icon: 'rectangle-stack', description: 'Повышенное разрешение и видео для портфолио и соцсетей.' },
+  { title: 'Аналитика в Телеграме', icon: 'rocket', description: 'Видишь, кто из твоих рефералов сколько сгенерил до записи.' },
+  { title: 'Как стартовать', icon: 'rocket', description: 'Поставь ссылку‑приглашение в соцсети: все, кто пришли по ней, генерят за твой счёт и видят только тебя в рекомендациях.' },
+  { title: 'Попробуй сама', icon: 'shopping-cart', description: 'Первая генерация бесплатно.' },
+]
 
 // Content
 // - SEO
@@ -29,31 +47,29 @@ const SEO = {
 <Layout title={SEO.title} description={SEO.description}>
 	<MasterHero />
 	<Feature
-		title="Insightful Analytics"
-		text="Delve into your data with precision and uncover actionable insights."
-		data={featuresAnalytics}
-	/>
-	<Feature
-		title="Efficiency Unleashed"
-		text="Streamline tasks and focus on what matters with tools designed to boost your productivity."
-		data={featuresSecurity}
+		title="Продажи с демо «до‑после»"
+		text="Первый умный телеграм бот специально для мастеров наращивания"
+		data={bullets}
 		classes="bg-neutral-50 dark:bg-neutral-900"
 	/>
-	<Feature
-		title="Ultimate Data Protection"
-		text="Keep your data safe with top-notch security measures and real-time threat detection."
-		data={featuresProductivity}
-	/>
-	<Feature
-		title="Seamless Connectivity"
-		text="Effortlessly connect your favorite apps and automate workflows for a smoother workday."
-		data={featuresIntegrations}
-		classes="bg-neutral-50 dark:bg-neutral-900"
-	/>
-	<Feature
-		title="24/7 Expert Help"
-		text="Our friendly support team is always here to assist you with any questions or issues."
-		data={featuresSupport}
-	/>
+	<MasterSwiper />
+		<Feature
+			title="Повышай чек через нишу омоложения"
+		text="Наращивание выходит за рамки «удлиннение» и становится инструментом anti‑age в бьюти‑сфере."
+		data={[
+		  { title: 'Волосы = маркер молодости', icon: 'eye', description: 'Научно доказано: густые и длинные волосы визуально стирают годы.' },
+		  { title: 'RELAXED FACE — антистресс‑энчансер', icon: 'shield-check', description: 'ИИ‑нейрофизиогномист анализирует мимику, убирает напряжение и стресс с лица, делая его расслабленным и счастливым, не искажая естественные черты.' },
+		  { title: 'Новая ниша и рост чека', icon: 'shopping-cart', description: 'Клиенты, которые ищут омоложение в косметологии и хирургию, теперь и твоию А те, кто боится боли, игл и реабилитаций - тем более. Они получают еще один способ, а ты - новый сегмент рынка' },
+		  { title: 'Видео‑демо вместо тысячи слов', icon: 'chat-bubble-left-ellipsis', description: 'Достаточно снять лицо клиентки и сгенерировать короткий ролик — магия работает сразу, а услуга продаёт себя сама.' },
+		  { title: 'Привлечение новой аудитории', icon: 'rocket', description: 'Ты заходишь в сегмент омоложения, где раньше мастера по наращиванию не конкурировали. При этом получая преимущества и более высокий чек' },
+		]}
+		/>
+		<MasterSwiperPro />
+		<Feature
+			title="PRO‑подписка для мастеров"
+			text="Рекомендации, рефералы и полный контроль"
+			data={proBullets}
+		/>
+		<MasterPricing />
 	<CTA />
 </Layout>

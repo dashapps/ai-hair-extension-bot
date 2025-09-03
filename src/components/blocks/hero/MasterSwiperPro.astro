@@ -1,0 +1,29 @@
+---
+// Masters PRO gallery swiper (no heading)
+import Section from '../../ui/Section.astro'
+import Row from '../../ui/Row.astro'
+import Col from '../../ui/Col.astro'
+import HeroSwiper from './HeroSwiper.astro'
+
+// Screenshots 13..19 from /public
+const screenshots = [
+  '/13ru_m.webp',
+  '/14ru_m.webp',
+  '/15ru_m.webp',
+  '/16ru_m.webp',
+  '/17ru_m.webp',
+  '/18ru_m.webp',
+  '/19ru_m.webp',
+]
+---
+
+<Section id="masters-pro-gallery" classes="bg-neutral-100 dark:bg-neutral-900/40 !overflow-visible">
+  <Row>
+    <Col span="12">
+      <div class="relative mt-16 -mx-6">
+        <HeroSwiper screenshots={screenshots} />
+      </div>
+    </Col>
+  </Row>
+</Section>
+

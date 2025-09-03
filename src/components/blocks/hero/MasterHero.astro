@@ -3,9 +3,6 @@
 import Section from '../../ui/Section.astro'
 import Row from '../../ui/Row.astro'
 import Col from '../../ui/Col.astro'
-import ChipNotification from '../../ui/ChipNotification.astro'
-import Button from '../../ui/Button.astro'
-import AvatarGroup from '../../ui/AvatarGroup.astro'
 import HeroSwiper from './HeroSwiper.astro'
 
 // Screenshots for masters page (served from /public)
@@ -19,31 +16,17 @@ const screenshots = [
   '/7ru_m.webp',
 ]
 
-import user1 from '../../../assets/avatars/avatar-01.webp'
-import user2 from '../../../assets/avatars/avatar-02.webp'
-import user3 from '../../../assets/avatars/avatar-03.webp'
-const avatars = [
-  { image: { src: user1.src, alt: 'user name' }, link: '/' },
-  { image: { src: user2.src, alt: 'user name' }, link: '/' },
-  { image: { src: user3.src, alt: 'user name' }, link: '/' }
-]
+// No avatars/button on masters hero
 ---
 
 <Section id="intro-masters" padding="top" classes="bg-neutral-100 dark:bg-neutral-900/40 !overflow-visible">
   <Row>
     <Col span="2" />
     <Col span="8" align="center">
-      <ChipNotification radius="rounded-full" classes="mb-6">
-        <strong>30K+</strong> satisfied customers
-        <AvatarGroup avatars={avatars} radius="rounded-full" slot="button" />
-      </ChipNotification>
       <h1>
-        Инструменты для <strong>мастеров</strong>
+        <strong>Продавай</strong> наращивание <strong>быстрее</strong>, чем клиент успеет сказать «думаю»
       </h1>
-      <p class="pb-0 text-lg">Привлекай клиентов демонстрациями и быстрыми примерами результата</p>
-      <Button size="lg" link="https://t.me/hair_extention_bot?utm_source=landing&utm_medium=masters_hero_cta&utm_campaign=ai_hair_extension">
-        Открыть бота
-      </Button>
+      <p class="pb-0 text-lg">Телеграм-бот, созданный специально для продаж наращивания и привлечения новых клиентов</p>
     </Col>
     <Col span="12">
       <div class="relative mt-16 -mx-6">
@@ -52,4 +35,3 @@ const avatars = [
     </Col>
   </Row>
 </Section>
-
