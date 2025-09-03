@@ -4,7 +4,7 @@
 import Layout from '../layouts/Layout.astro'
 // - UI
 import Feature from '../components/blocks/features/FeatureSticky.astro'
-import Hero from '../components/blocks/hero/PageHeader.astro'
+import MasterHero from '../components/blocks/hero/MasterHero.astro'
 import CTA from '../components/blocks/CTA/BasicDark.astro'
 
 // Data
@@ -23,15 +23,11 @@ const SEO = {
 	description:
 		"Explore Foxi's powerful features designed to enhance productivity, ensure top-notch security, and integrate seamlessly with your favorite tools. Join thousands of satisfied users and transform your workflow with Foxi today!"
 }
-// - Page Header
-const header = {
-	title: 'Why you and your team will <strong>love</strong> foxi.',
-	text: 'Streamline your tasks, protect your data, and enjoy working with our tools!'
-}
+// Use MasterHero at top (no PageHeader)
 ---
 
 <Layout title={SEO.title} description={SEO.description}>
-	<Hero title={header.title} text={header.text} />
+	<MasterHero />
 	<Feature
 		title="Insightful Analytics"
 		text="Delve into your data with precision and uncover actionable insights."
