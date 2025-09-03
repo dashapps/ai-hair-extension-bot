@@ -1,0 +1,38 @@
+---
+// Master-specific FAQ
+import Section from '../../ui/Section.astro'
+import Row from '../../ui/Row.astro'
+import Col from '../../ui/Col.astro'
+import Accordion from '../../ui/Accordion.astro'
+import Card from '../../ui/cards/partials/Card.astro'
+---
+
+<Section id="masters-faq">
+  <Row>
+    <Col span="12" align="center" classes="mb-12 max-w-4xl mx-auto">
+      <h2 class="text-pretty">❓ FAQ / Факты про работу с ботом</h2>
+    </Col>
+    <Col span="2" />
+    <Col span="8">
+      <Card classes="divide-y divide-neutral-100 dark:divide-neutral-800">
+        <Accordion title="Как долго я в каталоге?">
+          <p class="p-4">Пока у тебя активна подписка PRO или PRO+, ты закреплён в каталоге региона. Отменила — место освободилось.</p>
+        </Accordion>
+        <Accordion title="Что если клиентка будет генерить слишком много?">
+          <p class="p-4">В PRO+ — первые 3 генерации клиентки не списываются с тебя. Лимиты на токены можно уменьшить или увеличить. По умолчанию 250 токенов — этого хватает на несколько фото и пару видео. Никто не выйдет за рамки.</p>
+        </Accordion>
+        <Accordion title="Токены сгорают?">
+          <p class="p-4">Нет, токены остаются. Можешь расходовать позже — на клиентов или контент для соцсетей в стиле «до‑после».</p>
+        </Accordion>
+        <Accordion title="Что если клиентка поделится ботом подруге?">
+          <p class="p-4">В PRO+ включается «субрефералка»: подруга тоже видит только тебя, а генерации списываются с твоего пакета. В PRO ты попадаешь в каталог рекомендаций, если подруга без субрефералки.</p>
+        </Accordion>
+        <Accordion title="Почему клиентка выберет меня?">
+          <p class="p-4">Бот не только даёт «примерку», но и мягко ведёт к кнопке «Записаться». А при рефералке конкуренты даже не показываются.</p>
+        </Accordion>
+      </Card>
+    </Col>
+    <Col span="2" />
+  </Row>
+</Section>
+

@@ -4,16 +4,20 @@ import Section from '../../ui/Section.astro'
 import Row from '../../ui/Row.astro'
 import Col from '../../ui/Col.astro'
 import PricingTable from '../../ui/pricing-tables/PricingTable.astro'
+import Toggle from '../../ui/forms/form-elements/Toggle.astro'
+import PricingChange from '../../scripts/PricingPlanChange.astro'
 
 const plans = [
   {
     type: 'basic',
     header: {
-      title: 'Basic — для самостоятельной генерации',
-      subtitle: '',
+      title: 'Basic',
+      subtitle: 'для самостоятельной генерации',
       currency: '₽',
       price: '2000',
       priceLabel: 'разово',
+      priceMontly: '2000',
+      priceLabelMontly: 'разово',
       buttonName: 'Купить токены',
       buttonLink: 'https://t.me/hair_extention_bot?utm_source=landing&utm_medium=pricing&utm_campaign=ai_hair_extension&utm_content=basic'
     },
@@ -28,11 +32,13 @@ const plans = [
   {
     type: 'featured',
     header: {
-      title: 'PRO — для продвижения в соцсетях',
-      subtitle: '',
+      title: 'PRO',
+      subtitle: 'для тех, кто активно продвигается в соцсетях',
       currency: '₽',
-      price: '6000',
+      price: '5000',
       priceLabel: 'месяц',
+      priceMontly: '6000',
+      priceLabelMontly: 'месяц',
       buttonName: 'Оформить PRO',
       buttonLink: 'https://t.me/hair_extention_bot?utm_source=landing&utm_medium=pricing&utm_campaign=ai_hair_extension&utm_content=pro'
     },
@@ -50,11 +56,13 @@ const plans = [
   {
     type: 'basic',
     header: {
-      title: 'PRO+ — для лидеров рынка',
-      subtitle: '',
+      title: 'PRO+',
+      subtitle: 'для лидеров рынка',
       currency: '₽',
-      price: '9000',
+      price: '8500',
       priceLabel: 'месяц',
+      priceMontly: '9900',
+      priceLabelMontly: 'месяц',
       buttonName: 'Оформить PRO+',
       buttonLink: 'https://t.me/hair_extention_bot?utm_source=landing&utm_medium=pricing&utm_campaign=ai_hair_extension&utm_content=pro_plus'
     },
@@ -72,11 +80,16 @@ const plans = [
 
 <Section>
   <Row>
+    <Col span="12" align="center" classes="flex items-center justify-center gap-4 mb-12">
+      <span id="monthlyLabel" class="font-semibold text-neutral-400 transition-colors">Оплата помесячно</span>
+      <Toggle id="pricingType" label="pricing" showLabel={false} checked={true} />
+      <span id="annualLabel" class="font-semibold text-neutral-400 text-primary-500 transition-colors">Оплата за год</span>
+    </Col>
     {plans.map((plan, idx) => (
       <Col span="4">
-        <PricingTable data={plan} listType="checklist" id={`master-plan-${idx}`} />
+        <PricingTable data={plan} listType="checklist" id={`plan-${idx}`} />
       </Col>
     ))}
   </Row>
 </Section>
-
+<PricingChange />
