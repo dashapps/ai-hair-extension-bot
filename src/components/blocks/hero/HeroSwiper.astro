@@ -10,8 +10,6 @@ const { screenshots = [] } = Astro.props
   space-between="32"
   grab-cursor="true"
   free-mode="true"
-  slides-offset-before="0"
-  slides-offset-after="0"
 >
   {screenshots.map((src) => (
     <swiper-slide>
@@ -28,7 +26,7 @@ const { screenshots = [] } = Astro.props
 </style>
 
 <style>
-  .hero-swiper { @apply items-end; overflow: visible !important; }
+  .hero-swiper { @apply items-end; }
   swiper-slide { width: auto !important; }
   .no-scrollbar::-webkit-scrollbar { display: none; }
   .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
@@ -41,4 +39,18 @@ const { screenshots = [] } = Astro.props
 <script>
   import { register } from 'swiper/element/bundle'
   if (!customElements.get('swiper-container')) register()
+
+  const setOffset = () => {
+    const els = document.querySelectorAll('swiper-container.hero-swiper')
+    els.forEach((el) => {
+      // Start from middle of the viewport (in px)
+      el.slidesOffsetBefore = Math.round(window.innerWidth * 0.5)
+      el.update?.()
+    })
+  }
+  if (typeof window !== 'undefined') {
+    // set on load and on resize
+    setOffset()
+    window.addEventListener('resize', setOffset)
+  }
 </script>
