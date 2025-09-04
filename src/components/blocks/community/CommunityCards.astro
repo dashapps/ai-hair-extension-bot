@@ -1,0 +1,37 @@
+---
+// Community cards (3 items, no header)
+import Section from '../../ui/Section.astro'
+import Row from '../../ui/Row.astro'
+import Col from '../../ui/Col.astro'
+import Card from '../../ui/cards/BasicCard.astro'
+---
+
+<Section>
+  <Row>
+    <Col span="4">
+      <Card
+        title="Школам и академиям"
+        subtitle="Быстрый рост дохода через сеть учеников."
+        icon="book"
+        classes="text-center dark:!bg-neutral-800/50"
+      />
+    </Col>
+    <Col span="4">
+      <Card
+        title="Преподавателям с личным брендом"
+        subtitle="Авторитет + монетизация рекомендаций."
+        icon="user-group"
+        classes="text-center dark:!bg-neutral-800/50"
+      />
+    </Col>
+    <Col span="4">
+      <Card
+        title="Ассоциациям мастеров"
+        subtitle="Единая экосистема для членов сообщества."
+        icon="squares-plus"
+        classes="text-center dark:!bg-neutral-800/50"
+      />
+    </Col>
+  </Row>
+</Section>
+

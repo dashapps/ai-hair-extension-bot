@@ -1,0 +1,35 @@
+---
+// Community page intro with avatars chip and headline
+import Section from '../../ui/Section.astro'
+import Row from '../../ui/Row.astro'
+import Col from '../../ui/Col.astro'
+import ChipNotification from '../../ui/ChipNotification.astro'
+import AvatarGroup from '../../ui/AvatarGroup.astro'
+
+import user1 from '../../../assets/avatars/avatar-01.webp'
+import user2 from '../../../assets/avatars/avatar-02.webp'
+import user3 from '../../../assets/avatars/avatar-03.webp'
+const avatars = [
+  { image: { src: user1.src, alt: 'user' }, link: '/' },
+  { image: { src: user2.src, alt: 'user' }, link: '/' },
+  { image: { src: user3.src, alt: 'user' }, link: '/' },
+]
+---
+
+<Section classes="bg-neutral-100 dark:bg-neutral-900/40">
+  <Row>
+    <Col span="2" />
+    <Col span="8" align="center">
+      <ChipNotification radius="rounded-full" classes="mb-6">
+        <strong>Сеть мастеров</strong>  под твоим брендом
+        <AvatarGroup avatars={avatars} radius="rounded-full" slot="button" />
+      </ChipNotification>
+      <h1 class="text-pretty">
+        Забери всю Россию: <strong class="text-primary-500">White&nbsp;Label</strong> платформа под&nbspтвоё имя
+      </h1>
+      <p class="pb-0 text-lg">Идеально для школ, ассоциаций и мастеров‑преподавателей <strong>с&nbspсильныи личным брендом</strong>.</p>
+    </Col>
+    <Col span="2" />
+  </Row>
+</Section>
+

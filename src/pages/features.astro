@@ -11,7 +11,7 @@ import MasterPricing from '../components/blocks/pricing/MasterPricing.astro'
 import MasterFAQ from '../components/blocks/FAQ/MasterFAQ.astro'
 import MasterCTA from '../components/blocks/CTA/MasterCTA.astro'
 // MasterBullets no longer used; inline sticky section instead
-import CTA from '../components/blocks/CTA/BasicDark.astro'
+// import CTA from '../components/blocks/CTA/BasicDark.astro' // not used on masters page
 
 // Data
 // Custom sticky bullets replacing default feature categories
@@ -67,13 +67,12 @@ const SEO = {
 		]}
 		/>
 		<MasterSwiperPro />
-		<Feature
-			title="PRO‑подписка для мастеров"
-			text="Рекомендации, рефералы и полный контроль"
-			data={proBullets}
-		/>
+			<Feature
+				title="PRO‑подписка для<br />мастеров"
+				text="Рекомендации, рефералы<br />и полный контроль"
+				data={proBullets}
+			/>
 		<MasterPricing />
 		<MasterFAQ />
 		<MasterCTA />
-	<CTA />
 </Layout>
