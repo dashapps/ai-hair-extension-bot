@@ -1,7 +1,10 @@
 ---
 // Hero Swiper using Swiper Element (no React needed)
 // Props: screenshots: string[] (public paths), eager?: boolean
-const { screenshots = [], eager = false } = Astro.props
+const { screenshots = [], eager = false } = Astro.props as {
+  screenshots?: string[]
+  eager?: boolean
+}
 ---
 
 <swiper-container
@@ -15,7 +18,7 @@ const { screenshots = [], eager = false } = Astro.props
   initial-slide="0"
   
 >
-  {screenshots.map((src, i) => (
+  {screenshots.map((src: string, i: number) => (
     <swiper-slide>
       <div class="hero-slide">
         <img src={src} alt="Скриншот демо AI Hair Extension Bot" loading={(eager || i === 0) ? 'eager' : 'lazy'} fetchpriority={(eager || i === 0) ? 'high' : 'auto'} decoding="async" />
@@ -51,16 +54,30 @@ const { screenshots = [], eager = false } = Astro.props
 
 <script>
   import { register } from 'swiper/element/bundle'
+
+  interface SwiperContainer extends HTMLElement {
+    swiper?: {
+      slideTo: (index: number, speed?: number) => void
+      slideNext: () => void
+      slidePrev: () => void
+    }
+    update?: () => void
+    slidesPerGroup?: number
+    speed?: number
+  }
+
   if (!customElements.get('swiper-container')) register()
   if (typeof window !== 'undefined') {
     // no offset; rely on centered-slides
     const updateAll = () => {
-      document.querySelectorAll('swiper-container.hero-swiper').forEach((el) => el.update?.())
+      document
+        .querySelectorAll<SwiperContainer>('swiper-container.hero-swiper')
+        .forEach((el) => el.update?.())
     }
     updateAll()
     window.addEventListener('resize', updateAll)
     // Interactions: click/tap or keys move exactly one slide (no scaling)
-    const els = document.querySelectorAll('swiper-container.hero-swiper')
+    const els = document.querySelectorAll<SwiperContainer>('swiper-container.hero-swiper')
     els.forEach((el) => {
       // Force start from first slide centered
       let tries = 0
@@ -78,11 +95,11 @@ const { screenshots = [], eager = false } = Astro.props
       el.tabIndex = 0
       // click anywhere except interactive child -> next by one
       el.addEventListener('click', (e) => {
-        const t = e.target
-        if (t && (t.closest?.('a,button,[role="button"],input,textarea,select'))) return
+        const t = e.target as HTMLElement | null
+        if (t && t.closest?.('a,button,[role="button"],input,textarea,select')) return
         el.swiper?.slideNext()
       })
-      el.addEventListener('keydown', (e) => {
+      el.addEventListener('keydown', (e: KeyboardEvent) => {
         if (e.key === 'ArrowRight' || e.key === 'Enter' || e.key === ' ' || e.key === 'Tab') {
           e.preventDefault()
           el.swiper?.slideNext()
@@ -93,8 +110,8 @@ const { screenshots = [], eager = false } = Astro.props
       })
       // extra: ensure tap/pointer triggers next as well
       el.addEventListener('pointerup', (e) => {
-        const t = e.target
-        if (t && (t.closest?.('a,button,[role="button"],input,textarea,select'))) return
+        const t = e.target as HTMLElement | null
+        if (t && t.closest?.('a,button,[role="button"],input,textarea,select')) return
         el.swiper?.slideNext()
       })
     })

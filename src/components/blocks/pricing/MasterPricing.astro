@@ -7,7 +7,25 @@ import PricingTable from '../../ui/pricing-tables/PricingTable.astro'
 import Toggle from '../../ui/forms/form-elements/Toggle.astro'
 import PricingChange from '../../scripts/PricingPlanChange.astro'
 
-const plans = [
+interface Plan {
+  type: 'basic' | 'featured'
+  header: {
+    title: string
+    subtitle: string
+    currency: string
+    price: string
+    priceLabel: string
+    priceMontly: string
+    priceLabelMontly: string
+    buttonName: string
+    buttonLink: string
+  }
+  body?: {
+    listItems: Array<{ listItem: string }>
+  }
+}
+
+const plans: Plan[] = [
   {
     type: 'basic',
     header: {
