@@ -21,7 +21,10 @@ const avatars = [
     <Col span="2" />
     <Col span="8" align="center">
       <ChipNotification radius="rounded-full" classes="mb-6">
-        <strong>Сеть мастеров</strong>  под твоим брендом
+        <span class="flex flex-col sm:flex-row sm:items-center">
+          <strong>Сеть мастеров</strong>
+          <span class="sm:ml-1">под твоим брендом</span>
+        </span>
         <AvatarGroup avatars={avatars} radius="rounded-full" slot="button" />
       </ChipNotification>
       <h1 class="text-pretty">
