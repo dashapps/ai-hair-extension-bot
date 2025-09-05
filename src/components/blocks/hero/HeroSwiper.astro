@@ -68,27 +68,18 @@ const { screenshots = [], eager = false } = Astro.props as {
 
   if (!customElements.get('swiper-container')) register()
   if (typeof window !== 'undefined') {
-    // no offset; rely on centered-slides
-    const updateAll = () => {
-      document
-        .querySelectorAll<SwiperContainer>('swiper-container.hero-swiper')
-        .forEach((el) => el.update?.())
-    }
-    updateAll()
-    window.addEventListener('resize', updateAll)
-    // Interactions: click/tap or keys move exactly one slide (no scaling)
-    const els = document.querySelectorAll<SwiperContainer>('swiper-container.hero-swiper')
-    els.forEach((el) => {
-      // Force start from first slide centered
-      let tries = 0
-      const ensureFirstCentered = () => {
-        if (el.swiper?.slideTo) {
-          el.swiper.slideTo(0, 0)
-        } else if (tries++ < 40) {
-          requestAnimationFrame(ensureFirstCentered)
-        }
-      }
-      ensureFirstCentered()
+    const currentScript = document.currentScript as HTMLScriptElement | null
+    const el = currentScript?.previousElementSibling as SwiperContainer | null
+    if (el) {
+      const update = () => el.update?.()
+      const ensureFirst = () => el.swiper?.slideTo(0, 0)
+      el.addEventListener('swiperinit', () => {
+        ensureFirst()
+        update()
+      })
+      ensureFirst()
+      update()
+      window.addEventListener('resize', update)
       el.slidesPerGroup = 1
       el.speed = 500
       // focusable for keyboard
@@ -114,6 +105,6 @@ const { screenshots = [], eager = false } = Astro.props as {
         if (t && t.closest?.('a,button,[role="button"],input,textarea,select')) return
         el.swiper?.slideNext()
       })
-    })
+    }
   }
 </script>
