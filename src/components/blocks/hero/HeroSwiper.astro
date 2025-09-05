@@ -84,10 +84,20 @@ const { screenshots = [], eager = false } = Astro.props as {
       el.speed = 500
       // focusable for keyboard
       el.tabIndex = 0
-      // click anywhere except interactive child -> next by one
-      el.addEventListener('click', (e) => {
+      // tap/click anywhere except interactive child -> next by one
+      let pointerDown = false
+      const isInteractive = (t: HTMLElement | null) =>
+        t && t.closest?.('a,button,[role="button"],input,textarea,select')
+      el.addEventListener('pointerdown', (e) => {
         const t = e.target as HTMLElement | null
-        if (t && t.closest?.('a,button,[role="button"],input,textarea,select')) return
+        if (isInteractive(t)) return
+        pointerDown = true
+      })
+      el.addEventListener('pointerup', (e) => {
+        const t = e.target as HTMLElement | null
+        if (isInteractive(t)) return
+        if (!pointerDown) return
+        pointerDown = false
         el.swiper?.slideNext()
       })
       el.addEventListener('keydown', (e: KeyboardEvent) => {
@@ -98,12 +108,6 @@ const { screenshots = [], eager = false } = Astro.props as {
           e.preventDefault()
           el.swiper?.slidePrev()
         }
-      })
-      // extra: ensure tap/pointer triggers next as well
-      el.addEventListener('pointerup', (e) => {
-        const t = e.target as HTMLElement | null
-        if (t && t.closest?.('a,button,[role="button"],input,textarea,select')) return
-        el.swiper?.slideNext()
       })
     }
   }
