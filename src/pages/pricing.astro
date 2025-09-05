@@ -10,6 +10,7 @@ import FAQBasic from '../components/blocks/FAQ/Basic.astro'
 import TextImage from '../components/blocks/basic/TextImage.astro'
 import Testimonial from '../components/blocks/testimonials/BasicDark.astro'
 import Feature from '../components/blocks/features/FeatureList.astro'
+import WhiteLabelIncludes from '../components/blocks/features/WhiteLabelIncludes.astro'
 import Section from '../components/ui/Section.astro'
 import Row from '../components/ui/Row.astro'
 import Col from '../components/ui/Col.astro'
@@ -64,6 +65,17 @@ const testimonialData = {
     />
     <Feature />
     <FAQBasic classes="bg-slate-50 dark:bg-neutral-900/40" />
+    <Section>
+      <Row>
+        <Col span="2" />
+        <Col span="8" align="center">
+          <h2 class="text-pretty">AI Hair Extension — бот для пользователей, под которым скрыта бизнес-платформа.</h2>
+          <p class="text-lg">Для клиентов это вау-инструмент примерки, для мастеров — инструмент продаж. Для бизнеса это многофункциональная платформа с огромным потенциалом:</p>
+        </Col>
+        <Col span="2" />
+      </Row>
+    </Section>
+    <WhiteLabelIncludes />
     <Section classes="bg-neutral-50 dark:bg-neutral-900/40">
       <Row>
         <Col span="3" />
@@ -73,7 +85,7 @@ const testimonialData = {
         <Col span="3" />
       </Row>
     </Section>
-</Layout>
+  </Layout>
 
 <style is:global>
   #wl-text .text-image__picture img {

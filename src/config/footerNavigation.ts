@@ -106,6 +106,6 @@ export const footerNavigationData: FooterData = {
 		}
 	],
     subFooter: {
-        copywriteText: '© AI Hair Extension 2024.'
+        copywriteText: '© Maugli.cfd 2025 Внедряем ИИ в любые бизнес процессы'
     }
 }

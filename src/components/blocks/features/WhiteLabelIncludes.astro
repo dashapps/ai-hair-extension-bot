@@ -1,0 +1,77 @@
+---
+// White Label Features List without heading
+// ------------
+// Description: Displays White Label platform benefits as feature cards.
+
+import Section from '../../ui/Section.astro'
+import Row from '../../ui/Row.astro'
+import Col from '../../ui/Col.astro'
+import Feature from '../../ui/Feature.astro'
+
+const features = [
+  {
+    title: 'White-Label решение',
+    icon: 'paint-brush',
+    text: 'усиливает твой бренд, а не чужой.'
+  },
+  {
+    title: 'База мастеров и CRM-ядро',
+    icon: 'circle-stack',
+    text: 'твоя собственная экосистема.'
+  },
+  {
+    title: 'Маркетинговые возможности',
+    icon: 'squares-plus',
+    text: 'рассылки, рекламные интеграции и монетизация внутри бота.'
+  },
+  {
+    title: 'Дополнительный доход',
+    icon: 'shopping-cart',
+    text: 'продажа волос, косметики, курсов, колористики.'
+  },
+  {
+    title: 'Доход от генераций',
+    icon: 'document-chart-bar',
+    text: 'фото и видео демок: 75 % с генераций — ваши. Мы берем только 25% за использование сервера и нейросетей.'
+  },
+  {
+    title: 'Прозрачная модель',
+    icon: 'scale',
+    text: 'каждый мастер платит за использование, а владелец зарабатывает на обороте.'
+  },
+  {
+    title: 'Единый вход для индустрии',
+    icon: 'user-group',
+    text: 'платформа превращается в must-have для мастеров:',
+    bullets: [
+      'покупка волос, кератина и материалов,',
+      'продажа собственных услуг,',
+      'повышение квалификации и курсы,',
+      'сообщество и партнёрские предложения.'
+    ]
+  }
+]
+---
+<Section>
+  <Row>
+    {
+      features.map((feature) => (
+        <Col span="4">
+          <Feature title={feature.title} icon={feature.icon} align="left" classes="mb-12">
+            {feature.text}
+            {
+              feature.bullets && (
+                <ul class="mt-2 list-disc pl-5">
+                  {feature.bullets.map((item) => (
+                    <li>{item}</li>
+                  ))}
+                </ul>
+              )
+            }
+          </Feature>
+        </Col>
+      ))
+    }
+  </Row>
+</Section>
+
