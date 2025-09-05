@@ -10,7 +10,10 @@ import FAQBasic from '../components/blocks/FAQ/Basic.astro'
 import TextImage from '../components/blocks/basic/TextImage.astro'
 import Testimonial from '../components/blocks/testimonials/BasicDark.astro'
 import Feature from '../components/blocks/features/FeatureList.astro'
-import CTA from '../components/blocks/CTA/BasicDark.astro'
+import Section from '../components/ui/Section.astro'
+import Row from '../components/ui/Row.astro'
+import Col from '../components/ui/Col.astro'
+import ContactForm from '../components/blocks/contact/BasicForm.astro'
 
 // Content
 // - SEO
@@ -22,17 +25,16 @@ const SEO = {
 // - Page Header
 // No default header; custom community intro instead
 // - Testimonial data
-import testimonialBackground from '../assets/testimonial-bg-02.webp'
 // - FAQ data
 import faqData from '../data/json-files/faqData.json'
 const faqPricing = faqData.filter((faq) => faq.category === 'pricing')
 // - Image for text block
 const easyClientImage = { src: '/easy_client.png' }
 const testimonialData = {
-	blockquote:
-		'Забери рынок до того, как это сделают другие: первый White Label бот для наращивания может стать твоим личным золотым рудником.',
-	figcaption: '',
-	cite: ''
+        blockquote:
+                'Забери рынок до того, как это сделают другие: <strong class="text-primary-500">первая White Label платформа</strong> для наращивания может стать твоим личным золотым рудником.',
+        figcaption: '',
+        cite: ''
 }
 ---
 
@@ -40,6 +42,7 @@ const testimonialData = {
     <CommunityIntro />
     <CommunityCards />
     <TextImage
+      id="wl-text"
       title="Why Foxi’s Pricing Plans Offer Great Value"
       text="At Foxi, we believe in providing exceptional value at every price point. Our pricing plans are designed to cater to a variety of needs, from individuals and small teams to large enterprises. Each plan includes access to our powerful features, seamless integrations, and top-notch customer support. "
       image={easyClientImage}
@@ -49,8 +52,6 @@ const testimonialData = {
       classes="bg-neutral-50 dark:bg-neutral-900 lg:!py-64"
     />
     <Testimonial
-      bg={testimonialBackground}
-      bgPosition="left"
       blockquote={testimonialData.blockquote}
       figcaption={testimonialData.figcaption}
       cite={testimonialData.cite}
@@ -63,4 +64,19 @@ const testimonialData = {
     />
     <Feature />
     <FAQBasic classes="bg-slate-50 dark:bg-neutral-900/40" />
+    <Section classes="bg-neutral-50 dark:bg-neutral-900/40">
+      <Row>
+        <Col span="3" />
+        <Col span="6">
+          <ContactForm />
+        </Col>
+        <Col span="3" />
+      </Row>
+    </Section>
 </Layout>
+
+<style is:global>
+  #wl-text .text-image__picture img {
+    @apply object-contain lg:bottom-0 lg:top-auto lg:translate-y-0 lg:max-w-full lg:h-full;
+  }
+</style>
