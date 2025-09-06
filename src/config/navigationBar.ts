@@ -51,7 +51,7 @@ export const navigationBarData: NavData = {
                 { name: 'Условия', link: '/terms' }
             ]
         },
-        { name: 'Контакты', link: '/contact' }
+        { name: 'Контакты', link: '/pricing#contact' }
     ],
     navActions: [{ name: 'Попробовать', link: 'https://t.me/hair_extention_bot?utm_source=landing&utm_medium=nav&utm_campaign=ai_hair_extension', style: 'primary', size: 'lg' }]
 }

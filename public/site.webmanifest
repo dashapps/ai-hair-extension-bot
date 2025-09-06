@@ -1,0 +1,20 @@
+{
+  "name": "AI Hair Extension Selling Platform",
+  "short_name": "AI Hair Extension",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#134e4a",
+  "icons": [
+    {
+      "src": "/hair_extension_192.webp",
+      "sizes": "192x192",
+      "type": "image/webp"
+    },
+    {
+      "src": "/hair_extension-512.webp",
+      "sizes": "512x512",
+      "type": "image/webp"
+    }
+  ]
+}

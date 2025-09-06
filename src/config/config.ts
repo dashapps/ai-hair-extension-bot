@@ -21,14 +21,14 @@ export interface Config {
 }
 
 export const configData: Config = {
-	siteTitle: 'AI Hair Extension',
-	siteDescription:
-		'AI-помощник для мастеров и бизнеса: лендинг, телеграм-бот и комьюнити-инструменты.',
-	ogImage: '/og.jpg',
-	logo: {
-		src: '/logo.svg',
-		alt: 'Foxi. logo'
-	},
+        siteTitle: 'AI Hair Extension Selling Platform',
+        siteDescription:
+                'Первая платформа, разработанная специально для продажи услуги наращивания волос и сопутствующих материалов.',
+        ogImage: '/og.jpg',
+        logo: {
+                src: '/hair_extension_192.webp',
+                alt: 'AI Hair Extension Selling Platform logo'
+        },
 	canonical: true,
 	noindex: false,
 	mode: 'auto',
