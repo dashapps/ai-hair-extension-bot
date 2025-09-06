@@ -18,7 +18,7 @@ type Props = {
 	cite?: string
 	bg?: any
 	bgPosition?: 'left' | 'right' | 'center'
-    classes?: string
+	classes?: string
 }
 const {
 	blockquote = 'AI Hair Extension Selling Platform is like a rocket boost for our productivity! Its sleek design and out-of-this-world features make managing projects and team communication a breeze.',
@@ -26,36 +26,42 @@ const {
 	cite = 'CEO, Facebook',
 	bg,
 	bgPosition = 'center',
-    classes
+	classes
 } = Astro.props
 ---
 
 <Section
-    id="testimonial"
-    mode="dark"
-    bg={bg}
-    bgPosition={bgPosition}
-    classes={`${classes ? classes + ' ' : ''}dark:border-t border-y border-neutral-800`}
+	id="testimonial"
+	mode="light"
+	bg={bg}
+	bgPosition={bgPosition}
+	classes={`${classes ? classes + ' ' : ''}border-y border-neutral-200`}
 >
 	<Row>
 		<Col span="12">
-            <Testimonial
-                blockquote={blockquote}
-                figcaption={figcaption}
-                cite={cite}
-                align="center"
-                size="4xl"
-                mobileSize="2xl"
-                classes="!leading-tight font-bold xl:text-5xl max-w-4xl mx-auto text-white"
-                quoteSize={112}
-            />
-        </Col>
-    </Row>
+			<Testimonial
+				blockquote={blockquote}
+				figcaption={figcaption}
+				cite={cite}
+				align="center"
+				size="4xl"
+				mobileSize="2xl"
+				classes="!leading-tight font-bold xl:text-5xl max-w-4xl mx-auto text-neutral-900"
+				quoteSize={112}
+			/>
+		</Col>
+	</Row>
 </Section>
 
 <style is:global>
-  /* Make opening quote subtler and text white on colored backgrounds */
-  #testimonial .testimonial--quote { @apply text-white/30; }
-  #testimonial .testimonial__blockquote > p { color: #fff !important; }
-  #testimonial .testimonial__figcaption { color: #fff !important; }
+	/* Make opening quote subtler and text dark on light backgrounds */
+	#testimonial .testimonial--quote {
+		@apply text-neutral-300;
+	}
+	#testimonial .testimonial__blockquote > p {
+		color: #000 !important;
+	}
+	#testimonial .testimonial__figcaption {
+		color: #000 !important;
+	}
 </style>

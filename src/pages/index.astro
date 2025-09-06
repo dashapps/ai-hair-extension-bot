@@ -14,27 +14,27 @@ import CTA from '../components/blocks/CTA/BasicLight.astro'
 import testimonialBackground from '../assets/testimonial-bg-01.webp'
 // - SEO
 const SEO = {
-        title: 'AI Hair Extension Selling Platform',
-        description: 'Первая платформа, разработанная специально для продажи услуги наращивания волос и сопутствующих материалов.'
+	title: 'AI Hair Extension Selling Platform',
+	description:
+		'Первая платформа, разработанная специально для продажи услуги наращивания волос и сопутствующих материалов.'
 }
 ---
 
 <Layout title={SEO.title} description={SEO.description}>
 	<Hero />
 	<FeatureRow />
-    <Testimonial 
-      classes="bg-primary-800"
-      blockquote="Волосы — это оружие женщины. Они меняют не только образ, но и возраст в глазах окружающих."
-      figcaption=""
-      cite=""
-    />
-    <FAQ classes="bg-slate-50 dark:bg-neutral-900/40" />
-    <CTA 
-      sectionClasses="bg-neutral-100 dark:bg-neutral-900/40"
-      ctaClasses="!shadow-none"
-      title="Готова к трансформации?"
-      text="Осторожно! После примерки может возникнуть острое желание записаться к мастеру — мы предупредили."
-      buttonLabel="Попробовать бесплатно"
-      buttonLink="https://t.me/hair_extention_bot?utm_source=landing&utm_medium=cta&utm_campaign=ai_hair_extension"
-    />
+	<Testimonial
+		blockquote="Волосы — это оружие женщины. Они меняют не только образ, но и возраст в глазах окружающих."
+		figcaption=""
+		cite=""
+	/>
+	<FAQ classes="bg-slate-50 dark:bg-neutral-900/40" />
+	<CTA
+		sectionClasses="bg-neutral-100 dark:bg-neutral-900/40"
+		ctaClasses="!shadow-none"
+		title="Готова к трансформации?"
+		text="Осторожно! После примерки может возникнуть острое желание записаться к мастеру — мы предупредили."
+		buttonLabel="Попробовать бесплатно"
+		buttonLink="https://t.me/hair_extention_bot?utm_source=landing&utm_medium=cta&utm_campaign=ai_hair_extension"
+	/>
 </Layout>
