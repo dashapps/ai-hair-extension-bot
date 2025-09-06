@@ -60,16 +60,20 @@ export const footerNavigationData: FooterData = {
 					subCategory: 'Pricing',
 					subCategoryLink: '/pricing'
 				},
-				{
-					subCategory: 'Changelog',
-					subCategoryLink: '/changelog'
-				},
-				{
-					subCategory: 'Terms',
-					subCategoryLink: '/terms'
-				}
-			]
-		},
+                                {
+                                        subCategory: 'Changelog',
+                                        subCategoryLink: '/changelog'
+                                },
+                                {
+                                        subCategory: 'Terms',
+                                        subCategoryLink: '/terms'
+                                },
+                                {
+                                        subCategory: 'Политика конфиденциальности',
+                                        subCategoryLink: '/privacy'
+                                }
+                        ]
+                },
 		{
 			category: 'About us',
 			subCategories: [
