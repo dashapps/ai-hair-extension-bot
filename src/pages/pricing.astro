@@ -6,7 +6,6 @@ import Layout from '../layouts/Layout.astro'
 import CommunityIntro from '../components/blocks/community/CommunityIntro.astro'
 import CommunityCards from '../components/blocks/community/CommunityCards.astro'
 import FaqSticky from '../components/blocks/FAQ/FaqSticky.astro'
-import FAQBasic from '../components/blocks/FAQ/Basic.astro'
 import TextImage from '../components/blocks/basic/TextImage.astro'
 import Testimonial from '../components/blocks/testimonials/BasicDark.astro'
 import Feature from '../components/blocks/features/FeatureList.astro'
@@ -15,7 +14,6 @@ import Section from '../components/ui/Section.astro'
 import Row from '../components/ui/Row.astro'
 import Col from '../components/ui/Col.astro'
 import FormHero from '../components/blocks/hero/ContactHero.astro'
-import faqImage1 from '../assets/faq/faq-01.png'
 
 // Content
 // - SEO
@@ -30,8 +28,9 @@ const SEO = {
 // - FAQ data
 import faqData from '../data/json-files/faqData.json'
 const faqPricing = faqData.filter((faq) => faq.category === 'pricing')
-// - Image for text block
+// - Images
 const easyClientImage = { src: '/easy_client.png' }
+const clubImage = { src: '/club.png' }
 const testimonialData = {
 	blockquote:
 		'Забери рынок до того, как это сделают другие: <strong class="text-primary-500">первая White Label платформа</strong> для наращивания может стать твоим личным золотым рудником.',
@@ -49,9 +48,33 @@ const testimonialData = {
 		</div>
 	</Section>
 	<Feature />
-        <TextImage
-                title="Платформа — это бот для мастеров, закрывающий все их потребности"
-                text={`<p>Мини-апп — это не только подписка и токены. Это полноценный каталог и рабочая среда мастера:</p>
+	<Section>
+		<Row>
+			<Col span="2" />
+			<Col span="8" align="center">
+				<h2 class="text-pretty">
+					AI Hair Extension — бот для пользователей, под которым скрыта <strong
+						>бизнес-платформа</strong
+					>
+				</h2>
+				<p class="text-lg">
+					Для мастеров — это инструмент продажи услуг с вау-эффектом, для бизнеса — платформа, где
+					можно продавать мастерам не только генерации, но и всё, что нужно для работы — от волос и
+					кератина до обучающих курсов.
+				</p>
+			</Col>
+			<Col span="2" />
+		</Row>
+	</Section>
+	<WhiteLabelIncludes />
+	<Testimonial
+		blockquote={testimonialData.blockquote}
+		figcaption={testimonialData.figcaption}
+		cite={testimonialData.cite}
+	/>
+	<TextImage
+		title="Платформа — это бот для мастеров, закрывающий все их потребности"
+		text={`<p>Мини-апп — это не только подписка и токены. Это полноценный каталог и рабочая среда мастера:</p>
 <ul class="mt-4 list-disc space-y-2 pl-4">
         <li>продажи обучения, волос, расходников и косметики прямо в приложении,</li>
         <li>партнёрские ссылки или твои собственные продукты,</li>
@@ -59,43 +82,22 @@ const testimonialData = {
         <li>удобный маркетплейс внутри привычного интерфейса.</li>
 </ul>
 <p class="mt-4">По сути, бот становится не просто генератором превью, а точкой входа во всё сообщество: от продажи услуг до покупки материалов.</p>`}
-                image={faqImage1}
-                mobileImage={faqImage1}
-                imagePosition="left"
-                offsetImage
-                classes="bg-neutral-50 dark:bg-neutral-900 lg:!py-64"
-        />
-        <Section>
-                <Row>
-                        <Col span="2" />
-                        <Col span="8" align="center">
-                                <h2 class="text-pretty">
-                                        AI Hair Extension — бот для пользователей, под которым скрыта <strong>бизнес-платформа</strong>
-                                </h2>
-                                <p class="text-lg">
-                                        Для мастеров — это инструмент продажи услуг с вау-эффектом, для бизнеса — платформа, где можно продавать мастерам не только генерации, но и всё, что нужно для работы — от волос и кератина до обучающих курсов.
-                                </p>
-                        </Col>
-                        <Col span="2" />
-                </Row>
-        </Section>
-        <Testimonial
-                blockquote={testimonialData.blockquote}
-                figcaption={testimonialData.figcaption}
-                cite={testimonialData.cite}
-        />
-        <FaqSticky
-                title="Understanding Our Pricing Plans"
-                text="Get all the details on AI Hair Extension Selling Platform’s pricing plans. Learn about the costs, discounts, and subscription options to find the best plan that fits your needs and budget."
-                data={faqPricing}
-                classes="bg-slate-50 dark:bg-neutral-900/40"
-        />
-        <FAQBasic classes="bg-slate-50 dark:bg-neutral-900/40" />
-        <WhiteLabelIncludes />
-        <FormHero
-                id="contact"
-                title="Get Answers to Your <strong>Questions</strong>."
-                text="Whether you have a question, need support, or just want to share your feedback, we're all ears. Reach out to us and we'll get back to you as soon as possible."
-                classes="bg-neutral-50 dark:bg-neutral-900/40"
-        />
+		image={clubImage}
+		mobileImage={clubImage}
+		imagePosition="left"
+		offsetImage
+		classes="bg-neutral-50 dark:bg-neutral-900 lg:!py-64"
+	/>
+	<FaqSticky
+		title="Understanding Our Pricing Plans"
+		text="Get all the details on AI Hair Extension Selling Platform’s pricing plans. Learn about the costs, discounts, and subscription options to find the best plan that fits your needs and budget."
+		data={faqPricing}
+		classes="bg-slate-50 dark:bg-neutral-900/40"
+	/>
+	<FormHero
+		id="contact"
+		title="Get Answers to Your <strong>Questions</strong>."
+		text="Whether you have a question, need support, or just want to share your feedback, we're all ears. Reach out to us and we'll get back to you as soon as possible."
+		classes="bg-neutral-50 dark:bg-neutral-900/40"
+	/>
 </Layout>
