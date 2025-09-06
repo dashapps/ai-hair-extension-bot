@@ -46,7 +46,7 @@ const {
 				align="center"
 				size="4xl"
 				mobileSize="2xl"
-				classes="!leading-tight font-bold xl:text-5xl max-w-4xl mx-auto text-neutral-900"
+                                classes="!leading-tight font-bold xl:text-5xl max-w-4xl mx-auto text-neutral-50"
 				quoteSize={112}
 			/>
 		</Col>
@@ -54,14 +54,14 @@ const {
 </Section>
 
 <style is:global>
-	/* Make opening quote subtler and text dark on light backgrounds */
-	#testimonial .testimonial--quote {
-		@apply text-neutral-300;
-	}
-	#testimonial .testimonial__blockquote > p {
-		color: #000 !important;
-	}
-	#testimonial .testimonial__figcaption {
-		color: #000 !important;
-	}
+        /* Make opening quote subtler and ensure light text on dark background */
+        #testimonial .testimonial--quote {
+                @apply text-neutral-300;
+        }
+        #testimonial .testimonial__blockquote > p {
+                color: #fff !important;
+        }
+        #testimonial .testimonial__figcaption {
+                color: #fff !important;
+        }
 </style>

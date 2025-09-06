@@ -113,15 +113,15 @@ const {
 	.testimonial__container {
 		@apply relative p-6;
 	}
-	.testimonial__figure {
-		@apply relative z-10;
-	}
-	.testimonial__blockquote {
-		@apply p-6 [&>p]:text-neutral-500 dark:[&>p]:text-neutral-300;
-	}
-	.testimonial__figcaption {
-		@apply flex flex-col items-center gap-4 p-6 pt-2 text-sm leading-normal text-neutral-700 dark:text-neutral-50;
-	}
+        .testimonial__figure {
+                @apply relative z-10 rounded bg-[#1A1A1A];
+        }
+        .testimonial__blockquote {
+                @apply p-6 [&>p]:text-neutral-50;
+        }
+        .testimonial__figcaption {
+                @apply flex flex-col items-center gap-4 p-6 pt-2 text-sm leading-normal text-neutral-50;
+        }
 	.testimonial__figcaption-container {
 		@apply flex items-center gap-4 pt-4 text-sm;
 	}
