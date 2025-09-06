@@ -37,78 +37,58 @@ export const footerNavigationData: FooterData = {
     footerAbout: {
         title: 'AI Hair Extension',
         aboutText:
-            'AI‑ассистент для расширений волос: лендинги, боты и автоматизация. Строим сообщество мастеров и помогаем бизнесу расти.',
+            'Первая AI‑платформа для продажи услуг наращивания волос. Сайт является демо-витриной. Платформа продается под White Label для адаптации к вашему бренду.',
         logo: {
             src: '/hair_extension_64.webp',
             alt: 'AI Hair Extension',
             text: 'AI Hair Extension'
         }
     },
-	footerColumns: [
-		{
-			category: 'Product',
-			subCategories: [
-				{
-					subCategory: 'Features',
-					subCategoryLink: '/features'
-				},
-				{
-					subCategory: 'FAQ',
-					subCategoryLink: '/faq'
-				},
-				{
-					subCategory: 'Pricing',
-					subCategoryLink: '/pricing'
-				},
+        footerColumns: [
+                {
+                        category: 'Product',
+                        subCategories: [
                                 {
-                                        subCategory: 'Changelog',
-                                        subCategoryLink: '/changelog'
+                                        subCategory: 'Телеграм‑бот',
+                                        subCategoryLink: 'https://t.me/hair_extention_bot'
                                 },
                                 {
-                                        subCategory: 'Terms',
-                                        subCategoryLink: '/terms'
+                                        subCategory: 'Мастерам',
+                                        subCategoryLink: '/features'
+                                }
+                        ]
+                },
+                {
+                        category: 'Платформа',
+                        subCategories: [
+                                {
+                                        subCategory: 'White Label Платформа',
+                                        subCategoryLink: '/pricing'
+                                },
+                                {
+                                        subCategory: 'Контакты',
+                                        subCategoryLink: '/#contact'
+                                }
+                        ]
+                },
+                {
+                        category: 'О нас',
+                        subCategories: [
+                                {
+                                        subCategory: 'AI Hair Extension',
+                                        subCategoryLink: 'https://aihairextension.maugli.cfd/'
+                                },
+                                {
+                                        subCategory: 'Maugli.cfd',
+                                        subCategoryLink: 'https://maugli.cfd/ru'
                                 },
                                 {
                                         subCategory: 'Политика конфиденциальности',
                                         subCategoryLink: '/privacy'
                                 }
                         ]
-                },
-		{
-			category: 'About us',
-			subCategories: [
-				{
-					subCategory: 'About us',
-					subCategoryLink: '/'
-				},
-				{
-					subCategory: 'News',
-					subCategoryLink: '/blog'
-				},
-				{
-					subCategory: 'Careers',
-					subCategoryLink: '/blog'
-				}
-			]
-		},
-		{
-			category: 'Get in touch',
-			subCategories: [
-				{
-					subCategory: 'Contact',
-                                        subCategoryLink: '/pricing#contact'
-				},
-				{
-					subCategory: 'Support',
-                                        subCategoryLink: '/pricing#contact'
-				},
-				{
-					subCategory: 'Join us',
-                                        subCategoryLink: '/pricing#contact'
-				}
-			]
-		}
-	],
+                }
+        ],
     subFooter: {
         copywriteText: '© Maugli.cfd 2025 Внедряем ИИ в любые бизнес процессы'
     }
