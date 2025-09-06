@@ -1,13 +1,99 @@
 ---
+// Components
+// - Layout
 import Layout from '../layouts/Layout.astro'
+// - UI Blocks
+import Feature from '../components/blocks/features/FeatureList.astro'
+import TextImage from '../components/blocks/basic/TextImage.astro'
+import Section from '../components/ui/Section.astro'
+import Row from '../components/ui/Row.astro'
+import Col from '../components/ui/Col.astro'
+import Testimonial from '../components/blocks/testimonials/BasicDark.astro'
+import FaqSticky from '../components/blocks/FAQ/FaqSticky.astro'
+import WhiteLabelIncludes from '../components/blocks/features/WhiteLabelIncludes.astro'
+import FormHero from '../components/blocks/hero/ContactHero.astro'
+import CommunityIntro from '../components/blocks/community/CommunityIntro.astro'
+import CommunityCards from '../components/blocks/community/CommunityCards.astro'
+
+// Data
+import faqData from '../data/json-files/faqData.json'
+const faqPricing = faqData.filter((faq) => faq.category === 'pricing')
+
+// Images
+const easyClientImage = { src: '/easy_client.png' }
+const clubImage = { src: '/club.png' }
+
+// SEO
 const SEO = {
   title: 'White Label Платформа',
   description: 'Страница White Label платформы.'
 }
+
+const testimonialData = {
+  blockquote:
+    'Забери рынок до того, как это сделают другие: <strong class="text-primary-500">первая White Label платформа</strong> для наращивания может стать твоим личным золотым рудником.',
+  figcaption: '',
+  cite: ''
+}
 ---
 
 <Layout title={SEO.title} description={SEO.description}>
-  <section class="py-32">
-    <h1 class="text-center text-3xl">White Label Платформа</h1>
-  </section>
+  <Section id="wl-image" padding="none" classes="bg-neutral-50 dark:bg-neutral-900 pt-12">
+    <div class="relative aspect-[1403/726] w-full">
+      <img src={easyClientImage.src} alt="" class="absolute bottom-0 left-0 w-full object-cover" />
+    </div>
+  </Section>
+  <Feature />
+  <TextImage
+    title="Платформа — это бот для мастеров, закрывающий все их потребности"
+    text={`<p>Мини-апп — это не только подписка и токены. Это полноценный каталог и рабочая среда мастера:</p>
+<ul class=\"mt-4 list-disc space-y-2 pl-4\">
+  <li>продажи обучения, волос, расходников и косметики прямо в приложении,</li>
+  <li>партнёрские ссылки или твои собственные продукты,</li>
+  <li>каталог мастеров и услуг, интеграции с курсами и поставщиками,</li>
+  <li>удобный маркетплейс внутри привычного интерфейса.</li>
+</ul>
+<p class=\"mt-4\">По сути, бот становится не просто генератором превью, а точкой входа во всё сообщество: от продажи услуг до покупки материалов.</p>`}
+    image={clubImage}
+    mobileImage={clubImage}
+    imagePosition="left"
+    pictureClasses="items-end"
+    imageClasses="w-full h-full object-contain"
+    classes="bg-neutral-50 dark:bg-neutral-900 lg:!py-64"
+  />
+  <Section>
+    <Row>
+      <Col span="2" />
+      <Col span="8" align="center">
+        <h2 class="text-pretty">
+          AI Hair Extension — бот для пользователей, под которым скрыта <strong>бизнес-платформа</strong>
+        </h2>
+        <p class="text-lg">
+          Для мастеров — это инструмент продажи услуг с вау-эффектом, для бизнеса — платформа, где можно продавать мастерам не только генерации, но и всё, что нужно для работы — от волос и кератина до обучающих курсов.
+        </p>
+      </Col>
+      <Col span="2" />
+    </Row>
+  </Section>
+  <CommunityIntro />
+  <CommunityCards />
+  <Testimonial
+    blockquote={testimonialData.blockquote}
+    figcaption={testimonialData.figcaption}
+    cite={testimonialData.cite}
+  />
+  <FaqSticky
+    title="Understanding Our Pricing Plans"
+    text="Get all the details on AI Hair Extension Selling Platform’s pricing plans. Learn about the costs, discounts, and subscription options to find the best plan that fits your needs and budget."
+    data={faqPricing}
+    classes="bg-slate-50 dark:bg-neutral-900/40"
+  />
+  <WhiteLabelIncludes />
+  <FormHero
+    id="contact"
+    title="Get Answers to Your <strong>Questions</strong>."
+    text="Whether you have a question, need support, or just want to share your feedback, we're all ears. Reach out to us and we'll get back to you as soon as possible."
+    classes="bg-neutral-50 dark:bg-neutral-900/40"
+  />
 </Layout>
+
