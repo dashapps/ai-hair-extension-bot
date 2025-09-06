@@ -13,9 +13,12 @@ import WhiteLabelIncludes from '../components/blocks/features/WhiteLabelIncludes
 import FormHero from '../components/blocks/hero/ContactHero.astro'
 import CommunityIntro from '../components/blocks/community/CommunityIntro.astro'
 import CommunityCards from '../components/blocks/community/CommunityCards.astro'
+import SimpleFeed from '../components/blocks/feeds/BasicFeed.astro'
+import PricingColumns from '../components/blocks/pricing/PricingColumns.astro'
 
 // Data
 import faqData from '../data/json-files/faqData.json'
+import feedData from '../data/json-files/changelogData.json'
 const faqPricing = faqData.filter((faq) => faq.category === 'pricing')
 
 // Images
@@ -80,6 +83,18 @@ const testimonialData = {
     figcaption={testimonialData.figcaption}
     cite={testimonialData.cite}
   />
+  <Section>
+    <Row>
+      <Col span="2" />
+      <Col span="8" align="center">
+        <h2>Подключение к платформе</h2>
+        <p class="text-lg">Выбирайте вариант, который соответствует вашим масштабам и целям.</p>
+      </Col>
+      <Col span="2" />
+    </Row>
+  </Section>
+  <SimpleFeed data={feedData} />
+  <PricingColumns />
   <FaqSticky
     title="Understanding Our Pricing Plans"
     text="Get all the details on AI Hair Extension Selling Platform’s pricing plans. Learn about the costs, discounts, and subscription options to find the best plan that fits your needs and budget."
