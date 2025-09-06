@@ -50,7 +50,7 @@ export const footerNavigationData: FooterData = {
                         subCategories: [
                                 {
                                         subCategory: 'Телеграм‑бот',
-                                        subCategoryLink: 'https://t.me/hair_extention_bot'
+                                        subCategoryLink: 'https://t.me/darrrina'
                                 },
                                 {
                                         subCategory: 'Мастерам',
@@ -67,7 +67,7 @@ export const footerNavigationData: FooterData = {
                                 },
                                 {
                                         subCategory: 'Контакты',
-                                        subCategoryLink: '/#contact'
+                                        subCategoryLink: 'https://t.me/darrrina'
                                 }
                         ]
                 },
