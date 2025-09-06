@@ -8,7 +8,6 @@ import CommunityCards from '../components/blocks/community/CommunityCards.astro'
 import FaqSticky from '../components/blocks/FAQ/FaqSticky.astro'
 import TextImage from '../components/blocks/basic/TextImage.astro'
 import Testimonial from '../components/blocks/testimonials/BasicDark.astro'
-import Feature from '../components/blocks/features/FeatureList.astro'
 import WhiteLabelIncludes from '../components/blocks/features/WhiteLabelIncludes.astro'
 import Section from '../components/ui/Section.astro'
 import Row from '../components/ui/Row.astro'
@@ -47,8 +46,7 @@ const testimonialData = {
 			<img src={easyClientImage.src} alt="" class="absolute bottom-0 left-0 w-full object-cover" />
 		</div>
 	</Section>
-	<Feature />
-	<Section>
+        <Section>
 		<Row>
 			<Col span="2" />
 			<Col span="8" align="center">
@@ -72,9 +70,9 @@ const testimonialData = {
 		figcaption={testimonialData.figcaption}
 		cite={testimonialData.cite}
 	/>
-	<TextImage
-		title="Платформа — это бот для мастеров, закрывающий все их потребности"
-		text={`<p>Мини-апп — это не только подписка и токены. Это полноценный каталог и рабочая среда мастера:</p>
+        <TextImage
+                title="Платформа — это бот для мастеров, закрывающий все их потребности"
+                text={`<p>Мини-апп — это не только подписка и токены. Это полноценный каталог и рабочая среда мастера:</p>
 <ul class="mt-4 list-disc space-y-2 pl-4">
         <li>продажи обучения, волос, расходников и косметики прямо в приложении,</li>
         <li>партнёрские ссылки или твои собственные продукты,</li>
@@ -82,12 +80,13 @@ const testimonialData = {
         <li>удобный маркетплейс внутри привычного интерфейса.</li>
 </ul>
 <p class="mt-4">По сути, бот становится не просто генератором превью, а точкой входа во всё сообщество: от продажи услуг до покупки материалов.</p>`}
-		image={clubImage}
-		mobileImage={clubImage}
-		imagePosition="left"
-		offsetImage
-		classes="bg-neutral-50 dark:bg-neutral-900 lg:!py-64"
-	/>
+                image={clubImage}
+                mobileImage={clubImage}
+                imagePosition="left"
+                offsetImage
+                imageClasses="w-full max-h-[600px] object-contain"
+                classes="bg-neutral-50 dark:bg-neutral-900 lg:!py-64"
+        />
 	<FaqSticky
 		title="Understanding Our Pricing Plans"
 		text="Get all the details on AI Hair Extension Selling Platform’s pricing plans. Learn about the costs, discounts, and subscription options to find the best plan that fits your needs and budget."
