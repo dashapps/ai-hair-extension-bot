@@ -107,14 +107,14 @@ const {
 	.testimonial--center {
 		@apply text-center [&_.testimonial\_\_figcaption:has(.avatar)_.testimonial\_\_figcaption-cite-container]:text-left [&_.testimonial\_\_figcaption]:justify-center;
 	}
-	.testimonial--quote {
-		@apply absolute left-6 top-6 z-0 text-neutral-50 dark:text-neutral-50/15;
-	}
-	.testimonial__container {
-		@apply relative p-6;
-	}
+        .testimonial--quote {
+                @apply absolute left-6 top-6 z-0 text-neutral-50 dark:text-neutral-50/15;
+        }
+        .testimonial__container {
+                @apply relative overflow-hidden rounded bg-[#1A1A1A];
+        }
         .testimonial__figure {
-                @apply relative z-10 rounded bg-[#1A1A1A];
+                @apply relative z-10;
         }
         .testimonial__blockquote {
                 @apply p-6 [&>p]:text-neutral-50;
