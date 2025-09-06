@@ -18,19 +18,47 @@ type Props = {
 	text?: string
 	classes?: string
 }
-const { id, title, text, classes } = Astro.props
+const { id, classes } = Astro.props
 ---
 
 <Section id={id} classes={classes}>
 	<Row>
 		<Col span="6" classes={`self-center`}>
 			<header class="max-w-xl">
-				<h1 set:html={title} />
-				<p class="text-lg leading-relaxed">{text}</p>
+				<h1>Платформа доступна к покупке</h1>
+				<p class="text-lg leading-relaxed">
+					Вы можете приобрести платформу или получить подробную консультацию. Свяжитесь с нами в
+					мессенджерах ниже или заполните форму.
+				</p>
+				<ul class="mt-6 space-y-2">
+					<li>
+						<a
+							href="https://t.me/darrrina"
+							class="text-primary-500 underline-offset-2 hover:underline"
+							target="_blank"
+							rel="noopener noreferrer"
+						>
+							Telegram
+						</a>
+					</li>
+					<li>
+						<a
+							href="https://wa.me/18492584643"
+							class="text-primary-500 underline-offset-2 hover:underline"
+							target="_blank"
+							rel="noopener noreferrer"
+						>
+							WhatsApp
+						</a>
+					</li>
+				</ul>
 			</header>
 		</Col>
 		<Col span="6" classes="relative">
 			<Form classes="max-w-xl" />
+			<p class="mt-4 text-sm text-neutral-500">
+				Мы свяжемся с вами, расскажем об условиях и подготовим персональное предложение.
+			</p>
 		</Col>
 	</Row>
 </Section>
