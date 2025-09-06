@@ -28,17 +28,17 @@ const { classes } = Astro.props
 		<Form>
 			<h2 class="text-2xl">Get in Touch</h2>
 			<FormField>
-				<InputField type="text" id="firstName" label="First Name" />
-				<InputField type="text" id="lastName" label="Last Name" />
+				<InputField type="text" id="firstName" label="Имя" />
+	
 			</FormField>
 			<FormField>
-				<InputField type="email" id="email" label="Email" required value="name@youremail.com" />
+				<InputField type="email" id="email" label="Почта" required value="name@youremail.com" />
 			</FormField>
 			<FormField>
 				<InputField type="tel" id="phone" label="phone number" />
 			</FormField>
-			<FormField><TextArea id="message" label="Your Message" /></FormField>
-			<Button style="primary" type="submit">Submit</Button>
+			<FormField><TextArea id="message" label="Напишите, в каком из мессенджеров с вами удобнее связаться" /></FormField>
+			<Button style="primary" type="submit">Заказать демонстрацию</Button>
 		</Form>
 	</CardBody>
 </Card>
