@@ -1,0 +1,35 @@
+---
+// Components
+import Layout from '../layouts/Layout.astro'
+import SidebarContent from '../components/blocks/basic/StickySidebar.astro'
+import Hero from '../components/blocks/hero/PageHeader.astro'
+import PrivacyContent from '../data/markdown-files/privacy.md'
+
+// Content
+// - SEO
+const SEO = {
+        title: 'AI Hair Extension Selling Platform | Privacy Policy',
+        description:
+                "Learn how AI Hair Extension Selling Platform collects, uses, and protects your personal information."
+}
+// - Page Header
+const header = {
+        title: 'Privacy Policy: Your Data, <strong>Protected!</strong>',
+        text: 'Understand how we handle your information.'
+}
+---
+
+<Layout title={SEO.title} description={SEO.description}>
+        <Hero title={header.title} text={header.text} />
+        <SidebarContent>
+                <div slot="sidebar">
+                        <h3>Overview</h3>
+                        <p>
+                                Read about our commitment to protecting your personal data.
+                        </p>
+                </div>
+                <div class="basic-text">
+                        <PrivacyContent />
+                </div>
+        </SidebarContent>
+</Layout>
