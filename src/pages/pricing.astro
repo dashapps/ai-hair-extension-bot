@@ -44,11 +44,9 @@ const testimonialData = {
 	<CommunityIntro />
 	<CommunityCards />
 	<Section id="wl-image" padding="none" classes="bg-neutral-50 dark:bg-neutral-900 pt-12">
-		<Row>
-			<Col span="12">
-				<img src={easyClientImage.src} alt="" class="block w-full object-cover object-bottom" />
-			</Col>
-		</Row>
+		<div class="relative aspect-[1403/726] w-full">
+			<img src={easyClientImage.src} alt="" class="absolute bottom-0 left-0 w-full object-cover" />
+		</div>
 	</Section>
 	<Feature />
 	<TextImage
