@@ -92,15 +92,15 @@ export const footerNavigationData: FooterData = {
 			subCategories: [
 				{
 					subCategory: 'Contact',
-					subCategoryLink: '/contact'
+                                        subCategoryLink: '/pricing#contact'
 				},
 				{
 					subCategory: 'Support',
-					subCategoryLink: '/contact'
+                                        subCategoryLink: '/pricing#contact'
 				},
 				{
 					subCategory: 'Join us',
-					subCategoryLink: '/contact'
+                                        subCategoryLink: '/pricing#contact'
 				}
 			]
 		}

@@ -1,19 +1,19 @@
-# Foxi - Astro Theme
+# AI Hair Extension Selling Platform - Astro Theme
 
 Open-source Astro website template with fully responsive, customizable TailwindCSS components.
 
-![just-the-basics](https://oxygenna-themes.b-cdn.net/foxi-astro/foxi.png)
+![just-the-basics](https://oxygenna-themes.b-cdn.net/AI Hair Extension Selling Platform-astro/AI Hair Extension Selling Platform.png)
 
-[![View live Demo](https://oxygenna-themes.b-cdn.net/foxi-astro/button-demo.svg)](https://foxi.netlify.app)
-[![Page Speed Insights (100%)](https://oxygenna-themes.b-cdn.net/foxi-astro/button-pagespeed.svg)](https://pagespeed.web.dev/analysis/https-foxi-netlify-app/c9ig3t85mu?form_factor=desktop)
+[![View live Demo](https://oxygenna-themes.b-cdn.net/AI Hair Extension Selling Platform-astro/button-demo.svg)](https://AI Hair Extension Selling Platform.netlify.app)
+[![Page Speed Insights (100%)](https://oxygenna-themes.b-cdn.net/AI Hair Extension Selling Platform-astro/button-pagespeed.svg)](https://pagespeed.web.dev/analysis/https-AI Hair Extension Selling Platform-netlify-app/c9ig3t85mu?form_factor=desktop)
 
 ## Introduction
 
 ### About
 
-Foxi is a free, highly customizable, and production-ready template for Astro, utilizing Tailwind CSS components. Designed with developers in mind, Foxi offers a solid foundation for building modern, high-performance websites quickly and efficiently.
+AI Hair Extension Selling Platform is a free, highly customizable, and production-ready template for Astro, utilizing Tailwind CSS components. Designed with developers in mind, AI Hair Extension Selling Platform offers a solid foundation for building modern, high-performance websites quickly and efficiently.
 
-![just-the-basics](https://oxygenna-themes.b-cdn.net/foxi-astro/pagespeedscore.svg)
+![just-the-basics](https://oxygenna-themes.b-cdn.net/AI Hair Extension Selling Platform-astro/pagespeedscore.svg)
 
 ### Features
 
@@ -68,10 +68,10 @@ Foxi is a free, highly customizable, and production-ready template for Astro, ut
 | License                   | MIT                        | Commercial                                                       |
 |                           |                            |                                                                  |
 | Pricing                   | Free                       | $79.99                                                           |
-|                           | Continue with Free version | [View Pro Version](https://astro.build/themes/details/foxi-pro/) |
+|                           | Continue with Free version | [View Pro Version](https://astro.build/themes/details/AI Hair Extension Selling Platform-pro/) |
 
-[![Get Pro Version](https://oxygenna-themes.b-cdn.net/foxi-pro-astro/primary-button-get-foxi-pro.svg)](https://oxygenna.lemonsqueezy.com/buy/2e32ec07-aa31-45a4-835d-8ebb7f6048cc)
-[![View Foxi Pro live Demo](https://oxygenna-themes.b-cdn.net/foxi-pro-astro/secondary-button-foxi-pro-demo.svg)](https://foxi-pro.netlify.app/)
+[![Get Pro Version](https://oxygenna-themes.b-cdn.net/AI Hair Extension Selling Platform-pro-astro/primary-button-get-AI Hair Extension Selling Platform-pro.svg)](https://oxygenna.lemonsqueezy.com/buy/2e32ec07-aa31-45a4-835d-8ebb7f6048cc)
+[![View AI Hair Extension Selling Platform Pro live Demo](https://oxygenna-themes.b-cdn.net/AI Hair Extension Selling Platform-pro-astro/secondary-button-AI Hair Extension Selling Platform-pro-demo.svg)](https://AI Hair Extension Selling Platform-pro.netlify.app/)
 
 ## Getting Started
 
@@ -89,7 +89,7 @@ After downloading the template, you'll need to install some dependencies. Once t
 
 ### Folder structure
 
-Inside Foxi Astro project, you'll see the following folders and files:
+Inside AI Hair Extension Selling Platform Astro project, you'll see the following folders and files:
 
 ```plaintext
 /
@@ -211,4 +211,4 @@ Released under the MIT license.
 
 You can join our community on [Discord](https://discord.gg/YC5Eup8ZEx)!
 
-[![Hire Us](https://oxygenna-themes.b-cdn.net/foxi-astro/hireus.png)](mailto:info@oxygenna.com,christos@oxygenna.com)
+[![Hire Us](https://oxygenna-themes.b-cdn.net/AI Hair Extension Selling Platform-astro/hireus.png)](mailto:info@oxygenna.com,christos@oxygenna.com)

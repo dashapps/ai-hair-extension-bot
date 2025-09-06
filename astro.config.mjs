@@ -17,7 +17,7 @@ try {
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://foxi.netlify.app/",
+  site: "https://ai-hair-extension-selling-platform.netlify.app/",
   markdown: {
     remarkPlugins,
   },
