@@ -3,8 +3,8 @@
   "short_name": "AI Hair Extension",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#ffffff",
-  "theme_color": "#134e4a",
+  "background_color": "#AC9468",
+  "theme_color": "#AC9468",
   "icons": [
     {
       "src": "/hair_extension_192.webp",
