@@ -7,6 +7,7 @@ import Layout from './Layout.astro'
 
 // Section Components
 import BlogPostHero from '../components/blocks/blog/BlogPostHero.astro'
+import { basicTextLg } from '../utils/classes'
 
 // Content
 // - SEO
@@ -28,13 +29,7 @@ const SEO = {
 		})}
 	/>
 
-	<div class="post-body basic-text basic-text--lg">
-		<slot />
-	</div>
+        <div class:list={['mx-auto max-w-3xl px-6 py-12 lg:py-24', basicTextLg]}>
+                <slot />
+        </div>
 </Layout>
-
-<style>
-	.post-body {
-		@apply mx-auto max-w-3xl px-6 py-12 lg:py-24;
-	}
-</style>

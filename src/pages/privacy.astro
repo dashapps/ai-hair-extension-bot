@@ -4,6 +4,7 @@ import Layout from '../layouts/Layout.astro'
 import SidebarContent from '../components/blocks/basic/StickySidebar.astro'
 import Hero from '../components/blocks/hero/PageHeader.astro'
 import PrivacyContent from '../data/markdown-files/privacy.md'
+import { basicText } from '../utils/classes'
 
 // Content
 // - SEO
@@ -28,7 +29,7 @@ const header = {
                                 Read about our commitment to protecting your personal data.
                         </p>
                 </div>
-                <div class="basic-text">
+                <div class={basicText}>
                         <PrivacyContent />
                 </div>
         </SidebarContent>

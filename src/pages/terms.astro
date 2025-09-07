@@ -5,6 +5,7 @@ import Layout from '../layouts/Layout.astro'
 // - UI
 import SidebarContent from '../components/blocks/basic/StickySidebar.astro'
 import Hero from '../components/blocks/hero/PageHeader.astro'
+import { basicText } from '../utils/classes'
 
 // Content
 // - SEO
@@ -30,7 +31,7 @@ const header = {
 				responsibilities while using our services.
 			</p>
 		</div>
-		<div class="basic-text">
+                <div class={basicText}>
 			<h4>Welcome to AI Hair Extension Selling Platform</h4>
 			<p>
 				Welcome to AI Hair Extension Selling Platform! We’re thrilled to have you on board. Our services are designed to help you
@@ -77,7 +78,7 @@ const header = {
 				guidelines to use our services effectively.
 			</p>
 		</div>
-		<div class="basic-text">
+                <div class={basicText}>
 			<h4>Registration</h4>
 			<p>
 				To access certain features of AI Hair Extension Selling Platform, you must create a user account. During registration, you
@@ -124,7 +125,7 @@ const header = {
 				rights.
 			</p>
 		</div>
-		<div class="basic-text">
+                <div class={basicText}>
 			<h4>General Limitations</h4>
 			<p>
 				AI Hair Extension Selling Platform is provided on an "as is" and "as available" basis. We do not warrant that the service
