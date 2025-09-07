@@ -11,7 +11,7 @@ import Toast from '../components/ui/Toast.astro'
 import Scriprs from '../components/scripts/LocalScripts.astro'
 import GoogleTagManagerBody from '../components/scripts/googleTagManagerBody.astro'
 // Styles
-import '../styles/global.css'
+import '../styles/tailwind.css'
 // Fonts
 import '@fontsource-variable/inter'
 // Headings use Google Font Geologica (loaded in <Head>)
@@ -31,15 +31,19 @@ const { title, description, ogImage, noindex, classes } = Astro.props
 ---
 
 <!doctype html>
-<html lang="ru" class="scroll-animation relative">
-	<Header title={title} description={description} ogImage={ogImage} noindex={noindex} />
-	<body
-		class:list={[
-			{ ['mode-' + `${configData.mode}`]: configData.mode },
-			{ ['scroll-animation']: configData.scrollAnimations },
-			{ [`${classes}`]: classes }
-		]}
-	>
+<html lang="ru" class:list={[
+        'relative scroll-smooth antialiased',
+        { ['scroll-animation']: configData.scrollAnimations }
+]}
+>
+        <Header title={title} description={description} ogImage={ogImage} noindex={noindex} />
+        <body
+                class:list={[
+                        'font-sans bg-white text-neutral-500 has-[.header__menu--open]:overflow-hidden lg:has-[.header__menu--open]:overflow-auto dark:bg-neutral-950 dark:text-neutral-400 [.dark_&]:text-neutral-400 [.light_&]:text-neutral-500',
+                        { ['mode-' + `${configData.mode}`]: configData.mode },
+                        { [`${classes}`]: classes }
+                ]}
+        >
 		<GoogleTagManagerBody />
 		<NavigationBar />
 		<Main>
