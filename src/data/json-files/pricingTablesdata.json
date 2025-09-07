@@ -1,8 +1,8 @@
 [
   {
     "header": {
-      "title": "Simple",
-      "subtitle": "для небольших школ",
+      "title": "Simple SaaS",
+      "subtitle": "до 20–30 активных пользователей в день",
       "currency": "",
       "price": "По запросу",
       "priceLabel": "",
@@ -13,17 +13,19 @@
     },
     "body": {
       "listItems": [
-        { "listItem": "До 20–30 активных пользователей в день" },
-        { "listItem": "Включено 40 000 токенов в месяц" },
-        { "listItem": "Бот и адаптация под бренд" }
+        { "listItem": "<strong>Telegram бот</strong> под вашим брендом" },
+        { "listItem": "<strong>Адаптация материалов</strong>" },
+        { "listItem": "<strong>Миниап</strong> с каталогом" },
+        { "listItem": "Включено <strong>40 000 токенов</strong> в месяц" },
+        { "listItem": "Для небольших школ" }
       ]
     },
     "type": "basic"
   },
   {
     "header": {
-      "title": "Full",
-      "subtitle": "для средних школ/салонов",
+      "title": "Full SaaS",
+      "subtitle": "30–100 активных пользователей в день",
       "currency": "",
       "price": "По запросу",
       "priceLabel": "",
@@ -34,17 +36,18 @@
     },
     "body": {
       "listItems": [
-        { "listItem": "30–100 пользователей в день" },
-        { "listItem": "Все из Simple + каталог и собственные услуги" },
-        { "listItem": "Включено 80 000 токенов в месяц" }
+        { "listItem": "Все из Simple, плюс:" },
+        { "listItem": "<strong>Каталог</strong> в миниапе и собственные услуги" },
+        { "listItem": "Включено <strong>80 000 токенов</strong> в месяц" },
+        { "listItem": "Для средних школ и салонов" }
       ]
     },
     "type": "featured"
   },
   {
     "header": {
-      "title": "Exclusive",
-      "subtitle": "территориальный — город",
+      "title": "Exclusive SaaS",
+      "subtitle": "100+ активных пользователей в день",
       "currency": "",
       "price": "По запросу",
       "priceLabel": "",
@@ -55,9 +58,9 @@
     },
     "body": {
       "listItems": [
-        { "listItem": "100+ пользователей в день" },
-        { "listItem": "Всё из Full + эксклюзивное право на город" },
-        { "listItem": "Включено 200 000 токенов в месяц" }
+        { "listItem": "Территориальный эксклюзив на город" },
+        { "listItem": "Все из Full" },
+        { "listItem": "Включено <strong>200 000 токенов</strong> в месяц" }
       ]
     },
     "type": "basic"
