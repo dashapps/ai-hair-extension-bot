@@ -41,7 +41,7 @@ const {
             <slot />
         </div>
     ) : (
-        <p class="accordion__text">{text}</p>
+        <div class="accordion__text" set:html={text}></div>
     )}
 </details>
 

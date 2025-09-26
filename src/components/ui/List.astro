@@ -33,7 +33,8 @@ const { type = 'basic', listColor = 'primary', listItems, classes } = Astro.prop
 	{
 		listItems.map((item) => (
 			<li>
-				{type === 'checklist' && <Icon name="check-circle" />} {item.listItem}
+				{type === 'checklist' && <Icon name="check-circle" />}
+				<span class="list__content" set:html={typeof item.listItem === 'string' ? item.listItem : String(item.listItem)} />
 			</li>
 		))
 	}

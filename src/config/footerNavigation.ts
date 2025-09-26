@@ -37,7 +37,7 @@ export const footerNavigationData: FooterData = {
     footerAbout: {
         title: 'AI Hair Extension',
         aboutText:
-            'AI‑ассистент для расширений волос: лендинги, боты и автоматизация. Строим сообщество мастеров и помогаем бизнесу расти.',
+            'Первая AI‑платформа для продажи услуг наращивания волос. Сайт является демо‑витриной. Платформа продаётся под White Label для адаптации к вашему бренду. Возможен региональный эксклюзив.',
         logo: {
             src: '/hair_extension_64.webp',
             alt: 'AI Hair Extension',
@@ -106,6 +106,6 @@ export const footerNavigationData: FooterData = {
 		}
 	],
     subFooter: {
-        copywriteText: '© AI Hair Extension 2024.'
+        copywriteText: '© Maugli.cfd 2025 — ИИ для бьюти‑бизнеса и не только.'
     }
 }

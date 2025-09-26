@@ -40,7 +40,7 @@ export const navigationBarData: NavData = {
     navItems: [
         { name: 'Телеграм‑бот', link: '/' },
         { name: 'Мастерам', link: '/features' },
-        { name: 'Создай сообщество', link: '/pricing' },
+        { name: 'Платформа', link: '/pricing' },
         {
             name: 'Бизнесу',
             link: '#',

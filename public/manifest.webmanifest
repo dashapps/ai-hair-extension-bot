@@ -1,0 +1,32 @@
+{
+  "name": "AI Hair Extension",
+  "short_name": "HairAI",
+  "description": "AI‑помощник для мастеров и бизнеса: лендинг, телеграм‑бот и инструменты платформы.",
+  "id": "/",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#AC9468",
+  "theme_color": "#AC9468",
+  "icons": [
+    {
+      "src": "/hair_extension_64.webp",
+      "sizes": "64x64",
+      "type": "image/webp",
+      "purpose": "any"
+    },
+    {
+      "src": "/hair_extension_192.webp",
+      "sizes": "192x192",
+      "type": "image/webp",
+      "purpose": "any"
+    },
+    {
+      "src": "/hair_extension-512.webp",
+      "sizes": "512x512",
+      "type": "image/webp",
+      "purpose": "any"
+    }
+  ]
+}
+

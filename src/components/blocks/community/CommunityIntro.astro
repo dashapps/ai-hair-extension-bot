@@ -5,6 +5,7 @@ import Row from '../../ui/Row.astro'
 import Col from '../../ui/Col.astro'
 import ChipNotification from '../../ui/ChipNotification.astro'
 import AvatarGroup from '../../ui/AvatarGroup.astro'
+// No decorative quotes in the first block
 
 import user1 from '../../../assets/avatars/avatar-01.webp'
 import user2 from '../../../assets/avatars/avatar-02.webp'
@@ -21,15 +22,14 @@ const avatars = [
     <Col span="2" />
     <Col span="8" align="center">
       <ChipNotification radius="rounded-full" classes="mb-6">
-        <strong>Сеть мастеров</strong>  под твоим брендом
+        <strong>Сеть мастеров</strong>&nbsp;под твоим брендом
         <AvatarGroup avatars={avatars} radius="rounded-full" slot="button" />
       </ChipNotification>
       <h1 class="text-pretty">
-        Забери всю Россию: <strong class="text-primary-500">White&nbsp;Label</strong> платформа под&nbspтвоё имя
+        Забери всю Россию: <strong class="text-primary-500">White&nbsp;Label платформа</strong> под&nbsp;твоё имя
       </h1>
-      <p class="pb-0 text-lg">Идеально для школ, ассоциаций и мастеров‑преподавателей <strong>с&nbspсильныи личным брендом</strong>.</p>
+      <p class="pb-0 text-lg">Идеально для школ, ассоциаций и мастеров‑преподавателей <strong class="text-primary-500">с&nbsp;сильным личным брендом</strong>.</p>
     </Col>
     <Col span="2" />
   </Row>
 </Section>
-
