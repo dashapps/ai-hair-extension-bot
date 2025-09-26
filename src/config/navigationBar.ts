@@ -38,9 +38,9 @@ export const navigationBarData: NavData = {
         text: 'AI Hair Extension'
     },
     navItems: [
-        { name: 'Телеграм‑бот', link: '/' },
-        { name: 'Мастерам', link: '/features' },
         { name: 'Платформа', link: '/pricing' },
+        { name: 'Мастерам', link: '/features' },
+        { name: 'Телеграм‑бот', link: '/' },
         {
             name: 'Бизнесу',
             link: '#',
@@ -48,10 +48,10 @@ export const navigationBarData: NavData = {
                 { name: 'Блог', link: '/blog' },
                 { name: 'История изменений', link: '/changelog' },
                 { name: 'FAQ', link: '/faq' },
-                { name: 'Условия', link: '/terms' }
+                { name: 'Условия', link: '/terms' },
+                { name: 'Контакты', link: '/contact' }
             ]
-        },
-        { name: 'Контакты', link: '/contact' }
+        }
     ],
     navActions: [{ name: 'Попробовать', link: '/', style: 'primary', size: 'lg' }]
 }
