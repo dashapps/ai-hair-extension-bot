@@ -26,7 +26,22 @@ const { title, text, data, type = 'left', classes } = Astro.props
 		{text && <p class="text-lg leading-relaxed max-w-[42.5rem]">{text}</p>}
 	</header>
 
-	<Card classes="divide-y divide-neutral-100 dark:divide-neutral-800">
-		{data.map((faq: any) => <FAQ title={faq.question} text={faq.reply} open={faq.open} />)}
-	</Card>
+	<div class="faq-sticky__content">
+		<Card classes="divide-y divide-neutral-100 dark:divide-neutral-800">
+			{data.map((faq: any) => <FAQ title={faq.question} text={faq.reply} open={faq.open} />)}
+		</Card>
+	</div>
 </StickySidebar>
+
+<style>
+	.faq-sticky__content {
+		@apply w-full;
+		max-width: 42.5rem;
+	}
+	.faq-sticky__content .card {
+		@apply w-full;
+	}
+	.faq-sticky__content .accordion__text {
+		max-width: 42.5rem;
+	}
+</style>

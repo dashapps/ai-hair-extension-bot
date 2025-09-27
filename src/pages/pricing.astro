@@ -155,6 +155,7 @@ const screenshots = Array.from({ length: 19 }, (_, i) => i + 1).map(
     <CommunityIntro />
     <CommunityCards />
     <Testimonial
+      id="testimonial-main"
       blockquote={testimonialData.blockquote}
       figcaption={testimonialData.figcaption}
       cite={testimonialData.cite}
@@ -217,7 +218,7 @@ const screenshots = Array.from({ length: 19 }, (_, i) => i + 1).map(
       <Row classes="max-w-6xl mx-auto">
         <Col span="3">
           <Card
-            title="Вовлечение клиента"
+            title="1. Вовлечение клиента"
             subtitle="Примерка через бота вызывает эмоции и&nbsp;ведёт прямо к&nbsp;записи — даже тех, кто не&nbsp;думал о&nbsp;наращивании."
             icon="cursor-arrow-ripple"
             classes="text-center dark:!bg-neutral-800/60"
@@ -225,7 +226,7 @@ const screenshots = Array.from({ length: 19 }, (_, i) => i + 1).map(
         </Col>
         <Col span="3">
           <Card
-            title="Удержание мастеров"
+            title="2. Удержание мастеров"
             subtitle="Мастера получают клиентов и&nbsp;поддержку бренда — и&nbsp;остаются с&nbsp;тобой. Всё для&nbsp;мастера в&nbsp;одном месте."
             icon="device-phone-mobile"
             classes="text-center dark:!bg-neutral-800/60"
@@ -233,7 +234,7 @@ const screenshots = Array.from({ length: 19 }, (_, i) => i + 1).map(
         </Col>
         <Col span="3">
           <Card
-            title="Рост бренда"
+            title="3. Рост бренда"
             subtitle="Каждый мастер после выпуска — актив твоей сети. Как&nbsp;мини‑франшиза без&nbsp;вложений: бот под&nbsp;твоим именем."
             icon="arrow-trending-up"
             classes="text-center dark:!bg-neutral-800/60"
@@ -241,8 +242,8 @@ const screenshots = Array.from({ length: 19 }, (_, i) => i + 1).map(
         </Col>
         <Col span="3">
           <Card
-            title="Монетизация 24/7"
-            subtitle="Подписки, каталог и&nbsp;магазин: постоянный источник дохода. Больше роста. Больше мастеров — круговорот."
+            title="4. Монетизация 24/7"
+            subtitle="Подписки, каталог и&nbsp;магазин превращают платформу в&nbsp;постоянный источник дохода. Больше роста. Больше мастеров — круговорот."
             icon="circle-stack"
             classes="text-center dark:!bg-neutral-800/60"
           />
@@ -250,11 +251,17 @@ const screenshots = Array.from({ length: 19 }, (_, i) => i + 1).map(
       </Row>
     </Section>
 
+    <Testimonial
+      id="testimonial-berry"
+      blockquote='<strong class="text-primary-400 md:text-primary-500">Стань первой</strong> в&nbsp;нише, используя платформу для&nbsp;непрерывного роста бренда и&nbsp;<strong class="text-primary-400 md:text-primary-500">монетизации</strong> 24/7'
+      classes="pricing-testimonial pricing-testimonial--berry"
+    />
+
     <FAQSticky
       title="Как школа зарабатывает с&nbsp;платформой"
       text="Теперь каждый поток учеников остаётся с&nbsp;тобой и&nbsp;после курсов — превращаясь в&nbsp;источник постоянного дохода."
       data={schoolFaq}
-      classes="bg-white dark:bg-neutral-900 max-w-6xl mx-auto"
+      classes="bg-white dark:bg-neutral-900"
     />
     <Section padding="none" fullWidth classes="bg-neutral-100 dark:bg-neutral-900/40 !overflow-visible">
       <Row>
