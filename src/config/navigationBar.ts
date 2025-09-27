@@ -45,7 +45,7 @@ export const navigationBarData: NavData = {
             name: 'Бизнесу',
             link: '#',
             submenu: [
-                { name: 'Блог', link: '/blog' },
+                { name: 'Решения для бьюти', link: '/blog' },
                 { name: 'История изменений', link: '/changelog' },
                 { name: 'FAQ', link: '/faq' },
                 { name: 'Условия', link: '/terms' },

@@ -4,6 +4,10 @@ const { frontmatter } = Astro.props
 
 //Layout Components
 import Layout from './Layout.astro'
+import Section from '../components/ui/Section.astro'
+import Row from '../components/ui/Row.astro'
+import Col from '../components/ui/Col.astro'
+import Button from '../components/ui/Button.astro'
 
 // Section Components
 import BlogPostHero from '../components/blocks/blog/BlogPostHero.astro'
@@ -31,6 +35,28 @@ const SEO = {
 	<div class="post-body basic-text basic-text--lg">
 		<slot />
 	</div>
+
+	<Section classes="bg-neutral-100 dark:bg-neutral-900/40">
+		<Row classes="max-w-4xl mx-auto">
+			<Col span="12" classes="rounded-3xl bg-white/90 p-10 text-center shadow-lg shadow-neutral-900/5 backdrop-blur md:p-14 dark:bg-neutral-900/80">
+				<h2 class="text-pretty text-2xl font-bold md:text-3xl">
+					Хочешь понять, что использовать именно тебе?
+				</h2>
+				<p class="mt-4 text-base text-neutral-600 md:text-lg dark:text-neutral-200">
+					Записывайся на консультацию. Расскажешь о&nbsp;своих процессах. Подберём идеальное решение и&nbsp;рассчитаем стоимость и&nbsp;сроки внедрения. От&nbsp;недели. От&nbsp;30&nbsp;000&nbsp;₽.
+				</p>
+				<Button
+					type="link"
+					link="/contact?consult=1"
+					size="lg"
+					style="primary"
+					classes="mt-6"
+				>
+					Заказать консультацию
+				</Button>
+			</Col>
+		</Row>
+	</Section>
 </Layout>
 
 <style>

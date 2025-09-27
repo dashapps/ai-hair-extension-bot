@@ -1,30 +1,52 @@
 ---
-title: 'Foxi Mobile App Launch'
-pubDate: 2024-04-05T05:00:00Z
-description: 'We have rolled out new security updates to keep your data safe and secure. Learn more about our latest security enhancements and how they protect you.'
-author: 'Eleni K'
+title: 'Бот, мини-приложение или платформа: как выбрать для роста чека'
+pubDate: 2024-10-01T05:00:00Z
+description: 'Разбираем, чем отличаются бот, мини-приложение и платформа, и как подобрать решение под задачи бьюти-бизнеса.'
+author: 'AI Hair Extension'
 image: '/blog/post-02-cover.png'
-tags: ['app', 'announcement']
+tags: ['Боты', 'ИИ для бьюти', 'Автоматизация продаж с ИИ']
 ---
 
-The Foxi mobile app is now available! Manage your tasks and projects on the go with our new mobile app. Stay connected and productive no matter where you are.
+Когда бьюти-бизнес хочет расти, главный вопрос — какой инструмент даёт максимальный рост чека именно в твоей нише. Давай разберём, чем отличаются бот, мини-приложение и платформа, и как выбрать своё решение.
 
-### Features
+## 1. Бот: быстрый способ показать результат
 
-- **Full Functionality on Mobile**: Access all of Foxi's features from your mobile device. Manage tasks, communicate with your team, and track your projects with ease.
-- **Sync with Desktop**: Seamlessly sync your data between the mobile app and the desktop version of Foxi. Keep your information up-to-date across all devices.
-- **Offline Mode**: Use Foxi even when you don't have an internet connection. Your changes will sync automatically once you're back online.
+**Что это:** персональный помощник-продажник. Например, бот‑«косметолог» показывает клиенту, как будет выглядеть лицо после процедуры; бот‑тренер генерирует превью фигуры после тренировок; бот‑мастер по волосам показывает эффект наращивания «до/после».
 
-Download the Foxi mobile app today from the App Store or Google Play and take your productivity with you wherever you go!
+**Когда подходит:** мастеру-индивидуалу. Клиент увидел результат, впечатлился — и записался. Это идеальный «превью‑инструмент», который подогревает желание купить.
 
-![Foxi is here.](/blog/post-02.png)
+**Но:** монетизации нет — ты платишь за токены и получаешь лиды. Бот — это инструмент мастера, а не полноценный бизнес.
 
-We have rolled out new security updates to keep your data safe and secure. Learn more about our latest security enhancements and how they protect you.
+## 2. Мини-приложение: продажа услуг + товаров
 
-### App Enhancements
+**Что это:** бот со встроенным каталогом, оплатами и акциями. Клиент видит превью и может сразу купить услугу, запись или продукт.
 
-- **Two-Factor Authentication**: Add an extra layer of security to your account with two-factor authentication. This feature requires you to verify your identity using a second device or method.
-- **Data Encryption**: All data transmitted and stored within Foxi is now encrypted using industry-standard encryption protocols. Your information is protected from unauthorized access.
-- **Regular Security Audits**: We conduct regular security audits to identify and address potential vulnerabilities. Our commitment to security ensures that your data remains safe.
+**Пример:** бренд ухода показывает эффект окрашивания, а мини-ап предлагает набор средств для поддержания результата.
 
-Your security is our top priority. Thank you for trusting Foxi with your valuable data.
+**Когда подходит:** брендам, небольшим школам, магазинам, которые хотят расширить продажи и подключить номенклатуру. Это уже воронка, но пассивного дохода ещё нет — всё завязано на твои продажи.
+
+## 3. Платформа: экосистема и подписки
+
+**Что это:** система, где мастера и клиенты работают внутри твоего продукта. Есть подписки, токены, каталог, монетизация, аналитика.
+
+**Пример:** школа по наращиванию волос превращается в mini‑Wildberries: мастера платят подписку, покупают токены, ведут клиентов в боте, платформа процветает.
+
+**Зачем:** удержание и масштабирование. Ученик не просто отучился и ушёл, он остаётся в твоей экосистеме и приносит доход каждый месяц. Клиенты мастеров тоже постоянно в твоём боте.
+
+**Фактически:** платформа = твоя сеть, которая работает даже без твоего постоянного участия. Растут подписки, чек и капитализация бренда.
+
+![AI Hair Platform](/blog/post-02.png)
+
+## Сколько стоит разработка
+
+- **Просто бот** — от 30–80 тыс. ₽. Быстрый старт, персональный инструмент продаж.
+- **Бот + мини-ап** — от 70–120 тыс. ₽. Каталог, магазин, автоворонки. Идеально, если хочешь подключить линейку продуктов.
+- **Платформа** — от 198 тыс. ₽. White label под твоим брендом, подписки, монетизация, аналитика — это уже бизнес-модель.
+
+## Как понять, что выбрать
+
+1. **Определи цель.** Нужно просто привлечь клиентов? Хватит бота. Хочешь продавать продукты и курсы? Мини-приложение. Мечтаешь о пассивном доходе и сети мастеров? Нужна платформа.
+2. **Оцени ресурсы.** Важно понимать, кто будет заниматься контентом, поддержкой, развитием. Платформа требует лидерства, но и отдаёт больше.
+3. **Посмотри на нишу.** Где ты зарабатываешь больше: на услугах, товарах или партнёрах? Под это и выбирай инструмент.
+
+Если хочешь обсудить свою ситуацию и понять, с чего начать — пиши. Подберём решение и развернём его под твой бренд.
