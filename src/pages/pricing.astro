@@ -37,10 +37,9 @@ const SEO = {
 // - Page Header
 // No default header; custom community intro instead
 // - Testimonial data
-import testimonialBackground from '../assets/testimonial-bg-02.webp'
 const testimonialData = {
 	blockquote:
-		'Забери рынок до того, как это сделают другие: <strong class="text-primary-400 md:text-primary-500">первая White Label платформа</strong> для наращивания может стать твоим личным золотым рудником.',
+		'Забери рынок до&nbsp;того, как&nbsp;это сделают другие: <strong class="text-primary-400 md:text-primary-500">первая White Label платформа</strong> для&nbsp;наращивания может стать твоим личным золотым рудником',
 	figcaption: '',
 	cite: ''
 }
@@ -155,48 +154,47 @@ const screenshots = Array.from({ length: 19 }, (_, i) => i + 1).map(
     <CommunityIntro />
     <CommunityCards />
     <Testimonial
-      bg={testimonialBackground}
-      bgPosition="left"
       blockquote={testimonialData.blockquote}
       figcaption={testimonialData.figcaption}
       cite={testimonialData.cite}
+      classes="pricing-testimonial"
     />
     <Section classes="bg-white dark:bg-neutral-900">
       <Row classes="max-w-6xl mx-auto">
         <Col span="12" align="start" classes="mb-10">
           <h2 class="text-pretty text-3xl lg:text-4xl font-bold">
-            Платформа для школ наращивания
+            Платформа для <strong>школ&nbsp;наращивания</strong>
           </h2>
           <p class="mt-4 text-lg leading-relaxed max-w-[42.5rem]">
-            Бот и мини‑приложение под твоим брендом, которое привязывает мастеров и их клиентов к&nbsp;твоей школе.
+            Бот и&nbsp;мини‑приложение под&nbsp;твоим брендом, которое привязывает мастеров и&nbsp;их клиентов к&nbsp;твоей школе.
           </p>
         </Col>
         <Col span="6">
-          <h4 class="text-xl font-semibold mb-3">Что получает мастер?</h4>
+          <h4 class="text-xl font-semibold mb-3">Что получает <strong>мастер</strong>?</h4>
           <List type="checklist" listItems={[
-            { listItem: '<strong>Рекомендации</strong> бренда и новых клиентов' },
-            { listItem: 'Удобный <strong>инструмент для портфолио</strong> (фото, видео, Reels)' },
-            { listItem: 'Реферальные <strong>ссылки</strong> для соцсетей' },
-            { listItem: 'Размещение в каталоге <strong>(тариф PRO)</strong>' },
+            { listItem: '<strong>Рекомендации</strong> бренда и&nbsp;новых клиентов' },
+            { listItem: 'Удобный <strong>инструмент для&nbsp;портфолио</strong> (фото, видео, Reels)' },
+            { listItem: 'Реферальные <strong>ссылки</strong> для&nbsp;соцсетей' },
+            { listItem: 'Размещение в&nbsp;каталоге <strong>(тариф PRO)</strong>' },
           ]} />
         </Col>
         <Col span="6">
-          <h4 class="text-xl font-semibold mb-3">Что получает школа?</h4>
+          <h4 class="text-xl font-semibold mb-3">Что получает <strong>школа</strong>?</h4>
           <List type="checklist" listItems={[
-            { listItem: 'Постоянный доход с подписок мастеров (от <strong>25 000 ₽</strong> до <strong>250 000 ₽</strong>/мес)' },
-            { listItem: '<strong>Прибыль</strong> с продажи токенов (мастера докупают генерации)' },
-            { listItem: '<strong>Магазин и каталог</strong> для курсов, волос, расходников <strong>(тариф PRO)</strong>' },
-            { listItem: 'Контроль бренда: всё работает <strong>от твоего имени</strong> 24/7' },
+            { listItem: 'Постоянный доход с&nbsp;подписок мастеров (от&nbsp;<strong>25 000 ₽</strong> до&nbsp;<strong>250 000 ₽</strong>/мес)' },
+            { listItem: '<strong>Прибыль</strong> с&nbsp;продажи токенов (мастера докупают генерации)' },
+            { listItem: '<strong>Магазин&nbsp;и&nbsp;каталог</strong> для&nbsp;курсов, волос, расходников <strong>(тариф PRO)</strong>' },
+            { listItem: 'Контроль бренда: всё работает <strong>от&nbsp;твоего имени</strong> 24/7' },
           ]} />
         </Col>
       </Row>
     </Section>
     <TextImage
       title="Ключ к&nbsp;росту <strong>твоего&nbsp;бренда</strong>"
-      text={`<p>Если твой главный актив — это мастера, то платформа поможет привязать их к&nbsp;бренду через инструменты продаж. Это даст мастерам клиентов и усилит школу.</p>
-      <p>Ты зарабатываешь не только на&nbsp;курсах, волосах, расходниках, но и на&nbsp;подписках.</p>
-      <p>Опция магазина и каталога помогает собрать всё необходимое для мастеров в&nbsp;одном месте: от&nbsp;привлечения клиентов и записи до&nbsp;подбора волос под конкретного клиента.</p>
-      <p>Твоё имя растёт и вызывает всё больше доверия, что усиливает и тебя, и твоих мастеров.</p>
+      text={`<p>Если твой главный актив — это мастера, то платформа поможет привязать их к&nbsp;бренду через инструменты продаж. Это даст мастерам клиентов и&nbsp;усилит школу.</p>
+      <p>Ты зарабатываешь не только на&nbsp;курсах, волосах, расходниках, но&nbsp;и&nbsp;на&nbsp;подписках.</p>
+      <p>Опция магазина&nbsp;и&nbsp;каталога помогает собрать всё необходимое для&nbsp;мастеров в&nbsp;одном месте: от&nbsp;привлечения клиентов и&nbsp;записи до&nbsp;подбора волос под&nbsp;конкретного клиента.</p>
+      <p>Твоё имя растёт и вызывает всё больше доверия, что усиливает и&nbsp;тебя, и&nbsp;твоих мастеров.</p>
       <p>Каждый поток учеников превращается в&nbsp;источник пассивного дохода. Платформа превращает школу в&nbsp;полноценную экосистему, где твой бренд работает 24/7.</p>`}
       image="/platform.webp"
       mobileImage="/platform.webp"
@@ -208,8 +206,8 @@ const screenshots = Array.from({ length: 19 }, (_, i) => i + 1).map(
     />
 
     <FAQSticky
-      title="Как школа зарабатывает с платформой"
-      text="Теперь каждый поток учеников остаётся с тобой и после курсов — превращаясь в источник постоянного дохода."
+      title="Как школа зарабатывает с&nbsp;платформой"
+      text="Теперь каждый поток учеников остаётся с&nbsp;тобой и&nbsp;после курсов — превращаясь в&nbsp;источник постоянного дохода."
       data={schoolFaq}
       classes="bg-white dark:bg-neutral-900 max-w-6xl mx-auto"
     />

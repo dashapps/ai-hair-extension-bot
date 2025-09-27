@@ -57,8 +57,8 @@ const {
 </Section>
 
 <style is:global>
-  /* Add right-side background image pinned to the section background, full height */
-  #testimonial .section__bg::after {
+  /* Default decorative background for testimonial sections */
+  #testimonial:not(.pricing-testimonial) .section__bg::after {
     content: '';
     position: absolute;
     inset: 0;
@@ -68,11 +68,26 @@ const {
     background-size: auto 100%;
     pointer-events: none;
   }
+
+  /* Pricing page variant: gradient background anchored to the bottom */
+  #testimonial.pricing-testimonial .section__bg {
+    background: radial-gradient(120% 160% at 80% 100%, rgba(89, 60, 110, 0.65) 0%, rgba(20, 22, 39, 0.92) 55%, rgba(7, 9, 17, 1) 100%);
+    background-repeat: no-repeat;
+    background-position: center bottom;
+  }
+
+  #testimonial.pricing-testimonial .section__bg::after {
+    content: none;
+  }
+
+  #testimonial.pricing-testimonial.section.section--padded {
+    padding-top: clamp(5rem, 7vw, 7rem);
+  }
 </style>
 
 <style is:global>
-  /* Make opening quote subtler and text white on colored backgrounds */
-  #testimonial .testimonial--quote { @apply text-white/30; }
+  /* Make opening quote brand-colored and text white on colored backgrounds */
+  #testimonial .testimonial--quote { color: #C6A97E; }
   #testimonial .testimonial__blockquote > p { color: #fff !important; }
   #testimonial .testimonial__figcaption { color: #fff !important; }
 </style>
