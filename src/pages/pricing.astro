@@ -8,7 +8,6 @@ import CommunityCards from '../components/blocks/community/CommunityCards.astro'
 import FAQ from '../components/blocks/FAQ/Basic.astro'
 import FAQSticky from '../components/blocks/FAQ/FaqSticky.astro'
 import TextImage from '../components/blocks/basic/TextImage.astro'
-import StickySidebar from '../components/blocks/basic/StickySidebar.astro'
 import Testimonial from '../components/blocks/testimonials/BasicDark.astro'
 import SimpleFeed from '../components/blocks/feeds/BasicFeed.astro'
 import MasterCTA from '../components/blocks/CTA/MasterCTA.astro'
@@ -162,13 +161,16 @@ const screenshots = Array.from({ length: 19 }, (_, i) => i + 1).map(
       figcaption={testimonialData.figcaption}
       cite={testimonialData.cite}
     />
-    <!-- Sticky two-column block under the quote -->
-    <StickySidebar classes="bg-white dark:bg-neutral-900">
-      <header slot="sidebar">
-        <h3 class="text-3xl">Платформа для школ наращивания:</h3>
-        <p class="text-lg leading-relaxed mt-2">Бот и мини‑приложение под твоим брендом, которое привязывает мастеров и их клиентов к твоей школе.</p>
-      </header>
-      <Row>
+    <Section classes="bg-white dark:bg-neutral-900">
+      <Row classes="max-w-6xl mx-auto">
+        <Col span="12" align="start" classes="mb-10">
+          <h2 class="text-pretty text-3xl lg:text-4xl font-bold">
+            Платформа для школ наращивания
+          </h2>
+          <p class="mt-4 text-lg leading-relaxed max-w-[42.5rem]">
+            Бот и мини‑приложение под твоим брендом, которое привязывает мастеров и их клиентов к&nbsp;твоей школе.
+          </p>
+        </Col>
         <Col span="6">
           <h4 class="text-xl font-semibold mb-3">Что получает мастер?</h4>
           <List type="checklist" listItems={[
@@ -184,23 +186,24 @@ const screenshots = Array.from({ length: 19 }, (_, i) => i + 1).map(
             { listItem: 'Постоянный доход с подписок мастеров (от <strong>25 000 ₽</strong> до <strong>250 000 ₽</strong>/мес)' },
             { listItem: '<strong>Прибыль</strong> с продажи токенов (мастера докупают генерации)' },
             { listItem: '<strong>Магазин и каталог</strong> для курсов, волос, расходников <strong>(тариф PRO)</strong>' },
-            { listItem: 'Контроль бренда: все работает <strong>от твоего имени</strong> 24/7' },
+            { listItem: 'Контроль бренда: всё работает <strong>от твоего имени</strong> 24/7' },
           ]} />
         </Col>
       </Row>
-    </StickySidebar>
+    </Section>
     <TextImage
-      title="<strong>Ключ к росту твоего бренда</strong>"
-      text={`<p>Если твой главный актив — это мастера, то платформа поможет привязать их к бренду через инструменты продаж.  Это даст мастерам клиентов и усилит  школу.</p>
-      <p>Ты зарабатываешь не только на курсах, волосах, расходниках, но и на подписках.</p>
-      <p>Опция магазина и каталога помогает собрать все необходимое для мастеров в одном месте: от привлечения клиентов и записи до подбора волос под конкретного клиента.</p>
+      title="Ключ к&nbsp;росту <strong>твоего&nbsp;бренда</strong>"
+      text={`<p>Если твой главный актив — это мастера, то платформа поможет привязать их к&nbsp;бренду через инструменты продаж. Это даст мастерам клиентов и усилит школу.</p>
+      <p>Ты зарабатываешь не только на&nbsp;курсах, волосах, расходниках, но и на&nbsp;подписках.</p>
+      <p>Опция магазина и каталога помогает собрать всё необходимое для мастеров в&nbsp;одном месте: от&nbsp;привлечения клиентов и записи до&nbsp;подбора волос под конкретного клиента.</p>
       <p>Твоё имя растёт и вызывает всё больше доверия, что усиливает и тебя, и твоих мастеров.</p>
-      <p>Каждый поток учеников - превращается в источник пассивного дохода. Платформа превращает школу в полноценную экосистему, где твой бренд работает 24/7.</p>`}
+      <p>Каждый поток учеников превращается в&nbsp;источник пассивного дохода. Платформа превращает школу в&nbsp;полноценную экосистему, где твой бренд работает 24/7.</p>`}
       image="/platform.webp"
       mobileImage="/platform.webp"
       imagePosition="left"
       offsetImage
-      classes="bg-neutral-50 dark:bg-neutral-900 pb-10 lg:pt-24"
+      imageAlign="bottom"
+      classes="bg-neutral-50 dark:bg-neutral-900 pb-0 lg:pt-24"
       padding="top"
     />
 
@@ -208,11 +211,12 @@ const screenshots = Array.from({ length: 19 }, (_, i) => i + 1).map(
       title="Как школа зарабатывает с платформой"
       text="Теперь каждый поток учеников остаётся с тобой и после курсов — превращаясь в источник постоянного дохода."
       data={schoolFaq}
+      classes="bg-white dark:bg-neutral-900 max-w-6xl mx-auto"
     />
-    <Section padding="none" classes="bg-neutral-100 dark:bg-neutral-900/40 !overflow-visible">
+    <Section padding="none" fullWidth classes="bg-neutral-100 dark:bg-neutral-900/40 !overflow-visible">
       <Row>
         <Col span="12">
-          <div class="relative z-10 mt-10 -mx-6">
+          <div class="relative z-10 mt-10">
             <HeroSwiper screenshots={screenshots} />
           </div>
         </Col>
@@ -461,7 +465,7 @@ const screenshots = Array.from({ length: 19 }, (_, i) => i + 1).map(
               <h3 class="text-3xl font-bold">
                 <span class="text-primary-500">Сколько стоит</span> платформа
               </h3>
-              <p class="text-lg leading-relaxed mt-2">Решения для масштабированияот маленькой школы до региональной монополии</p>
+              <p class="text-lg leading-relaxed mt-2 max-w-[42.5rem] mx-auto">Решения для масштабирования — от маленькой школы до региональной монополии</p>
               <div class="mt-6 flex items-center justify-center gap-4">
                 <span id="platformAnnualLabel" class="font-semibold text-neutral-400">подключение</span>
                 <Toggle id="platformPricingType" label="platform-pricing" showLabel={false} checked={true} />
@@ -520,14 +524,14 @@ const screenshots = Array.from({ length: 19 }, (_, i) => i + 1).map(
       )
     })()}
     <!-- Technologies block replacing the default English features -->
-    <Section classes="bg-white dark:bg-neutral-900">
+    <Section id="tech-bg" classes="bg-white dark:bg-neutral-900">
       <Row>
         <Col span="12" align="center" classes="mb-12 max-w-4xl mx-auto">
-          <h2 class="text-pretty"><strong>Технологии, которые работают на твой бренд</strong></h2>
-          <p class="pb-0 text-lg">Платформа сделает твой бизнес сильнее и заметнее, поможет расти и отстроиться от конкурентов</p>
+          <h2 class="text-pretty">Технологии, которые работают на&nbsp;<strong>твой&nbsp;бренд</strong></h2>
+          <p class="pb-0 text-lg max-w-[42.5rem] mx-auto">Платформа сделает твой бизнес сильнее и заметнее, поможет расти и отстроиться от конкурентов</p>
         </Col>
       </Row>
-      <Row>
+      <Row classes="max-w-6xl mx-auto">
         <Col span="3">
           <FeatureCard icon="rocket" align="left" classes="mb-12" title="Технологическое преимущество">
             Выделись технологией. Кроме нового источника монетизации ты получаешь больше доверия к бренду.
@@ -547,6 +551,21 @@ const screenshots = Array.from({ length: 19 }, (_, i) => i + 1).map(
           <FeatureCard icon="paint-brush" align="left" classes="mb-12" title="Гибкость и доработки">
             Переносим опыт из технологий в бьюти‑бизнес. Нужны особенные функции? Доработаем платформу под твои задачи.
           </FeatureCard>
+        </Col>
+      </Row>
+    </Section>
+
+    <Section classes="bg-neutral-100 dark:bg-neutral-900/40">
+      <Row>
+        <Col span="12" align="center" classes="py-16 lg:py-24">
+          <div class="inline-flex max-w-4xl flex-col items-center gap-4 rounded-2xl bg-white/85 p-10 text-center backdrop-blur-xl ring-1 ring-neutral-200/60 shadow-lg shadow-neutral-900/5 dark:bg-neutral-900/70 dark:ring-neutral-800/60">
+            <h2 class="text-pretty text-4xl lg:text-5xl font-bold">
+              Преврати&nbsp;школу в&nbsp;бизнес-модель с&nbsp;пассивным доходом
+            </h2>
+            <p class="mt-2 text-lg text-neutral-600 dark:text-neutral-200 max-w-[42.5rem]">
+              Сроки этапов условны — в&nbsp;твоём случае они могут быть другими. Возможно, быстрее.
+            </p>
+          </div>
         </Col>
       </Row>
     </Section>
@@ -589,6 +608,23 @@ const screenshots = Array.from({ length: 19 }, (_, i) => i + 1).map(
           background-position: right bottom;
           background-size: contain;
         }
+      }
+    </style>
+
+    <style is:global>
+      /* Background image for technologies block: bottom-aligned, responsive width */
+      #tech-bg .section__bg::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background-image: url('/blurred.webp');
+        background-repeat: no-repeat;
+        background-position: center bottom;
+        background-size: 80% auto;
+        pointer-events: none;
+      }
+      @media (max-width: 1024px) {
+        #tech-bg .section__bg::after { background-size: 100% auto; }
       }
     </style>
 </Layout>

@@ -33,6 +33,7 @@ type Props = {
     classes?: string
     offsetImage?: boolean
     padding?: 'both' | 'top' | 'bottom' | 'none'
+    imageAlign?: 'center' | 'bottom'
 }
 const {
     id,
@@ -45,7 +46,8 @@ const {
     text,
     classes,
     offsetImage = false,
-    padding
+    padding,
+    imageAlign = 'center'
 } = Astro.props
 
 // Support both imported assets (with .src) and public path strings
@@ -56,9 +58,9 @@ const mobileImgSrc = typeof mobileImage === 'string' ? mobileImage : mobileImage
 <Section id={id} classes={classes} padding={padding}>
 	<Row>
 		<Col span="6" classes="relative">
-			<picture
-				class=`text-image__picture ${offsetImage  ? 'text-image__picture--offset' : ''} ${imagePosition === 'right' ? 'text-image__picture--offset-right' : ''}`
-			>
+		<picture
+			class=`text-image__picture ${offsetImage  ? 'text-image__picture--offset' : ''} ${imagePosition === 'right' ? 'text-image__picture--offset-right' : ''} ${imageAlign === 'bottom' ? 'text-image__picture--bottom' : ''}`
+		>
 				{mobileImgSrc && <source srcset={mobileImgSrc} media="(max-width: 1024px)" />}
 				<img src={imgSrc} alt={title} width={imageWidth} height={imageHeight} />
 			</picture>
@@ -74,10 +76,13 @@ const mobileImgSrc = typeof mobileImage === 'string' ? mobileImage : mobileImage
 
 <style>
 	.text-image__picture {
-		@apply flex justify-center lg:[&.text-image\_\_picture--offset-right_img]:left-0 lg:[&.text-image\_\_picture--offset-right_img]:right-auto lg:[&.text-image\_\_picture--offset]:h-full lg:[&.text-image\_\_picture--offset_img]:absolute lg:[&.text-image\_\_picture--offset_img]:right-0 lg:[&.text-image\_\_picture--offset_img]:top-1/2 lg:[&.text-image\_\_picture--offset_img]:max-w-none lg:[&.text-image\_\_picture--offset_img]:-translate-y-1/2;
+		@apply flex items-center justify-center lg:[&.text-image\_\_picture--offset-right_img]:left-0 lg:[&.text-image\_\_picture--offset-right_img]:right-auto lg:[&.text-image\_\_picture--offset]:h-full lg:[&.text-image\_\_picture--offset_img]:absolute lg:[&.text-image\_\_picture--offset_img]:right-0 lg:[&.text-image\_\_picture--offset_img]:top-1/2 lg:[&.text-image\_\_picture--offset_img]:max-w-none lg:[&.text-image\_\_picture--offset_img]:-translate-y-1/2;
+	}
+	.text-image__picture--bottom {
+		@apply items-end lg:[&.text-image\_\_picture--offset_img]:bottom-0 lg:[&.text-image\_\_picture--offset_img]:top-auto lg:[&.text-image\_\_picture--offset_img]:translate-y-0;
 	}
 	.text-image__content {
-		@apply max-w-xl;
+		@apply max-w-[42.5rem];
 	}
 	.text-image__heading {
 		@apply text-pretty text-2xl lg:text-3xl;
