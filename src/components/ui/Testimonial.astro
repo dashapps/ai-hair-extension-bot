@@ -20,7 +20,6 @@
 import { Icon } from 'astro-icon/components'
 import Rating from './Rating.astro'
 import Avatar from './Avatar.astro'
-import Button from './Button.astro'
 
 // Props
 type Props = {
@@ -101,16 +100,9 @@ const hasCTA = Boolean(ctaLabel && ctaLink)
 			)}
 			{hasCTA && (
 				<div class="testimonial__cta">
-					<Button
-						type="link"
-						link={ctaLink}
-						size="lg"
-						style="white"
-						variation="outline"
-						classes="px-8 text-sm font-semibold border-white/70 text-white hover:border-white hover:bg-white/10"
-					>
+					<a href={ctaLink} class="testimonial__cta-link">
 						{ctaLabel}
-					</Button>
+					</a>
 				</div>
 			)}
 		</figure>
@@ -163,5 +155,8 @@ const hasCTA = Boolean(ctaLabel && ctaLink)
 	}
 	.testimonial--left .testimonial__cta {
 		@apply justify-start;
+	}
+	.testimonial__cta-link {
+		@apply inline-flex items-center justify-center rounded-3xl border border-white/70 px-8 py-3 text-sm font-semibold uppercase tracking-wide text-white transition hover:border-white hover:bg-white/10;
 	}
 </style>
