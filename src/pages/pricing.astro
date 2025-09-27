@@ -191,17 +191,14 @@ const screenshots = Array.from({ length: 19 }, (_, i) => i + 1).map(
     </Section>
     <TextImage
       title="Ключ к&nbsp;росту <strong>твоего&nbsp;бренда</strong>"
-      text={`<p>Если твой главный актив — это мастера, то платформа поможет привязать их к&nbsp;бренду через инструменты продаж. Это даст мастерам клиентов и&nbsp;усилит школу.</p>
-      <p>Ты зарабатываешь не только на&nbsp;курсах, волосах, расходниках, но&nbsp;и&nbsp;на&nbsp;подписках.</p>
-      <p>Опция магазина&nbsp;и&nbsp;каталога помогает собрать всё необходимое для&nbsp;мастеров в&nbsp;одном месте: от&nbsp;привлечения клиентов и&nbsp;записи до&nbsp;подбора волос под&nbsp;конкретного клиента.</p>
-      <p>Твоё имя растёт и вызывает всё больше доверия, что усиливает и&nbsp;тебя, и&nbsp;твоих мастеров.</p>
-      <p>Каждый поток учеников превращается в&nbsp;источник пассивного дохода. Платформа превращает школу в&nbsp;полноценную экосистему, где твой бренд работает 24/7.</p>`}
+      text={`<p>Привяжи мастеров к&nbsp;бренду через инструменты продаж. Платформа <strong>дает мастерам клиентов</strong> и&nbsp;усиливает школу.</p>
+      <p><strong>Зарабатывай</strong> не&nbsp;только на&nbsp;курсах, волосах, расходниках, но&nbsp;и&nbsp;<strong>на&nbsp;подписках</strong>.</p>`}
       image="/platform.webp"
       mobileImage="/platform.webp"
       imagePosition="left"
       offsetImage
       imageAlign="bottom"
-      classes="bg-neutral-50 dark:bg-neutral-900 pb-0 lg:pt-24"
+      classes="bg-neutral-50 dark:bg-neutral-900 pb-0 lg:pt-24 pricing-platform-section"
       padding="top"
     />
 
@@ -626,3 +623,81 @@ const screenshots = Array.from({ length: 19 }, (_, i) => i + 1).map(
       }
     </style>
 </Layout>
+
+<style is:global>
+  .pricing-platform-section .text-image__picture {
+    align-items: flex-end;
+  }
+
+  .pricing-platform-section .text-image__picture img {
+    object-fit: contain;
+  }
+
+  .pricing-platform-section .text-image__content,
+  .pricing-platform-section .text-image__text {
+    max-width: 400px;
+  }
+
+  @media (max-width: 1023px) {
+    .pricing-platform-section .row {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 2.5rem;
+    }
+
+    .pricing-platform-section .row .col:first-child {
+      order: 2;
+      width: 100%;
+      display: flex;
+    }
+
+    .pricing-platform-section .row .col:last-child {
+      order: 1;
+      width: 100%;
+    }
+
+    .pricing-platform-section .text-image__content {
+      margin: 0 auto;
+      padding-bottom: 0;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .pricing-platform-section .row {
+      min-height: 500px;
+      align-items: stretch;
+    }
+
+    .pricing-platform-section .row .col:first-child {
+      align-self: stretch;
+      display: flex;
+    }
+
+    .pricing-platform-section .row .col:last-child {
+      align-self: stretch;
+      display: flex;
+    }
+
+    .pricing-platform-section .text-image__content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      height: 100%;
+    }
+
+    .pricing-platform-section .text-image__picture {
+      height: 100%;
+    }
+
+    .pricing-platform-section .text-image__picture.text-image__picture--offset img {
+      top: auto;
+      bottom: 0;
+      transform: none;
+      height: clamp(360px, 38vw, 600px);
+      max-height: 600px;
+      width: auto;
+    }
+  }
+</style>

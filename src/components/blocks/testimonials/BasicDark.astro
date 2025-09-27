@@ -69,15 +69,23 @@ const {
     pointer-events: none;
   }
 
-  /* Pricing page variant: gradient background anchored to the bottom */
+  /* Pricing page variant: gradient base + hair anchored to the edge */
   #testimonial.pricing-testimonial .section__bg {
     background: radial-gradient(120% 160% at 80% 100%, rgba(89, 60, 110, 0.65) 0%, rgba(20, 22, 39, 0.92) 55%, rgba(7, 9, 17, 1) 100%);
     background-repeat: no-repeat;
     background-position: center bottom;
+    background-size: cover;
   }
 
   #testimonial.pricing-testimonial .section__bg::after {
-    content: none;
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url('/quote_dark.webp');
+    background-repeat: no-repeat;
+    background-position: right bottom;
+    background-size: auto 100%;
+    pointer-events: none;
   }
 
   #testimonial.pricing-testimonial.section.section--padded {
