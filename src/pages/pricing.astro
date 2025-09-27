@@ -22,6 +22,7 @@ import HeroSwiper from '../components/blocks/hero/HeroSwiper.astro'
 import List from '../components/ui/List.astro'
 import PricingTable from '../components/ui/pricing-tables/PricingTable.astro'
 import Toggle from '../components/ui/forms/form-elements/Toggle.astro'
+import Card from '../components/ui/cards/BasicCard.astro'
 
 // Content
 import faqData from '../data/json-files/faqData.json'
@@ -201,6 +202,53 @@ const screenshots = Array.from({ length: 19 }, (_, i) => i + 1).map(
       classes="bg-neutral-50 dark:bg-neutral-900 pb-0 lg:pt-24 pricing-platform-section"
       padding="top"
     />
+
+    <Section classes="bg-white dark:bg-neutral-900">
+      <Row classes="max-w-6xl mx-auto">
+        <Col span="12" align="center" classes="mb-12 max-w-4xl mx-auto">
+          <h2 class="text-pretty text-3xl lg:text-4xl font-bold">
+            <strong>ИИ‑примерка</strong> как&nbsp;инструмент продаж, удержания и&nbsp;роста бренда
+          </h2>
+          <p class="mt-4 text-lg leading-relaxed">
+            Превью встроено в&nbsp;воронку так, что работает на&nbsp;всех уровнях: вовлекает клиентов, удерживает мастеров, усиливает бренд, приносит дополнительный доход.
+          </p>
+        </Col>
+      </Row>
+      <Row classes="max-w-6xl mx-auto">
+        <Col span="3">
+          <Card
+            title="Вовлечение клиента"
+            subtitle="Примерка через бота вызывает эмоции и&nbsp;ведёт прямо к&nbsp;записи — даже тех, кто не&nbsp;думал о&nbsp;наращивании."
+            icon="cursor-arrow-ripple"
+            classes="text-center dark:!bg-neutral-800/60"
+          />
+        </Col>
+        <Col span="3">
+          <Card
+            title="Удержание мастеров"
+            subtitle="Мастера получают клиентов и&nbsp;поддержку бренда — и&nbsp;остаются с&nbsp;тобой. Всё для&nbsp;мастера в&nbsp;одном месте."
+            icon="device-phone-mobile"
+            classes="text-center dark:!bg-neutral-800/60"
+          />
+        </Col>
+        <Col span="3">
+          <Card
+            title="Рост бренда"
+            subtitle="Каждый мастер после выпуска — актив твоей сети. Как&nbsp;мини‑франшиза без&nbsp;вложений: бот под&nbsp;твоим именем."
+            icon="arrow-trending-up"
+            classes="text-center dark:!bg-neutral-800/60"
+          />
+        </Col>
+        <Col span="3">
+          <Card
+            title="Монетизация 24/7"
+            subtitle="Подписки, каталог и&nbsp;магазин: постоянный источник дохода. Больше роста. Больше мастеров — круговорот."
+            icon="circle-stack"
+            classes="text-center dark:!bg-neutral-800/60"
+          />
+        </Col>
+      </Row>
+    </Section>
 
     <FAQSticky
       title="Как школа зарабатывает с&nbsp;платформой"
