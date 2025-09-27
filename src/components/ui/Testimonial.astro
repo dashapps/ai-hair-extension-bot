@@ -20,6 +20,7 @@
 import { Icon } from 'astro-icon/components'
 import Rating from './Rating.astro'
 import Avatar from './Avatar.astro'
+import Button from './Button.astro'
 
 // Props
 type Props = {
@@ -34,6 +35,8 @@ type Props = {
 	rating?: 0 | 1 | 2 | 3 | 4 | 5
 	quoteSize?: number
 	classes?: string
+	ctaLabel?: string
+	ctaLink?: string
 }
 const {
 	blockquote,
@@ -46,8 +49,13 @@ const {
 	align = 'left',
 	link,
 	classes,
-	quoteSize = 64
+	quoteSize = 64,
+	ctaLabel,
+	ctaLink
 } = Astro.props
+
+const hasMeta = Boolean(rating || avatar || figcaption || cite)
+const hasCTA = Boolean(ctaLabel && ctaLink)
 ---
 
 <div
@@ -64,31 +72,47 @@ const {
 			<blockquote class="testimonial__blockquote">
 				<p set:html={blockquote}></p>
 			</blockquote>
-			<figcaption class="testimonial__figcaption">
-				{rating && <Rating rating={rating} />}
-				<div class="testimonial__figcaption-container">
-					{
-						avatar && (
-							<Avatar
-								size="lg"
-								image={avatar}
-								radius="rounded-full"
-								classes="cursor-default max-w-full shrink-0"
-							/>
-						)
-					}
-					<div class="testimonial__figcaption-cite-container">
-						<span class="testimonial__figcaption--credit">{figcaption}</span>
+			{hasMeta && (
+				<figcaption class="testimonial__figcaption">
+					{rating && <Rating rating={rating} />}
+					<div class="testimonial__figcaption-container">
 						{
-							cite && (
-								<cite class="testimonial__figcaption--cite">
-									{link ? <a href={link}>{cite}</a> : <span>{cite}</span>}
-								</cite>
+							avatar && (
+								<Avatar
+									size="lg"
+									image={avatar}
+									radius="rounded-full"
+									classes="cursor-default max-w-full shrink-0"
+								/>
 							)
 						}
+						<div class="testimonial__figcaption-cite-container">
+							<span class="testimonial__figcaption--credit">{figcaption}</span>
+							{
+								cite && (
+									<cite class="testimonial__figcaption--cite">
+										{link ? <a href={link}>{cite}</a> : <span>{cite}</span>}
+									</cite>
+								)
+							}
+						</div>
 					</div>
+				</figcaption>
+			)}
+			{hasCTA && (
+				<div class="testimonial__cta">
+					<Button
+						type="link"
+						link={ctaLink}
+						size="lg"
+						style="white"
+						variation="outline"
+						classes="px-8 text-sm font-semibold border-white/70 text-white hover:border-white hover:bg-white/10"
+					>
+						{ctaLabel}
+					</Button>
 				</div>
-			</figcaption>
+			)}
 		</figure>
 		<Icon
 			name="quotes"
@@ -133,5 +157,11 @@ const {
 	}
 	.testimonial__figcaption--cite {
 		@apply not-italic;
+	}
+	.testimonial__cta {
+		@apply flex justify-center pt-4;
+	}
+	.testimonial--left .testimonial__cta {
+		@apply justify-start;
 	}
 </style>
