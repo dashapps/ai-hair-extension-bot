@@ -53,5 +53,5 @@ export const navigationBarData: NavData = {
             ]
         }
     ],
-    navActions: [{ name: 'Попробовать', link: '/', style: 'primary', size: 'lg' }]
+    navActions: [{ name: 'Заказать демо', link: '/contact?demo=1', style: 'primary', size: 'lg' }]
 }
