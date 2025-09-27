@@ -45,61 +45,49 @@ export const footerNavigationData: FooterData = {
     },
 	footerColumns: [
 		{
-			category: 'Product',
+			category: 'Платформа',
 			subCategories: [
 				{
-					subCategory: 'Features',
+					subCategory: 'О платформе',
+					subCategoryLink: '/pricing'
+				},
+				{
+					subCategory: 'Демо мастерам',
 					subCategoryLink: '/features'
+				},
+				{
+					subCategory: 'Демо клиентам',
+					subCategoryLink: '/'
+				}
+			]
+		},
+		{
+			category: 'Бьюти-бизнесу',
+			subCategories: [
+				{
+					subCategory: 'Решения',
+					subCategoryLink: '/blog'
+				},
+				{
+					subCategory: 'Условия',
+					subCategoryLink: '/terms'
 				},
 				{
 					subCategory: 'FAQ',
 					subCategoryLink: '/faq'
-				},
-				{
-					subCategory: 'Pricing',
-					subCategoryLink: '/pricing'
-				},
-				{
-					subCategory: 'Changelog',
-					subCategoryLink: '/changelog'
-				},
-				{
-					subCategory: 'Terms',
-					subCategoryLink: '/terms'
 				}
 			]
 		},
 		{
-			category: 'About us',
+			category: 'О нас',
 			subCategories: [
 				{
-					subCategory: 'About us',
-					subCategoryLink: '/'
-				},
-				{
-					subCategory: 'News',
-					subCategoryLink: '/blog'
-				},
-				{
-					subCategory: 'Careers',
-					subCategoryLink: '/blog'
-				}
-			]
-		},
-		{
-			category: 'Get in touch',
-			subCategories: [
-				{
-					subCategory: 'Contact',
+					subCategory: 'Контакты',
 					subCategoryLink: '/contact'
 				},
 				{
-					subCategory: 'Support',
-					subCategoryLink: '/contact'
-				},
-				{
-					subCategory: 'Join us',
-					subCategoryLink: '/contact'
+					subCategory: 'Другие продукты',
+					subCategoryLink: 'https://maugli.cfd/ru'
 				}
 			]
 		}
