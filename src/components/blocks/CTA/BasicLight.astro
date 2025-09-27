@@ -26,19 +26,21 @@ type Props = {
 const {
   title = 'Готова к трансформации?',
   text = 'Осторожно! После примерки может возникнуть острое желание записаться к мастеру — мы предупредили:)',
-  buttonLabel = 'Попробовать бесплатно',
+  buttonLabel = 'Примерь бесплатно',
   buttonLink = '/',
   ctaClasses,
   sectionClasses
 } = Astro.props
+
+const finalCtaClasses = `${ctaClasses ? `${ctaClasses} ` : '!shadow-none ' }[&_.cta__text]:max-w-[30rem] [&_.cta__text]:mx-auto`
 ---
 
 <Section classes={sectionClasses}>
 	<Row>
 		<Col span="1" />
 		<Col span="10">
-			<CTA title={title} text={text} classes={ctaClasses ?? '!shadow-none'}>
-				<ChipNotification radius="rounded-full" classes="mb-4">
+			<CTA title={title} text={text} classes={finalCtaClasses}>
+				<ChipNotification slot="pretitle" radius="rounded-full" classes="mb-4">
 					<Image src={badge} alt="Trophy" class="h-12 w-12" slot="button" />
 					<strong>Мастера рекомендуют</strong>
 				</ChipNotification>

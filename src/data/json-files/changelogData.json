@@ -1,36 +1,50 @@
 [
-	{
-		"title": "v1.0.6: Enhanced Security Features",
-		"date": "2024-07-01",
-		"text": "<p>We've implemented new security protocols to safeguard your data. Enjoy peace of mind with improved encryption and multi-factor authentication.</p> <ul><li>2FA enabled by default</li><li>HubSpot integration</li><li>Zoho CRM integration</li></ul>",
-		"image": "/feeds/feed-01.png"
-	},
-	{
-		"title": "v1.0.5: User Interface Improvements",
-		"date": "2024-06-15",
-		"text": "<p>Our latest update brings a revamped user interface for a more intuitive and visually appealing experience. Navigation and usability have been greatly enhanced.</p><ul><li>Updated dashboard layout</li><li>Improved accessibility features</li><li>Streamlined navigation menus</li></ul>",
-		"image": "/feeds/feed-02.png"
-	},
-	{
-		"title": "v1.0.4: New In-App Messaging",
-		"date": "2024-05-20",
-		"text": "<p>Introducing in-app messaging! Communicate directly within the app to keep conversations organized and accessible without switching between tools.</p>"
-	},
-	{
-		"title": "v1.0.3: Performance Enhancements",
-		"date": "2024-04-10",
-		"text": "<p>We've optimized the app to run faster and smoother. Experience improved load times and overall performance.</p>",
-		"image": "/feeds/feed-03.png"
-	},
-	{
-		"title": "v1.0.2: CRM Integration",
-		"date": "2024-03-25",
-		"text": "<p>Connect your app with popular CRM systems to streamline customer management. Synchronize data and improve customer relationship processes.</p><ul><li>Salesforce integration</li><li>HubSpot integration</li><li>Zoho CRM integration</li></ul>"
-	},
-	{
-		"title": "v1.0.1: Third-Party API Support",
-		"date": "2024-02-15",
-		"text": "<p>Seamlessly integrate with third-party APIs to extend the functionality of your app. Enjoy smooth data exchange and enhanced performance.</p>",
-		"image": "/feeds/feed-04.png"
-	}
+  {
+    "title": "Демо и тестирование",
+    "date": "День 1",
+    "text": "<p>Онлайн‑встреча с презентацией. Ты тестируешь демо‑бота как клиент, мы обсуждаем твою специфику и сразу прогнозируем: подходит ли тебе платформа, сколько она сможет приносить и нужен ли кастом.</p>",
+    "image": "/platform-timeline-day1.webp"
+  },
+  {
+    "title": "Оплата и договор",
+    "date": "День 2",
+    "text": "<p>Ты принимаешь решение. Заключаем договор, подключаешься, передаёшь материалы для брендинга. Определяем имя бота, домены и соцсети для интеграции.</p>",
+    "image": "/platform-timeline-day2.webp"
+  },
+  {
+    "title": "Настройка платформы",
+    "date": "День 7",
+    "text": "<p>Мы настраиваем твоего бота под твой бренд и обучаем пользоваться. На старте дарим бонусный пакет токенов.</p>",
+    "image": "/platform-timeline-day7.webp"
+  },
+  {
+    "title": "Запуск платформы",
+    "date": "День 8",
+    "text": "<p>Ты объявляешь о запуске в соцсетях. Привлекаешь мастеров как обычно — только теперь у тебя есть новое конкурентное преимущество.</p>",
+    "image": "/platform-timeline-day8.webp"
+  },
+  {
+    "title": "Первые доходы",
+    "date": "День 10",
+    "text": "<p>Мастера начинают работать через твою платформу, появляются первые подписки и новые клиенты. База растёт, а выпускники остаются с тобой.</p>",
+    "image": "/platform-timeline-day10.webp"
+  },
+  {
+    "title": "Подписка",
+    "date": "День 30",
+    "text": "<p>Пробный пакет токенов закончился — мастера всё выкупили. Теперь начинается регулярная подписка: обязательный пакет + процент со сверхлимита. Ты к этому моменту уже в плюсе.</p>",
+    "image": "/platform-timeline-day30.webp"
+  },
+  {
+    "title": "Масштабирование",
+    "date": "День 90",
+    "text": "<p>Видишь, что система работает — расширяешь возможности: подключаешь магазин, каталог поставщиков, экспериментируешь с тарифами и монетизацией.</p>",
+    "image": "/platform-timeline-day90.webp"
+  },
+  {
+    "title": "Эксклюзив",
+    "date": "День 120",
+    "text": "<p>Когда база выросла, обсуждаем монополию в твоём городе. Это даёт ещё больше преимуществ и закрывает конкурентов.</p>",
+    "image": "/platform-timeline-day120.webp"
+  }
 ]

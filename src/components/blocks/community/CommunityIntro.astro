@@ -17,7 +17,7 @@ const avatars = [
 ]
 ---
 
-<Section classes="bg-neutral-100 dark:bg-neutral-900/40">
+<Section id="platform-hero" classes="bg-neutral-100 dark:bg-neutral-900/40">
   <Row>
     <Col span="2" />
     <Col span="8" align="center">
@@ -25,13 +25,30 @@ const avatars = [
         <strong>Сеть мастеров</strong>&nbsp;под твоим брендом
         <AvatarGroup avatars={avatars} radius="rounded-full" slot="button" />
       </ChipNotification>
-      <h1 class="text-pretty">
-        Стань для мастеров <strong class="text-primary-500">как WILDBERRIES</strong> в сфере наращивания волос
-      </h1>
-      <p class="pb-0 text-lg">Идеально для школ, ассоциаций и мастеров‑преподавателей<br />
-        <strong class="text-primary-500">с&nbsp;сильным&nbsp;личным&nbsp;брендом</strong>
-      </p>
+
+      <div class="inline-flex max-w-3xl flex-col items-center justify-center gap-2 rounded-2xl bg-neutral-100/60 p-5 text-center backdrop-blur-md ring-1 ring-neutral-200/60 md:p-8 dark:bg-neutral-900/40 dark:ring-neutral-800/60">
+        <h1 class="text-pretty">
+          Стань для мастеров <strong class="text-primary-500">как&nbsp;WILDBERRIES</strong> в&nbsp;сфере наращивания волос
+        </h1>
+        <p class="pb-0 text-lg">Идеально для школ, ассоциаций и мастеров‑преподавателей<br />
+          <strong class="text-primary-500">с&nbsp;сильным&nbsp;личным&nbsp;брендом</strong>
+        </p>
+      </div>
     </Col>
     <Col span="2" />
   </Row>
 </Section>
+
+<style is:global>
+  /* Platform hero background image: stick left, span full width */
+  #platform-hero .section__bg {
+    background-image: url('/hero_berries.webp');
+    background-position: left center;
+    background-repeat: no-repeat;
+    background-size: 100% auto; /* desktop/tablet: span full width */
+  }
+  /* Mobile: span full height of the block */
+  @media (max-width: 1024px) {
+    #platform-hero .section__bg { background-size: auto 100%; }
+  }
+</style>

@@ -36,9 +36,11 @@ const {
     bg={bg}
     bgPosition={bgPosition}
     classes={`${classes ? classes + ' ' : ''}dark:border-t border-y border-neutral-800`}
+
 >
 	<Row>
 		<Col span="12">
+            <div class="relative z-10">
             <Testimonial
                 blockquote={blockquote}
                 figcaption={figcaption}
@@ -49,9 +51,24 @@ const {
                 classes="!leading-tight font-bold xl:text-5xl max-w-4xl mx-auto text-white"
                 quoteSize={112}
             />
+            </div>
         </Col>
     </Row>
 </Section>
+
+<style is:global>
+  /* Add right-side background image pinned to the section background, full height */
+  #testimonial .section__bg::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url('/quote_dark.webp');
+    background-repeat: no-repeat;
+    background-position: right center;
+    background-size: auto 100%;
+    pointer-events: none;
+  }
+</style>
 
 <style is:global>
   /* Make opening quote subtler and text white on colored backgrounds */

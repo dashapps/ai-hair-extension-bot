@@ -10,7 +10,6 @@ import MasterSwiperPro from '../components/blocks/hero/MasterSwiperPro.astro'
 import MasterPricing from '../components/blocks/pricing/MasterPricing.astro'
 import MasterFAQ from '../components/blocks/FAQ/MasterFAQ.astro'
 import MasterCTA from '../components/blocks/CTA/MasterCTA.astro'
-import SimpleFeed from '../components/blocks/feeds/BasicFeed.astro'
 // MasterBullets no longer used; inline sticky section instead
 // import CTA from '../components/blocks/CTA/BasicDark.astro' // not used on masters page
 
@@ -73,9 +72,7 @@ const SEO = {
 				text="Рекомендации, рефералы<br />и полный контроль"
 				data={proBullets}
 			/>
-		<MasterPricing />
-		<MasterFAQ />
-		<SimpleFeed data={feedData} />
+			<MasterPricing />
+			<MasterFAQ />
 		<MasterCTA />
-import feedData from '../data/json-files/changelogData.json'
 </Layout>
