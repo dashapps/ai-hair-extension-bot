@@ -6,7 +6,6 @@ import Col from '../../ui/Col.astro'
 import PricingTable from '../../ui/pricing-tables/PricingTable.astro'
 import Toggle from '../../ui/forms/form-elements/Toggle.astro'
 import PricingChange from '../../scripts/PricingPlanChange.astro'
-import { BOOKING_LINK } from '../../../config/bookingLink'
 
 const plans = [
   {
@@ -20,7 +19,8 @@ const plans = [
       priceMontly: '500',
       priceLabelMontly: 'разово',
       buttonName: 'Купить токены',
-      buttonLink: BOOKING_LINK
+      buttonLink: '',
+      booking: true,
     },
     body: {
       listItems: [
@@ -41,7 +41,8 @@ const plans = [
       priceMontly: '2000',
       priceLabelMontly: 'разово',
       buttonName: 'Купить токены',
-      buttonLink: BOOKING_LINK
+      buttonLink: '',
+      booking: true,
     },
     body: {
       listItems: [
@@ -64,7 +65,8 @@ const plans = [
       priceMontly: '7500',
       priceLabelMontly: 'месяц',
       buttonName: 'Оформить подписку',
-      buttonLink: BOOKING_LINK
+      buttonLink: '',
+      booking: true,
     },
     body: {
       listItems: [

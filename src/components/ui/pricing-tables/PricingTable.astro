@@ -39,6 +39,7 @@ type PricingTableProps = {
 		priceLabelMontly?: string
 		buttonName: string
 		buttonLink: string
+		booking?: boolean
 	}
 	body?: {
 		listItems: Array<{ listItem: string }>
@@ -46,6 +47,7 @@ type PricingTableProps = {
 	footer?: {
 		buttonName: string
 		buttonLink: string
+		booking?: boolean
 	}
 }
 type Props = {
@@ -56,6 +58,8 @@ type Props = {
 }
 const { data, id, listType, classes } = Astro.props as Props
 const { type, header, body, footer } = data
+const headerBooking = header.booking ?? (header.buttonLink === BOOKING_LINK)
+const footerBooking = footer ? footer.booking ?? (footer.buttonLink === BOOKING_LINK) : false
 ---
 
 <div
@@ -107,7 +111,7 @@ const { type, header, body, footer } = data
 				elevated
 				type="link"
 				link={header.buttonLink}
-				booking={header.buttonLink === BOOKING_LINK}
+				booking={headerBooking}
 			>
 				{header.buttonName}
 			</Button>
@@ -133,7 +137,7 @@ const { type, header, body, footer } = data
 						style="primary"
 						type="link"
 						link={footer.buttonLink}
-						booking={footer.buttonLink === BOOKING_LINK}
+						booking={footerBooking}
 						variation="link"
 						classes={'!font-medium ' + (type === 'featured' ? '!text-white' : '')}
 					>

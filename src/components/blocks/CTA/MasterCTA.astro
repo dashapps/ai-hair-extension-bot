@@ -5,7 +5,6 @@ import Row from '../../ui/Row.astro'
 import Col from '../../ui/Col.astro'
 import CTA from '../../ui/CTA.astro'
 import Button from '../../ui/Button.astro'
-import { BOOKING_LINK } from '../../../config/bookingLink'
 
 type Props = {
   title?: string
@@ -21,7 +20,7 @@ const {
   title = 'Попробуй&nbsp;сама',
   text = 'Пройди путь клиента сама — лучше один раз увидеть.',
   buttonLabel = 'Перейти в бота',
-  buttonLink = BOOKING_LINK,
+  buttonLink = '',
   sectionClasses = 'bg-neutral-100 dark:bg-neutral-900/40',
   ctaClasses = '!shadow-none',
   sectionId,
@@ -33,7 +32,7 @@ const {
     <Col span="1" />
     <Col span="10">
       <CTA title={title} text={text} classes={ctaClasses}>
-        <Button size="lg" style="primary" link={buttonLink} booking>{buttonLabel}</Button>
+        <Button size="lg" style="primary" type="link" link={buttonLink} booking>{buttonLabel}</Button>
       </CTA>
     </Col>
     <Col span="1" />
