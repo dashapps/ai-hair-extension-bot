@@ -39,7 +39,17 @@ const {
 ---
 
 <Card classes={classes}>
-	{image && <Image src={image} alt={title} width={600} height={400} />}
+	{image && (
+		<div class="blog-card__media">
+			<Image
+				src={image}
+				alt={title}
+				width={1200}
+				height={630}
+				class="blog-card__image"
+			/>
+		</div>
+	)}
 	<CardBody>
 		<h3 class="post-title">
 			<a href={link}>{title}</a>
@@ -60,6 +70,13 @@ const {
 </Card>
 
 <style>
+	.blog-card__media {
+		@apply px-6 pt-6;
+	}
+	.blog-card__image {
+		@apply block w-full rounded-[1rem] object-cover;
+		aspect-ratio: 120 / 63;
+	}
 	.post-title {
 		@apply mb-0 text-xl [&_a]:text-inherit;
 	}

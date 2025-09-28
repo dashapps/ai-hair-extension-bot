@@ -455,7 +455,7 @@ const screenshots = Array.from({ length: 19 }, (_, i) => i + 1).map(
       // Plans for platform connection pricing (full width, no sticky)
       const platformPlans = [
         {
-          type: 'featured',
+          type: 'featured' as const,
           header: {
             title: 'СТАРТ',
             subtitle: 'быстрое начало',
@@ -479,7 +479,7 @@ const screenshots = Array.from({ length: 19 }, (_, i) => i + 1).map(
           }
         },
         {
-          type: 'basic',
+          type: 'basic' as const,
           header: {
             title: 'ПРО',
             subtitle: 'крупный бизнес',
@@ -503,7 +503,7 @@ const screenshots = Array.from({ length: 19 }, (_, i) => i + 1).map(
           }
         },
         {
-          type: 'basic',
+          type: 'basic' as const,
           header: {
             title: 'ЭКСКЛЮЗИВ',
             subtitle: 'монополия в регионе',
@@ -530,7 +530,7 @@ const screenshots = Array.from({ length: 19 }, (_, i) => i + 1).map(
 
       return (
         <Section id="platform-pricing" classes="bg-neutral-50 dark:bg-neutral-900">
-          <Row classes="max-w-6xl mx-auto items-stretch">
+          <Row classes="max-w-5xl mx-auto items-stretch">
             <Col span="12" align="center" classes="mb-10">
               <h2 class="text-pretty text-3xl lg:text-4xl font-bold">
                 <span class="text-primary-500">Сколько стоит</span> платформа
@@ -543,7 +543,7 @@ const screenshots = Array.from({ length: 19 }, (_, i) => i + 1).map(
               </div>
             </Col>
             <Col span="12">
-              <Row classes="max-w-6xl mx-auto items-stretch">
+              <Row classes="max-w-5xl mx-auto items-stretch gap-6">
                 {platformPlans.map((plan, idx) => (
                   <Col span="4" classes="h-full">
                     <PricingTable data={plan} listType="checklist" id={`platform-plan-${idx}`} classes="platform-pricing-card h-full" />

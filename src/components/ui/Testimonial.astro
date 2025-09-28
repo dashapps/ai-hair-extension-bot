@@ -52,7 +52,7 @@ const {
 	quoteSize = 64,
 	ctaLabel,
 	ctaLink
-} = Astro.props
+} = Astro.props as Props
 
 const hasMeta = Boolean(rating || avatar || figcaption || cite)
 const hasCTA = Boolean(ctaLabel && ctaLink)

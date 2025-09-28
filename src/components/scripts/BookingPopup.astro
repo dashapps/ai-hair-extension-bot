@@ -32,7 +32,7 @@ import { BOOKING_LINK } from '../../config/bookingLink'
 	const closeButtons = modal?.querySelectorAll('[data-booking-close]');
 	const defaultSrc = iframe?.getAttribute('src') || '';
 
-	const openModal = (url) => {
+const openModal = (url?: string) => {
 		if (!modal || !iframe) return;
 		iframe.setAttribute('src', url || defaultSrc);
 		modal.classList.remove('hidden');

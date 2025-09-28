@@ -10,7 +10,7 @@ import { BOOKING_LINK } from '../../../config/bookingLink'
 
 const plans = [
   {
-    type: 'basic',
+    type: 'basic' as const,
     header: {
       title: 'Try',
       subtitle: 'чтобы попробовать',
@@ -31,7 +31,7 @@ const plans = [
     }
   },
   {
-    type: 'basic',
+    type: 'basic' as const,
     header: {
       title: 'Pack',
       subtitle: 'для стабильного потока',
@@ -54,7 +54,7 @@ const plans = [
     }
   },
   {
-    type: 'featured',
+    type: 'featured' as const,
     header: {
       title: 'Pro',
       subtitle: 'для ленивых продаж через ссылку',
@@ -82,7 +82,7 @@ const plans = [
 ---
 
 <Section classes="bg-neutral-50 dark:bg-neutral-900">
-  <Row classes="max-w-6xl mx-auto items-stretch gap-6">
+  <Row classes="max-w-5xl mx-auto items-stretch gap-6">
     <Col span="12" align="center" classes="flex items-center justify-center gap-4 mb-12">
       <span id="monthlyLabel" class="font-semibold text-neutral-400 transition-colors">Оплата помесячно</span>
       <Toggle id="pricingType" label="pricing" showLabel={false} checked={true} />
