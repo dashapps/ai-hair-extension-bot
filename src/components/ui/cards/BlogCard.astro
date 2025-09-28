@@ -54,7 +54,7 @@ const {
 		<h3 class="post-title">
 			<a href={link}>{title}</a>
 		</h3>
-		<h4 class="post-subtitle">{subtitle}</h4>
+		{subtitle && <h4 class="post-subtitle">{subtitle}</h4>}
 		<slot />
 	</CardBody>
 

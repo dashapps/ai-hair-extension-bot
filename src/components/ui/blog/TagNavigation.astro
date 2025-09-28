@@ -15,13 +15,13 @@ const currentTag = pathSegments[pathSegments.length - 1] || ''
 ---
 
 <div class="tags">
-	<Badge link={`/blog/`} name={`All`} type={`${currentTag === 'blog' ? 'primary' : 'neutral'}`} />
+	<Badge link={`/blog/`} name={`все`} type={`${currentTag === 'blog' ? 'primary' : 'neutral'}`} />
 	{
 		tags.map((tag) => (
 			<>
 				<Badge
 					link={`/blog/tags/${tag}`}
-					name={tag}
+					name={tag.toLocaleLowerCase('ru-RU')}
 					type={`${currentTag === tag ? 'primary' : 'neutral'}`}
 				/>
 			</>
@@ -31,6 +31,6 @@ const currentTag = pathSegments[pathSegments.length - 1] || ''
 
 <style>
 	.tags {
-		@apply mb-6 flex flex-row flex-wrap items-center justify-start gap-2 capitalize;
+		@apply mb-6 flex flex-row flex-wrap items-center justify-start gap-2;
 	}
 </style>
