@@ -6,17 +6,24 @@
 // - link: will allow the whole card to be linkable
 // - classes: extra classes
 
+import { BOOKING_LINK } from '../../../../config/bookingLink'
+
 // Props
 type Props = {
 	link?: string
 	classes?: string
 }
+
 const { link, classes } = Astro.props
 ---
 
 {
 	link ? (
-		<a href={link} class:list={['card', { [`${classes}`]: classes }]}>
+		<a
+			href={link}
+			class:list={['card', { [`${classes}`]: classes }]}
+			{...(link ? { 'data-booking-link': link === BOOKING_LINK ? 'true' : undefined, 'data-booking-url': link } : {})}
+		>
 			<slot />
 		</a>
 	) : (

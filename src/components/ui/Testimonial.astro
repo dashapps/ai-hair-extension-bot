@@ -20,6 +20,7 @@
 import { Icon } from 'astro-icon/components'
 import Rating from './Rating.astro'
 import Avatar from './Avatar.astro'
+import { BOOKING_LINK } from '../../config/bookingLink'
 
 // Props
 type Props = {
@@ -98,13 +99,17 @@ const hasCTA = Boolean(ctaLabel && ctaLink)
 					</div>
 				</figcaption>
 			)}
-			{hasCTA && (
-				<div class="testimonial__cta">
-					<a href={ctaLink} class="testimonial__cta-link">
-						{ctaLabel}
-					</a>
-				</div>
-			)}
+{hasCTA && (
+	<div class="testimonial__cta">
+		<a
+			href={ctaLink}
+			class="testimonial__cta-link"
+			{...(ctaLink ? { 'data-booking-link': ctaLink === BOOKING_LINK ? 'true' : undefined, 'data-booking-url': ctaLink } : {})}
+		>
+			{ctaLabel}
+		</a>
+	</div>
+)}
 		</figure>
 		<Icon
 			name="quotes"

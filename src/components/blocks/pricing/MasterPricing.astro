@@ -6,6 +6,7 @@ import Col from '../../ui/Col.astro'
 import PricingTable from '../../ui/pricing-tables/PricingTable.astro'
 import Toggle from '../../ui/forms/form-elements/Toggle.astro'
 import PricingChange from '../../scripts/PricingPlanChange.astro'
+import { BOOKING_LINK } from '../../../config/bookingLink'
 
 const plans = [
   {
@@ -19,7 +20,7 @@ const plans = [
       priceMontly: '500',
       priceLabelMontly: 'разово',
       buttonName: 'Купить токены',
-      buttonLink: 'https://t.me/hair_extention_bot?utm_source=landing&utm_medium=pricing&utm_campaign=ai_hair_extension&utm_content=basic'
+      buttonLink: BOOKING_LINK
     },
     body: {
       listItems: [
@@ -40,7 +41,7 @@ const plans = [
       priceMontly: '2000',
       priceLabelMontly: 'разово',
       buttonName: 'Купить токены',
-      buttonLink: 'https://t.me/hair_extention_bot?utm_source=landing&utm_medium=pricing&utm_campaign=ai_hair_extension&utm_content=pro'
+      buttonLink: BOOKING_LINK
     },
     body: {
       listItems: [
@@ -63,7 +64,7 @@ const plans = [
       priceMontly: '7500',
       priceLabelMontly: 'месяц',
       buttonName: 'Оформить подписку',
-      buttonLink: 'https://t.me/hair_extention_bot?utm_source=landing&utm_medium=pricing&utm_campaign=ai_hair_extension&utm_content=pro_plus'
+      buttonLink: BOOKING_LINK
     },
     body: {
       listItems: [
@@ -81,15 +82,15 @@ const plans = [
 ---
 
 <Section classes="bg-neutral-50 dark:bg-neutral-900">
-  <Row>
+  <Row classes="max-w-6xl mx-auto items-stretch gap-6">
     <Col span="12" align="center" classes="flex items-center justify-center gap-4 mb-12">
       <span id="monthlyLabel" class="font-semibold text-neutral-400 transition-colors">Оплата помесячно</span>
       <Toggle id="pricingType" label="pricing" showLabel={false} checked={true} />
       <span id="annualLabel" class="font-semibold text-neutral-400 text-primary-500 transition-colors">Оплата за год</span>
     </Col>
     {plans.map((plan, idx) => (
-      <Col span="4">
-        <PricingTable data={plan} listType="checklist" id={`plan-${idx}`} />
+      <Col span="4" classes="h-full">
+        <PricingTable data={plan} listType="checklist" id={`plan-${idx}`} classes="h-full" />
       </Col>
     ))}
   </Row>

@@ -8,6 +8,7 @@ import Section from '../components/ui/Section.astro'
 import Row from '../components/ui/Row.astro'
 import Col from '../components/ui/Col.astro'
 import Button from '../components/ui/Button.astro'
+import { BOOKING_LINK } from '../config/bookingLink'
 
 // Section Components
 import BlogPostHero from '../components/blocks/blog/BlogPostHero.astro'
@@ -47,7 +48,8 @@ const SEO = {
 				</p>
 				<Button
 					type="link"
-					link="/contact?consult=1"
+					link={BOOKING_LINK}
+					booking
 					size="lg"
 					style="primary"
 					classes="mt-6"

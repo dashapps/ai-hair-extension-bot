@@ -5,6 +5,7 @@ import Row from '../../ui/Row.astro'
 import Col from '../../ui/Col.astro'
 import CTA from '../../ui/CTA.astro'
 import Button from '../../ui/Button.astro'
+import { BOOKING_LINK } from '../../../config/bookingLink'
 
 type Props = {
   title?: string
@@ -20,7 +21,7 @@ const {
   title = 'Попробуй&nbsp;сама',
   text = 'Пройди путь клиента сама — лучше один раз увидеть.',
   buttonLabel = 'Перейти в бота',
-  buttonLink = 'https://t.me/hair_extention_bot?utm_source=landing&utm_medium=masters_cta&utm_campaign=ai_hair_extension',
+  buttonLink = BOOKING_LINK,
   sectionClasses = 'bg-neutral-100 dark:bg-neutral-900/40',
   ctaClasses = '!shadow-none',
   sectionId,
@@ -32,7 +33,7 @@ const {
     <Col span="1" />
     <Col span="10">
       <CTA title={title} text={text} classes={ctaClasses}>
-        <Button size="lg" style="primary" link={buttonLink}>{buttonLabel}</Button>
+        <Button size="lg" style="primary" link={buttonLink} booking>{buttonLabel}</Button>
       </CTA>
     </Col>
     <Col span="1" />

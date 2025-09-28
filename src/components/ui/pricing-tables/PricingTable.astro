@@ -106,6 +106,7 @@ const { type, header, body, footer } = data
 				elevated
 				type="link"
 				link={header.buttonLink}
+				booking={header.buttonLink === BOOKING_LINK}
 			>
 				{header.buttonName}
 			</Button>
@@ -131,6 +132,7 @@ const { type, header, body, footer } = data
 						style="primary"
 						type="link"
 						link={footer.buttonLink}
+						booking={footer.buttonLink === BOOKING_LINK}
 						variation="link"
 						classes={'!font-medium ' + (type === 'featured' ? '!text-white' : '')}
 					>
@@ -151,7 +153,7 @@ const { type, header, body, footer } = data
 	}
 	.pricing__header-title {
 		@apply mb-0 text-2xl lg:text-3xl font-bold text-neutral-700 dark:text-neutral-50 [&.pricing\_\_header-title--featured]:text-primary-50;
-	}
+}
 	.pricing__header-subtitle {
 		@apply block text-sm font-normal;
 	}
@@ -159,7 +161,7 @@ const { type, header, body, footer } = data
 		@apply text-3xl;
 	}
 	.pricing__header-price {
-		@apply tracking-tighter;
+		@apply text-4xl lg:text-5xl tracking-tight;
 	}
 	.pricing__header-perTime {
 		@apply text-sm;
@@ -177,3 +179,4 @@ const { type, header, body, footer } = data
 		@apply border-primary-500 bg-primary-500 text-primary-100 shadow-2xl shadow-primary-500/30 [&_.pricing\_\_header-subtitle]:text-primary-200;
 	}
 </style>
+import { BOOKING_LINK } from '../../config/bookingLink'

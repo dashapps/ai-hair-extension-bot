@@ -103,7 +103,14 @@ const savedNavActions = navActions.map((action) => ({
 			<div class="header__actions">
 				{
 					savedNavActions.map((action) => (
-						<Button classes="flex-auto" size={action.size} style={action.style} modal="signup">
+						<Button
+							classes="flex-auto"
+							size={action.size}
+							style={action.style}
+							type="link"
+							link={action.link}
+							booking
+						>
 							{action.name}
 						</Button>
 					))

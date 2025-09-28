@@ -23,6 +23,7 @@ type Props = {
 	variation?: 'outline' | 'link'
 	elevated?: boolean
 	classes?: string
+	booking?: boolean
 }
 const {
 	type = 'button',
@@ -32,7 +33,8 @@ const {
 	style = 'primary',
 	variation,
 	elevated,
-	classes
+	classes,
+	booking = false
 } = Astro.props
 ---
 
@@ -40,7 +42,7 @@ const {
 	type === 'link' || link ? (
 		<a
 			href={link}
-			target={link?.startsWith('http') ? '_blank' : '_self'}
+			target={!booking && link?.startsWith('http') ? '_blank' : '_self'}
 			class:list={[
 				'button',
 				{ ['button--' + `${size}`]: size },
@@ -49,6 +51,7 @@ const {
 				{ ['button--elevated']: elevated },
 				{ [`${classes}`]: classes }
 			]}
+			{...(booking ? { 'data-booking-link': 'true', 'data-booking-url': link } : {})}
 		>
 			<slot />
 		</a>

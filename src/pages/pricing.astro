@@ -23,6 +23,7 @@ import List from '../components/ui/List.astro'
 import PricingTable from '../components/ui/pricing-tables/PricingTable.astro'
 import Toggle from '../components/ui/forms/form-elements/Toggle.astro'
 import Card from '../components/ui/cards/BasicCard.astro'
+import { BOOKING_LINK } from '../config/bookingLink'
 
 // Content
 import faqData from '../data/json-files/faqData.json'
@@ -258,7 +259,7 @@ const screenshots = Array.from({ length: 19 }, (_, i) => i + 1).map(
       figcaption=""
       cite=""
       ctaLabel="Заказать демо"
-      ctaLink="/contact?demo=1"
+      ctaLink={BOOKING_LINK}
     />
 
     <FAQSticky
@@ -464,7 +465,7 @@ const screenshots = Array.from({ length: 19 }, (_, i) => i + 1).map(
             priceMontly: '15 000',
             priceLabelMontly: 'месяц',
             buttonName: 'Подключить',
-            buttonLink: '/contact'
+            buttonLink: BOOKING_LINK
           },
           body: {
             listItems: [
@@ -488,7 +489,7 @@ const screenshots = Array.from({ length: 19 }, (_, i) => i + 1).map(
             priceMontly: '25 000',
             priceLabelMontly: 'месяц',
             buttonName: 'Заказать демо',
-            buttonLink: '/contact?demo=1'
+            buttonLink: BOOKING_LINK
           },
           body: {
             listItems: [
@@ -512,7 +513,7 @@ const screenshots = Array.from({ length: 19 }, (_, i) => i + 1).map(
             priceMontly: 'по запросу',
             priceLabelMontly: '',
             buttonName: 'Узнать подробности',
-            buttonLink: '/contact?exclusive=1'
+            buttonLink: BOOKING_LINK
           },
           body: {
             listItems: [
@@ -529,11 +530,11 @@ const screenshots = Array.from({ length: 19 }, (_, i) => i + 1).map(
 
       return (
         <Section id="platform-pricing" classes="bg-neutral-50 dark:bg-neutral-900">
-          <Row>
+          <Row classes="max-w-6xl mx-auto items-stretch">
             <Col span="12" align="center" classes="mb-10">
-              <h3 class="text-3xl font-bold">
+              <h2 class="text-pretty text-3xl lg:text-4xl font-bold">
                 <span class="text-primary-500">Сколько стоит</span> платформа
-              </h3>
+              </h2>
               <p class="text-lg leading-relaxed mt-2 max-w-[42.5rem] mx-auto">Решения для масштабирования — от маленькой школы до региональной монополии</p>
               <div class="mt-6 flex items-center justify-center gap-4">
                 <span id="platformAnnualLabel" class="font-semibold text-neutral-400">подключение</span>
@@ -542,10 +543,10 @@ const screenshots = Array.from({ length: 19 }, (_, i) => i + 1).map(
               </div>
             </Col>
             <Col span="12">
-              <Row>
+              <Row classes="max-w-6xl mx-auto items-stretch">
                 {platformPlans.map((plan, idx) => (
-                  <Col span="4">
-                    <PricingTable data={plan} listType="checklist" id={`platform-plan-${idx}`} classes="platform-pricing-card" />
+                  <Col span="4" classes="h-full">
+                    <PricingTable data={plan} listType="checklist" id={`platform-plan-${idx}`} classes="platform-pricing-card h-full" />
                   </Col>
                 ))}
               </Row>
@@ -644,7 +645,7 @@ const screenshots = Array.from({ length: 19 }, (_, i) => i + 1).map(
       title="Готова масштабировать бизнес?"
       text="<strong>Закажи демонстрацию</strong>: проведём онлайн&nbsp;встречу. Дадим протестировать бота и обсудим, как оптимально встроить платформу в&nbsp;формат твоего&nbsp;бизнеса."
       buttonLabel="Заказать демонстрацию"
-      buttonLink="/contact?demo=1"
+      buttonLink={BOOKING_LINK}
       sectionId="platform-master-cta"
       sectionClasses="bg-neutral-100 dark:bg-neutral-900/40 relative master-cta-bg pb-[90vw] sm:pb-[65vw] md:pb-[45vw] lg:pb-28"
       ctaClasses="!shadow-none !border border-white/30 !bg-white/35 backdrop-blur-sm lg:!bg-white lg:backdrop-blur-md lg:border-white/60 lg:w-2/3 lg:ml-0 lg:mr-auto lg:items-start lg:text-left lg:gap-6 lg:[&_.button]:self-center lg:[&_.button]:mx-auto text-center dark:border-neutral-800/30 dark:!bg-neutral-900/30 lg:dark:!bg-neutral-900/60"

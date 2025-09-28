@@ -31,6 +31,8 @@ export interface NavData {
 	navActions: NavAction[]
 }
 
+import { BOOKING_LINK } from './bookingLink'
+
 export const navigationBarData: NavData = {
     logo: {
         src: '/hair_extension_64.webp',
@@ -53,5 +55,10 @@ export const navigationBarData: NavData = {
             ]
         }
     ],
-    navActions: [{ name: 'Заказать демо', link: '/contact?demo=1', style: 'primary', size: 'lg' }]
+    navActions: [{
+        name: 'Заказать демо',
+        link: BOOKING_LINK,
+        style: 'primary',
+        size: 'lg'
+    }]
 }
