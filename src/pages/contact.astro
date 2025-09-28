@@ -4,21 +4,24 @@
 import Layout from '../layouts/Layout.astro'
 // - UI
 import FormHero from '../components/blocks/hero/ContactHero.astro'
-import CTA from '../components/blocks/CTA/BasicDark.astro'
 import ContactCards from '../components/blocks/contact/ContactCards.astro'
-import SocialProof from '../components/blocks/socialproof/Basic.astro'
+import Section from '../components/ui/Section.astro'
+import Row from '../components/ui/Row.astro'
+import Col from '../components/ui/Col.astro'
+import Button from '../components/ui/Button.astro'
+import { BOOKING_LINK } from '../config/bookingLink'
 
 // Content
 // - SEO
 const SEO = {
-	title: 'Foxi | Get in Touch with Us',
+	title: 'AI Hair Extension | Связаться с командой',
 	description:
-		'Have questions or need assistance? Contact Foxi today for support, inquiries, or feedback. Our team is here to help you make the most of your Foxi experience.'
+		'ИИ-решения для продаж бьюти. Создаём платформы, которые приводят клиентов и доход. Запишись на консультацию или оставь заявку — подберём решение под твой бизнес.'
 }
 // - Page Header
 const header = {
-	title: 'Get Answers to Your <strong>Foxi</strong> Questions.',
-	text: "Whether you have a question, need support, or just want to share your feedback, we're all ears. Reach out to us and we'll get back to you as soon as possible."
+	title: 'ИИ-решения для продаж&nbsp;<strong>бьюти</strong>',
+	text: 'Создаём решения, которые приносят доход и клиентов. Запишись на консультацию или заполни форму — подберём то, что будет работать на тебя.'
 }
 ---
 
@@ -30,6 +33,46 @@ const header = {
 		classes="bg-neutral-50 dark:bg-neutral-950/80"
 	/>
 	<ContactCards classes="dark:bg-neutral-950/80" />
-	<SocialProof classes="dark:bg-neutral-950/80" />
-	<CTA />
+	<Section classes="bg-neutral-50 dark:bg-neutral-950/80">
+		<Row classes="max-w-5xl mx-auto">
+			<Col span="2" />
+			<Col span="8">
+				<h2 class="text-pretty text-3xl font-bold text-neutral-800 dark:text-neutral-50">
+					Создадим бота и интегрируем его в&nbsp;твою&nbsp;бизнес-модель
+				</h2>
+				<p class="mt-4 text-lg font-semibold text-neutral-700 dark:text-neutral-100">
+					От демо-превью до ботов-диагностов и консультантов, которые помогают выбрать процедуру или продукт.
+				</p>
+				<ul class="mt-6 space-y-3 text-base leading-relaxed text-neutral-600 dark:text-neutral-200">
+					<li><strong>Превью «до/после».</strong> Покажи клиенту результат ещё до продажи.</li>
+					<li><strong>Бот-диагност.</strong> Расскажет о состоянии волос, кожи или о сроках пути к телу мечты в конкретном сценарии.</li>
+					<li><strong>Бот-консультант.</strong> Поможет выбрать процедуры или товары и не забудет про апсейлы.</li>
+					<li><strong>Монетизация ×4.</strong> Расскажи о своей специфике — предложим решение, которое поднимает чек или даёт пассивный доход.</li>
+				</ul>
+			</Col>
+			<Col span="2" />
+		</Row>
+	</Section>
+	<Section classes="bg-neutral-900">
+		<Row classes="max-w-4xl mx-auto">
+			<Col span="12" classes="rounded-3xl border border-neutral-800 bg-neutral-900/90 p-10 text-center shadow-lg shadow-black/30 backdrop-blur md:p-14">
+				<h2 class="text-pretty text-2xl font-bold text-neutral-50 md:text-3xl">
+					Хочешь понять, что использовать именно тебе?
+				</h2>
+				<p class="mt-4 text-base text-neutral-200 md:text-lg">
+					Запишись на консультацию. Расскажешь о своих процессах — подберём решение, посчитаем сроки и бюджет. От недели. От 30&nbsp;000&nbsp;₽.
+				</p>
+				<Button
+					type="link"
+					link={BOOKING_LINK}
+					booking
+					size="lg"
+					style="primary"
+					classes="mt-6"
+				>
+					Заказать консультацию
+				</Button>
+			</Col>
+		</Row>
+	</Section>
 </Layout>

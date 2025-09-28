@@ -15,7 +15,7 @@ const { screenshots = [], eager = false } = Astro.props
   initial-slide="0"
   
 >
-  {screenshots.map((src, i) => (
+  {screenshots.map((src: string, i: number) => (
     <swiper-slide>
       <div class="hero-slide">
         <img src={src} alt="Скриншот демо AI Hair Extension Bot" loading={(eager || i === 0) ? 'eager' : 'lazy'} fetchpriority={(eager || i === 0) ? 'high' : 'auto'} decoding="async" />
@@ -53,14 +53,24 @@ const { screenshots = [], eager = false } = Astro.props
   import { register } from 'swiper/element/bundle'
   if (!customElements.get('swiper-container')) register()
   if (typeof window !== 'undefined') {
+    type HeroSwiperElement = HTMLElement & {
+      update?: () => void
+      swiper?: {
+        slideTo?: (index: number, speed?: number) => void
+        slideNext?: () => void
+        slidePrev?: () => void
+      }
+    }
     // no offset; rely on centered-slides
     const updateAll = () => {
-      document.querySelectorAll('swiper-container.hero-swiper').forEach((el) => el.update?.())
+      document
+        .querySelectorAll<HeroSwiperElement>('swiper-container.hero-swiper')
+        .forEach((el) => el.update?.())
     }
     updateAll()
     window.addEventListener('resize', updateAll)
     // Interactions: click/tap or keys move exactly one slide (no scaling)
-    const els = document.querySelectorAll('swiper-container.hero-swiper')
+    const els = document.querySelectorAll<HeroSwiperElement>('swiper-container.hero-swiper')
     els.forEach((el) => {
       // Force start from first slide centered
       let tries = 0
@@ -72,30 +82,30 @@ const { screenshots = [], eager = false } = Astro.props
         }
       }
       ensureFirstCentered()
-      el.slidesPerGroup = 1
-      el.speed = 500
+      ;(el as unknown as { slidesPerGroup?: number }).slidesPerGroup = 1
+      ;(el as unknown as { speed?: number }).speed = 500
       // focusable for keyboard
       el.tabIndex = 0
       // click anywhere except interactive child -> next by one
-      el.addEventListener('click', (e) => {
-        const t = e.target
-        if (t && (t.closest?.('a,button,[role="button"],input,textarea,select'))) return
-        el.swiper?.slideNext()
+      el.addEventListener('click', (e: MouseEvent) => {
+        const t = e.target as Element | null
+        if (t?.closest('a,button,[role="button"],input,textarea,select')) return
+        el.swiper?.slideNext?.()
       })
-      el.addEventListener('keydown', (e) => {
+      el.addEventListener('keydown', (e: KeyboardEvent) => {
         if (e.key === 'ArrowRight' || e.key === 'Enter' || e.key === ' ' || e.key === 'Tab') {
           e.preventDefault()
-          el.swiper?.slideNext()
+          el.swiper?.slideNext?.()
         } else if (e.key === 'ArrowLeft') {
           e.preventDefault()
-          el.swiper?.slidePrev()
+          el.swiper?.slidePrev?.()
         }
       })
       // extra: ensure tap/pointer triggers next as well
-      el.addEventListener('pointerup', (e) => {
-        const t = e.target
-        if (t && (t.closest?.('a,button,[role="button"],input,textarea,select'))) return
-        el.swiper?.slideNext()
+      el.addEventListener('pointerup', (e: PointerEvent) => {
+        const t = e.target as Element | null
+        if (t?.closest('a,button,[role="button"],input,textarea,select')) return
+        el.swiper?.slideNext?.()
       })
     })
   }

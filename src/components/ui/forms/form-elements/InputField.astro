@@ -31,6 +31,7 @@ type Props = {
 	required?: boolean
 	disabled?: boolean
 	value?: string
+	placeholder?: string
 	classes?: string
 }
 const {
@@ -43,6 +44,7 @@ const {
 	required,
 	disabled,
 	value,
+	placeholder,
 	classes
 } = Astro.props
 ---
@@ -59,7 +61,7 @@ const {
 		id={id}
 		type={type}
 		name={id}
-		placeholder={label}
+		placeholder={placeholder ?? label}
 		required={required}
 		disabled={disabled}
 		value={value}

@@ -20,6 +20,8 @@ type Props = {
 	bgPosition?: 'left' | 'right' | 'center'
 	classes?: string
 	id?: string
+	ctaLabel?: string
+	ctaLink?: string
 }
 const {
 	blockquote = 'Foxi is like a rocket boost for our productivity! Its sleek design and out-of-this-world features make managing projects and team communication a breeze.',
@@ -28,7 +30,9 @@ const {
 	bg,
 	bgPosition = 'center',
 	classes,
-	id = 'testimonial'
+	id = 'testimonial',
+	ctaLabel,
+	ctaLink
 } = Astro.props
 ---
 
@@ -52,6 +56,8 @@ const {
                 mobileSize="2xl"
                 classes="!leading-tight font-bold xl:text-5xl max-w-4xl mx-auto text-white"
                 quoteSize={112}
+                ctaLabel={ctaLabel}
+                ctaLink={ctaLink}
             />
             </div>
         </Col>
