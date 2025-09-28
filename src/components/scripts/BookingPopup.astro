@@ -32,17 +32,10 @@ import { BOOKING_LINK } from '../../config/bookingLink'
 	const closeButtons = modal?.querySelectorAll('[data-booking-close]');
 	const defaultSrc = iframe?.getAttribute('src') || '';
 
-const openModal = (url?: string) => {
-		if (!modal || !iframe) return;
-		iframe.setAttribute('src', url || defaultSrc);
-		modal.classList.remove('hidden');
-		document.body.classList.add('overflow-hidden');
-	};
-
-	const closeModal = () => {
-		if (!modal || !iframe) return;
-		modal.classList.add('hidden');
-		document.body.classList.remove('overflow-hidden');
+const openBookingWindow = (url?: string) => {
+		const targetUrl = url || defaultSrc;
+		if (!targetUrl) return;
+		window.open(targetUrl, '_blank', 'noopener,noreferrer');
 	};
 
 	document.addEventListener('click', (event) => {
@@ -52,25 +45,7 @@ const openModal = (url?: string) => {
 		if (trigger instanceof HTMLElement) {
 			event.preventDefault();
 			const link = trigger.getAttribute('data-booking-url') || defaultSrc;
-			openModal(link);
-		}
-	});
-
-	closeButtons?.forEach((button) =>
-		button.addEventListener('click', () => {
-			closeModal();
-		})
-	);
-
-	modal?.addEventListener('click', (event) => {
-		if (event.target === modal) {
-			closeModal();
-		}
-	});
-
-	document.addEventListener('keydown', (event) => {
-		if (event.key === 'Escape') {
-			closeModal();
+			openBookingWindow(link);
 		}
 	});
 </script>
