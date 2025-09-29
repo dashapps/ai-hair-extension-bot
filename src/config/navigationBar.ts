@@ -41,8 +41,8 @@ export const navigationBarData: NavData = {
     },
     navItems: [
         { name: 'Платформа', link: '/' },
-        { name: 'Мастерам', link: '/features' },
-        { name: 'Телеграм‑бот', link: '/bot' },
+        { name: 'Мастерам (демо)', link: '/features' },
+        { name: 'Телеграм‑бот (демо)', link: '/bot' },
         {
             name: 'Бизнесу',
             link: '#',

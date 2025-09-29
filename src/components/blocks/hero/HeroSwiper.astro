@@ -19,7 +19,7 @@ const {
     <div class="swiper-wrapper">
       {screenshots.map((src: string, i: number) => (
         <div class="swiper-slide">
-          <div class="hero-slide">
+      <div class="hero-slide">
             <img
               src={src}
               alt="Скриншот демо AI Hair Extension Bot"
@@ -51,46 +51,26 @@ const {
 
 <style>
   .hero-swiper {
-    @apply relative block w-full pb-16;
+    @apply relative block w-full;
     --hero-swiper-track: #f5f5f5;
-    margin-bottom: -3.5rem;
-  }
-  .hero-swiper::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    height: clamp(4rem, 10vw, 6rem);
-    background: var(--hero-swiper-track);
-    border-radius: 9999px 9999px 0 0;
-    z-index: 1;
   }
   .hero-swiper__instance {
     @apply relative block w-full;
-    z-index: 2;
   }
   .swiper-wrapper { align-items: flex-end; }
   .swiper-slide { width: auto !important; }
   .no-scrollbar::-webkit-scrollbar { display: none; }
   .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
   .hero-slide {
-    @apply inline-block h-[60vh] max-h-[640px] overflow-hidden rounded-t-2xl shadow-2xl shadow-neutral-200 dark:shadow-neutral-950;
+    @apply inline-block h-[60vh] max-h-[640px] overflow-hidden rounded-3xl shadow-2xl shadow-neutral-200 dark:shadow-neutral-950;
   }
   .hero-slide img { @apply block h-full w-auto object-contain; }
 
   .hero-swiper__dots {
-    @apply absolute left-1/2 flex items-center justify-center gap-2 rounded-full px-4 py-2 shadow-lg shadow-black/5 backdrop-blur;
-    bottom: -2.5rem;
-    transform: translate(-50%, 50%);
-    z-index: 3;
-    background: rgba(255, 255, 255, 0.9);
-    border: 1px solid rgba(15, 23, 42, 0.08);
-    background: color-mix(in srgb, var(--hero-swiper-track) 92%, white);
-    border-color: color-mix(in srgb, var(--hero-swiper-track) 60%, rgba(15, 23, 42, 0.2));
+    @apply mt-6 mb-5 flex items-center justify-center gap-2;
   }
   .hero-swiper__dot {
-    @apply h-2 w-2 rounded-full bg-neutral-400 transition-colors duration-300 ease-out;
+    @apply h-2 w-2 rounded-full bg-neutral-400 transition-all duration-300 ease-out;
   }
   .hero-swiper__dot.is-active {
     @apply w-6 bg-primary-400;
@@ -112,16 +92,6 @@ const {
 
   :global(.dark) .hero-swiper {
     --hero-swiper-track: var(--hero-swiper-track-dark, #111827);
-  }
-  :global(.dark) .hero-swiper__dots {
-    background: rgba(17, 24, 39, 0.85);
-    border-color: rgba(148, 163, 184, 0.32);
-  }
-  :global(.dark) .hero-swiper__dot {
-    @apply bg-slate-500/60;
-  }
-  :global(.dark) .hero-swiper__dot.is-active {
-    @apply bg-primary-300;
   }
 
   /* Scope overflow fix only to this hero swiper */
