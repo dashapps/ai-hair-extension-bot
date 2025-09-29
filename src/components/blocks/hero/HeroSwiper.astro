@@ -10,10 +10,9 @@ const { screenshots = [], eager = false } = Astro.props
   space-between="32"
   grab-cursor="true"
   slides-per-group="1"
-  speed="500"
+  speed="600"
   centered-slides="true"
   initial-slide="0"
-  
 >
   {screenshots.map((src: string, i: number) => (
     <swiper-slide>
@@ -51,8 +50,10 @@ const { screenshots = [], eager = false } = Astro.props
 
 <script>
   import { register } from 'swiper/element/bundle'
-  if (!customElements.get('swiper-container')) register()
+
   if (typeof window !== 'undefined') {
+    if (!customElements.get('swiper-container')) register()
+
     type HeroSwiperElement = HTMLElement & {
       update?: () => void
       swiper?: {
@@ -65,30 +66,39 @@ const { screenshots = [], eager = false } = Astro.props
         slides?: ArrayLike<any>
       }
     }
-    // no offset; rely on centered-slides
+    const managed = new Set<HeroSwiperElement>()
+
     const updateAll = () => {
-      document
-        .querySelectorAll<HeroSwiperElement>('swiper-container.hero-swiper')
-        .forEach((el) => el.update?.())
+      managed.forEach((el) => el.swiper?.update?.())
     }
-    updateAll()
-    window.addEventListener('resize', updateAll)
-    // Interactions: click/tap or keys move exactly one slide (no scaling)
-    const els = document.querySelectorAll<HeroSwiperElement>('swiper-container.hero-swiper')
-    els.forEach((el) => {
-      // Force start from first slide centered
-      let tries = 0
-      const ensureFirstCentered = () => {
-        if (el.swiper?.slideTo) {
-          el.swiper.slideTo(0, 0)
-        } else if (tries++ < 40) {
-          requestAnimationFrame(ensureFirstCentered)
+
+    const setupEl = (el: HeroSwiperElement) => {
+      if (managed.has(el)) return
+      managed.add(el)
+
+      const ensureInitialState = () => {
+        const swiper = el.swiper
+        if (!swiper) return
+        if (swiper.params) {
+          swiper.params.speed = 600
+          swiper.params.slidesPerGroup = 1
         }
+        requestAnimationFrame(() => {
+          swiper.update?.()
+          swiper.slideTo?.(0, 0)
+        })
       }
-      ensureFirstCentered()
-      ;(el as unknown as { slidesPerGroup?: number }).slidesPerGroup = 1
-      ;(el as unknown as { speed?: number }).speed = 600
-      // focusable for keyboard
+
+      if (el.swiper) {
+        ensureInitialState()
+      } else {
+        const onReady = () => {
+          ensureInitialState()
+          el.removeEventListener('ready', onReady)
+        }
+        el.addEventListener('ready', onReady)
+      }
+
       el.tabIndex = 0
       const getSlidesCount = () => el.querySelectorAll('swiper-slide').length
       const goNext = () => {
@@ -103,14 +113,14 @@ const { screenshots = [], eager = false } = Astro.props
         }
       }
 
-      // click anywhere except interactive child -> next by one
       el.addEventListener('click', (e: MouseEvent) => {
         const t = e.target as Element | null
         if (t?.closest('a,button,[role="button"],input,textarea,select')) return
         goNext()
       })
+
       el.addEventListener('keydown', (e: KeyboardEvent) => {
-        if (e.key === 'ArrowRight' || e.key === 'Enter' || e.key === ' ' || e.key === 'Tab') {
+        if (e.key === 'ArrowRight' || e.key === 'Enter' || e.key === ' ') {
           e.preventDefault()
           goNext()
         } else if (e.key === 'ArrowLeft') {
@@ -118,12 +128,23 @@ const { screenshots = [], eager = false } = Astro.props
           el.swiper?.slidePrev?.(600)
         }
       })
-      // extra: ensure tap/pointer triggers next as well
-      el.addEventListener('pointerup', (e: PointerEvent) => {
-        const t = e.target as Element | null
-        if (t?.closest('a,button,[role="button"],input,textarea,select')) return
-        goNext()
-      })
+    }
+
+    const hydrateAll = () => {
+      document
+        .querySelectorAll<HeroSwiperElement>('swiper-container.hero-swiper')
+        .forEach(setupEl)
+      requestAnimationFrame(updateAll)
+    }
+
+    if (customElements.get('swiper-container')) {
+      hydrateAll()
+    } else {
+      customElements.whenDefined('swiper-container').then(hydrateAll)
+    }
+
+    window.addEventListener('resize', () => {
+      requestAnimationFrame(updateAll)
     })
   }
 </script>

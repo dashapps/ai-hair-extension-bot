@@ -9,6 +9,7 @@ import Row from '../components/ui/Row.astro'
 import Col from '../components/ui/Col.astro'
 import Button from '../components/ui/Button.astro'
 import { BOOKING_LINK } from '../config/bookingLink'
+import { configData } from '../config/config'
 
 // Section Components
 import BlogPostHero from '../components/blocks/blog/BlogPostHero.astro'
@@ -19,22 +20,61 @@ const SEO = {
 	title: `${frontmatter.title} | AI Hair Extension`,
 	description: `${frontmatter.description}`
 }
+
+const siteOrigin = Astro.url?.origin || import.meta.env.SITE || ''
+const defaultOg = siteOrigin ? new URL(configData.ogImage, siteOrigin).toString() : configData.ogImage
+const ogImage = frontmatter.image ? new URL(frontmatter.image, siteOrigin || 'http://localhost').toString() : defaultOg
+const publishDate = frontmatter.pubDate
+	? frontmatter.pubDate
+			.toLocaleDateString('ru-RU', {
+				year: 'numeric',
+				month: 'long',
+				day: 'numeric'
+			})
+			.replace(' г.', '')
+	: ''
+
+const articleJsonLd = siteOrigin
+	? JSON.stringify(
+		{
+			"@context": 'https://schema.org',
+			"@type": 'Article',
+			headline: frontmatter.title,
+			description: frontmatter.description,
+			image: ogImage,
+			mainEntityOfPage: Astro.url.toString(),
+			author: {
+				"@type": 'Person',
+				name: 'Maugli AI Editorial System',
+				url: 'https://www.linkedin.com/in/dariazorina/'
+			},
+			publisher: {
+				"@type": 'Organization',
+				name: 'Maugli SFD',
+				url: siteOrigin,
+				logo: {
+					"@type": 'ImageObject',
+					url: new URL(configData.logo.src, siteOrigin).toString()
+				}
+			},
+			datePublished: frontmatter.pubDate,
+			dateModified: frontmatter.pubDate
+		},
+		null,
+		0
+	)
+	: ''
 ---
 
-<Layout title={SEO.title} description={SEO.description}>
+<Layout title={SEO.title} description={SEO.description} ogImage={ogImage}>
+	{articleJsonLd && (
+		<script type="application/ld+json" is:inline set:html={articleJsonLd}></script>
+	)}
 	<BlogPostHero
 		tags={frontmatter.tags}
 		title={frontmatter.title}
 		author={frontmatter.author}
-		publishDate={frontmatter.pubDate
-			? frontmatter.pubDate
-					.toLocaleDateString('ru-RU', {
-						year: 'numeric',
-						month: 'long',
-						day: 'numeric'
-					})
-					.replace(' г.', '')
-			: ''}
+		publishDate={publishDate}
 	/>
 
 	<div class="post-body basic-text basic-text--lg">

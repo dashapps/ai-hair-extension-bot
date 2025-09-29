@@ -30,19 +30,35 @@ const {
 } = Astro.props
 
 const siteOrigin = Astro.url?.origin || import.meta.env.SITE || ''
-const organizationJsonLd = JSON.stringify(
-	{
-		"@context": 'https://schema.org',
-		"@type": 'Organization',
-		name: 'AI Hair Extension',
-		description: configData.siteDescription,
-		url: siteOrigin,
-		logo: new URL(configData.logo.src, siteOrigin).toString(),
-		sameAs: ['https://t.me/hair_extension_bot']
-	},
-	null,
-	0
-)
+
+const resolvedOgImage = (() => {
+	if (!ogImage) return ''
+	if (/^https?:\/\//i.test(ogImage)) return ogImage
+	if (!siteOrigin) return ogImage
+	try {
+		return new URL(ogImage, siteOrigin).toString()
+	} catch {
+		return ogImage
+	}
+})()
+const organizationJsonLd = siteOrigin
+	? JSON.stringify(
+		{
+			"@context": 'https://schema.org',
+			"@type": 'Organization',
+			name: 'Maugli SFD',
+			description: configData.siteDescription,
+			url: siteOrigin,
+			logo: new URL(configData.logo.src, siteOrigin).toString(),
+			sameAs: [
+				'https://t.me/hair_extension_bot',
+				'https://www.linkedin.com/company/maugli-ai/'
+			]
+		},
+		null,
+		0
+	)
+	: ''
 ---
 
 <head>
@@ -54,7 +70,7 @@ const organizationJsonLd = JSON.stringify(
 	<Seo
 		title={title}
 		description={description}
-		ogImage={ogImage}
+		ogImage={resolvedOgImage}
 		canonical={canonical}
 		noindex={noindex}
 	/>
@@ -70,8 +86,8 @@ const organizationJsonLd = JSON.stringify(
 	<link rel="preconnect" href="https://fonts.googleapis.com" />
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 	<link href="https://fonts.googleapis.com/css2?family=Geologica:wght@100..900&display=swap" rel="stylesheet" />
-	{siteOrigin && (
-		<script type="application/ld+json" set:html={organizationJsonLd}></script>
+	{organizationJsonLd && (
+		<script type="application/ld+json" is:inline set:html={organizationJsonLd}></script>
 	)}
 	<ClientRouter fallback="swap" />
 </head>
