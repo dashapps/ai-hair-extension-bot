@@ -1,27 +1,48 @@
 ---
-// Hero Swiper using Swiper Element (no React needed)
-// Props: screenshots: string[] (public paths), eager?: boolean
-const { screenshots = [], eager = false } = Astro.props
+// Hero Swiper using Swiper JS (no React needed)
+// Props: screenshots: string[] (public paths), eager?: boolean, trackColor?: string (CSS color/var)
+type HeroSwiperProps = {
+  screenshots?: string[]
+  eager?: boolean
+  trackColor?: string
+}
+
+const {
+  screenshots = [],
+  eager = false,
+  trackColor = 'var(--hero-swiper-track-color, #f5f5f5)',
+} = Astro.props as HeroSwiperProps
 ---
 
-<swiper-container
-  class="hero-swiper no-scrollbar"
-  slides-per-view="auto"
-  space-between="32"
-  grab-cursor="true"
-  slides-per-group="1"
-  speed="600"
-  centered-slides="true"
-  initial-slide="0"
->
-  {screenshots.map((src: string, i: number) => (
-    <swiper-slide>
-      <div class="hero-slide">
-        <img src={src} alt="Скриншот демо AI Hair Extension Bot" loading={(eager || i === 0) ? 'eager' : 'lazy'} fetchpriority={(eager || i === 0) ? 'high' : 'auto'} decoding="async" />
-      </div>
-    </swiper-slide>
-  ))}
-</swiper-container>
+<div class="hero-swiper" style={`--hero-swiper-track:${trackColor}`}>
+  <div class="swiper hero-swiper__instance no-scrollbar">
+    <div class="swiper-wrapper">
+      {screenshots.map((src: string, i: number) => (
+        <div class="swiper-slide">
+          <div class="hero-slide">
+            <img
+              src={src}
+              alt="Скриншот демо AI Hair Extension Bot"
+              loading={(eager || i === 0) ? 'eager' : 'lazy'}
+              fetchpriority={(eager || i === 0) ? 'high' : 'auto'}
+              decoding="async"
+            />
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+  <div class="hero-swiper__dots" role="group" aria-label="Скриншоты">
+    {screenshots.map((_: string, idx: number) => (
+      <button
+        type="button"
+        class="hero-swiper__dot"
+        data-slide={idx}
+        aria-label={`Показать слайд ${idx + 1}`}
+      ></button>
+    ))}
+  </div>
+</div>
 
 <style is:global>
   @import 'swiper/css';
@@ -29,8 +50,28 @@ const { screenshots = [], eager = false } = Astro.props
 </style>
 
 <style>
-  .hero-swiper { @apply block w-full items-end; }
-  swiper-slide { width: auto !important; }
+  .hero-swiper {
+    @apply relative block w-full pb-16;
+    --hero-swiper-track: #f5f5f5;
+    margin-bottom: -3.5rem;
+  }
+  .hero-swiper::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: clamp(4rem, 10vw, 6rem);
+    background: var(--hero-swiper-track);
+    border-radius: 9999px 9999px 0 0;
+    z-index: 1;
+  }
+  .hero-swiper__instance {
+    @apply relative block w-full;
+    z-index: 2;
+  }
+  .swiper-wrapper { align-items: flex-end; }
+  .swiper-slide { width: auto !important; }
   .no-scrollbar::-webkit-scrollbar { display: none; }
   .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
   .hero-slide {
@@ -38,10 +79,54 @@ const { screenshots = [], eager = false } = Astro.props
   }
   .hero-slide img { @apply block h-full w-auto object-contain; }
 
+  .hero-swiper__dots {
+    @apply absolute left-1/2 flex items-center justify-center gap-2 rounded-full px-4 py-2 shadow-lg shadow-black/5 backdrop-blur;
+    bottom: -2.5rem;
+    transform: translate(-50%, 50%);
+    z-index: 3;
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(15, 23, 42, 0.08);
+    background: color-mix(in srgb, var(--hero-swiper-track) 92%, white);
+    border-color: color-mix(in srgb, var(--hero-swiper-track) 60%, rgba(15, 23, 42, 0.2));
+  }
+  .hero-swiper__dot {
+    @apply h-2 w-2 rounded-full bg-neutral-400 transition-colors duration-300 ease-out;
+  }
+  .hero-swiper__dot.is-active {
+    @apply w-6 bg-primary-400;
+  }
+  .hero-swiper__dots[hidden] {
+    display: none;
+  }
+
+  /* Progressive enhancement: show slides even before Swiper boots */
+  .hero-swiper__instance:not(.swiper-initialized) .swiper-wrapper {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+  }
+  .hero-swiper__instance:not(.swiper-initialized) .swiper-slide {
+    flex: 0 0 auto;
+    opacity: 1;
+  }
+
+  :global(.dark) .hero-swiper {
+    --hero-swiper-track: var(--hero-swiper-track-dark, #111827);
+  }
+  :global(.dark) .hero-swiper__dots {
+    background: rgba(17, 24, 39, 0.85);
+    border-color: rgba(148, 163, 184, 0.32);
+  }
+  :global(.dark) .hero-swiper__dot {
+    @apply bg-slate-500/60;
+  }
+  :global(.dark) .hero-swiper__dot.is-active {
+    @apply bg-primary-300;
+  }
+
   /* Scope overflow fix only to this hero swiper */
   .hero-swiper,
-  .hero-swiper :is(.swiper, .swiper-wrapper, .swiper-slide),
-  .hero-swiper swiper-slide {
+  .hero-swiper :is(.swiper, .swiper-wrapper, .swiper-slide) {
     overflow: visible !important;
     will-change: transform, opacity;
     transform: translateZ(0);
@@ -49,112 +134,148 @@ const { screenshots = [], eager = false } = Astro.props
 </style>
 
 <script>
-  import { register } from 'swiper/element/bundle'
-
   if (typeof window !== 'undefined') {
-    if (!customElements.get('swiper-container')) register()
+    type HeroSwiperInstance = import('swiper').default
 
-    type HeroSwiperElement = HTMLElement & {
-      update?: () => void
-      swiper?: {
-        slideTo?: (index: number, speed?: number) => void
-        slideNext?: (speed?: number) => void
-        slidePrev?: (speed?: number) => void
-        params?: Record<string, any>
-        update?: () => void
-        activeIndex?: number
-        slides?: ArrayLike<any>
-      }
-      initialize?: () => void
-    }
-    const managed = new Set<HeroSwiperElement>()
+    const initHeroSwipers = async () => {
+      const { default: Swiper } = await import('swiper/bundle')
 
-    const updateAll = () => {
-      managed.forEach((el) => el.swiper?.update?.())
-    }
-
-    const setupEl = (el: HeroSwiperElement) => {
-      if (managed.has(el)) return
-      managed.add(el)
-
-      const ensureInitialState = () => {
-        const swiper = el.swiper
-        if (!swiper) return
-        if (swiper.params) {
-          swiper.params.speed = 600
-          swiper.params.slidesPerGroup = 1
-        }
-        requestAnimationFrame(() => {
-          swiper.update?.()
-          swiper.slideTo?.(0, 0)
-        })
-      }
-
-      if (!el.swiper && typeof el.initialize === 'function') {
-        el.initialize()
-      }
-
-      if (el.swiper) {
-        ensureInitialState()
-      } else {
-        const onReady = () => {
-          ensureInitialState()
-          el.removeEventListener('ready', onReady)
-        }
-        el.addEventListener('ready', onReady)
-      }
-
-      el.tabIndex = 0
-      const getSlidesCount = () => el.querySelectorAll('swiper-slide').length
-      const goNext = () => {
-        const swiper = el.swiper
-        if (!swiper) return
-        const total = getSlidesCount()
-        const current = swiper.activeIndex ?? 0
-        if (total === 0) return
-        if (current < total - 1) {
-          swiper.slideNext?.(600)
-        }
-      }
-
-      el.addEventListener('click', (e: MouseEvent) => {
-        const t = e.target as Element | null
-        if (t?.closest('a,button,[role="button"],input,textarea,select')) return
-        goNext()
-      })
-
-      el.addEventListener('keydown', (e: KeyboardEvent) => {
-        if (e.key === 'ArrowRight' || e.key === 'Enter' || e.key === ' ') {
-          e.preventDefault()
-          goNext()
-        } else if (e.key === 'ArrowLeft') {
-          e.preventDefault()
-          el.swiper?.slidePrev?.(600)
-        }
-      })
-    }
-
-    const hydrateAll = () => {
       document
-        .querySelectorAll<HeroSwiperElement>('swiper-container.hero-swiper')
-        .forEach(setupEl)
-      requestAnimationFrame(updateAll)
+        .querySelectorAll<HTMLElement>('.hero-swiper__instance')
+        .forEach((container) => {
+          const el = container as HTMLElement & { __heroSwiper?: HeroSwiperInstance }
+          const dotsContainer = container.parentElement?.querySelector<HTMLElement>('.hero-swiper__dots')
+          const dots = Array.from(dotsContainer?.querySelectorAll<HTMLButtonElement>('.hero-swiper__dot') ?? [])
+          if (dotsContainer) {
+            if (dots.length <= 1) {
+              dotsContainer.setAttribute('hidden', '')
+            } else {
+              dotsContainer.removeAttribute('hidden')
+            }
+          }
+
+          const updateDots = (activeIndex: number) => {
+            dots.forEach((dot, idx) => {
+              dot.classList.toggle('is-active', idx === activeIndex)
+              dot.disabled = idx === activeIndex
+            })
+          }
+
+          if (el.__heroSwiper?.destroyed) {
+            el.__heroSwiper = undefined
+          }
+          if (el.__heroSwiper) {
+            const swiper = el.__heroSwiper
+            swiper.update()
+            updateDots(swiper.activeIndex ?? 0)
+            return
+          }
+
+          const swiper = new Swiper(container, {
+            slidesPerView: 'auto',
+            spaceBetween: 32,
+            centeredSlides: true,
+            centeredSlidesBounds: true,
+            initialSlide: 0,
+            speed: 600,
+            loop: false,
+            allowTouchMove: true,
+            grabCursor: true,
+            slideToClickedSlide: false,
+            watchSlidesProgress: true,
+            observer: true,
+            observeParents: true,
+            observeSlideChildren: true,
+          })
+
+          swiper.on('afterInit', () => {
+            swiper.updateSlides()
+            swiper.slideTo(0, 0)
+            updateDots(swiper.activeIndex ?? 0)
+          })
+
+          swiper.once('init', () => {
+            updateDots(swiper.activeIndex ?? 0)
+          })
+          requestAnimationFrame(() => {
+            updateDots(swiper.activeIndex ?? 0)
+            swiper.update()
+          })
+
+          const ensureVisible = () => {
+            swiper.updateSlides()
+            swiper.updateProgress()
+            swiper.updateSlidesClasses()
+            swiper.slideTo(0, 0)
+            updateDots(swiper.activeIndex ?? 0)
+          }
+
+          const images = Array.from(container.querySelectorAll('img'))
+          let pending = images.length
+          if (pending === 0) {
+            ensureVisible()
+          } else {
+            const handleReady = () => {
+              pending = Math.max(0, pending - 1)
+              if (pending === 0) {
+                ensureVisible()
+              }
+            }
+            images.forEach((img) => {
+              if (img.complete) {
+                handleReady()
+              } else {
+                img.addEventListener('load', handleReady, { once: true })
+                img.addEventListener('error', handleReady, { once: true })
+              }
+            })
+            // Safety timeout in case some resources never fire events
+            setTimeout(ensureVisible, 400)
+          }
+
+          swiper.on('slideChange', () => {
+            updateDots(swiper.activeIndex ?? 0)
+          })
+
+          const handleDotClick = (event: Event) => {
+            const button = event.currentTarget as HTMLButtonElement
+            const index = Number(button.dataset.slide ?? '0')
+            if (Number.isFinite(index)) {
+              swiper.slideTo(index, 600)
+            }
+          }
+
+          dots.forEach((dot) => {
+            dot.addEventListener('click', handleDotClick)
+          })
+
+          const handleNextClick = (event: MouseEvent) => {
+            const target = event.target as Element | null
+            if (target?.closest('a,button,[role="button"],input,textarea,select')) return
+            const total = swiper.slides?.length ?? 0
+            const current = swiper.activeIndex ?? 0
+            if (total > 0 && current < total - 1) {
+              swiper.slideNext(600)
+            }
+          }
+
+          container.addEventListener('click', handleNextClick)
+
+          el.__heroSwiper = swiper
+        })
     }
 
-    if (customElements.get('swiper-container')) {
-      hydrateAll()
-    } else {
-      customElements.whenDefined('swiper-container').then(hydrateAll)
+    const ensureInit = () => {
+      initHeroSwipers().catch((err) => {
+        console.error('Failed to init hero swiper', err)
+      })
     }
 
+    ensureInit()
     window.addEventListener('resize', () => {
-      requestAnimationFrame(updateAll)
+      requestAnimationFrame(ensureInit)
     })
-
-    const win = window as typeof window & { __heroSwiperBound?: boolean }
-    if (!win.__heroSwiperBound) {
-      document.addEventListener('astro:page-load', hydrateAll)
-      win.__heroSwiperBound = true
-    }
+    window.addEventListener('load', ensureInit, { once: true })
+    document.addEventListener('astro:page-load', ensureInit)
   }
 </script>
