@@ -1,104 +1,28 @@
 [
-	{
-		"question": "What is the cost of the basic plan?",
-		"reply": "The basic plan is $9.99 per month, which includes access to core features and limited integrations. This plan is perfect for individuals or small teams looking to improve their productivity without a large investment.",
-		"category": "pricing",
-		"open": true
-	},
-	{
-		"question": "Are there any discounts for annual subscriptions?",
-		"reply": "Yes, we offer a 20% discount on annual subscriptions for all our plans. By choosing an annual subscription, you can save money and ensure uninterrupted access to all Foxi features for the entire year.",
-		"category": "pricing",
-		"open": false
-	},
-	{
-		"question": "Can I change my subscription plan at any time?",
-		"reply": "Yes, you can upgrade or downgrade your subscription plan at any time from your account settings. This flexibility allows you to adjust your plan based on your changing needs and usage.",
-		"category": "pricing",
-		"open": false
-	},
-	{
-		"question": "Is there a free trial available?",
-		"reply": "Yes, we offer a 14-day free trial for all new users. During the trial, you can explore all the features of Foxi without any commitment, allowing you to see how it fits into your workflow.",
-		"category": "pricing",
-		"open": false
-	},
-	{
-		"question": "Do you offer refunds?",
-		"reply": "We offer a 30-day money-back guarantee if you are not satisfied with our service. Simply contact our support team within 30 days of your purchase, and we'll process your refund.",
-		"category": "pricing",
-		"open": false
-	},
-	{
-		"question": "How do I cancel my subscription?",
-		"reply": "You can cancel your subscription from your account settings at any time. After cancellation, you will still have access to your account until the end of the billing cycle.",
-		"category": "pricing",
-		"open": false
-	},
-	{
-		"question": "Can I use Foxi with Google Calendar?",
-		"reply": "Yes, Foxi integrates seamlessly with Google Calendar for easy scheduling and task management. This integration helps you keep track of your events and tasks in one place.",
-		"category": "integrations",
-		"open": true
-	},
-	{
-		"question": "Does Foxi work with Slack?",
-		"reply": "Yes, you can integrate Foxi with Slack to receive notifications and updates directly in your channels. This allows you to stay informed about your projects without leaving Slack.",
-		"category": "integrations",
-		"open": false
-	},
-	{
-		"question": "How do I connect Foxi with Trello?",
-		"reply": "To connect Foxi with Trello, go to the integrations page in your settings and follow the instructions to link your accounts. This integration helps you manage your Trello boards and Foxi projects together.",
-		"category": "integrations",
-		"open": false
-	},
-	{
-		"question": "Is there an API for custom integrations?",
-		"reply": "Yes, we provide an API that allows you to create custom integrations with Foxi. Our API documentation provides detailed instructions and examples to help you get started.",
-		"category": "integrations",
-		"open": false
-	},
-	{
-		"question": "Can I sync Foxi with my email?",
-		"reply": "Currently, we do not support email integration, but this feature is on our roadmap for future releases. Stay tuned for updates as we continue to enhance Foxi's capabilities.",
-		"category": "integrations",
-		"open": false
-	},
-	{
-		"question": "Does Foxi support Zapier?",
-		"reply": "Yes, Foxi integrates with Zapier, allowing you to connect with over 2,000 apps and automate your workflows. This integration helps you streamline your processes and improve efficiency.",
-		"category": "integrations",
-		"open": false
-	},
-	{
-		"question": "What are the main features of Foxi?",
-		"reply": "Foxi includes in-app messaging, project management, time tracking, customizable dashboards, and more. These features are designed to help you stay organized, communicate effectively, and manage your time efficiently.",
-		"category": "features",
-		"open": true
-	},
-	{
-		"question": "How do I use the in-app messaging feature?",
-		"reply": "In-app messaging allows you to communicate with your team directly within Foxi. Simply navigate to the messaging tab to start a conversation. You can send messages, share files, and create group chats.",
-		"category": "features",
-		"open": false
-	},
-	{
-		"question": "Can I customize my dashboard?",
-		"reply": "Yes, you can customize your dashboard by adding, removing, and rearranging widgets to fit your workflow. This customization helps you keep important information at your fingertips.",
-		"category": "features",
-		"open": false
-	},
-	{
-		"question": "How does the time tracking feature work?",
-		"reply": "Time tracking allows you to log the time spent on tasks and projects. Start the timer when you begin a task and stop it when you're done. You can also manually log time if needed.",
-		"category": "features",
-		"open": false
-	},
-	{
-		"question": "Is there a mobile app for Foxi?",
-		"reply": "Yes, Foxi is available on both iOS and Android, allowing you to manage your tasks and projects on the go. Download the app from the App Store or Google Play to stay productive anywhere.",
-		"category": "features",
-		"open": false
-	}
+  {
+    "question": "Сколько занимает запуск платформы?",
+    "reply": "<p>Подключение занимает 5–7 рабочих дней. За это время мы брендируем бота, настраиваем мини-приложение, подключаем оплату и обучаем команду.</p>",
+    "category": "pricing",
+    "open": true
+  },
+  {
+    "question": "Что входит в стоимость установки?",
+    "reply": "<p>Брендинг бота и мини-приложения, настройка токен-сервера, загрузка контента, инструкции для админов и запуск пилота. Дополнительный функционал (CRM, WhatsApp и т.п.) считается отдельно.</p>",
+    "category": "pricing"
+  },
+  {
+    "question": "Как работает подписка на токены?",
+    "reply": "<p>Каждый тариф включает базовый пакет 💎. Мастера докупают токены, а вы получаете маржу. При превышении лимита система автоматически предлагает пополнить счёт, чтобы бот не останавливался.</p>",
+    "category": "pricing"
+  },
+  {
+    "question": "Можно ли вернуть оплату?",
+    "reply": "<p>Если сервис не был запущен по нашей вине, оплату за токен-сервер вернём. Стоимость установки не возвращается: это кастомная работа под ваш бренд.</p>",
+    "category": "pricing"
+  },
+  {
+    "question": "Что происходит, если не использовать платформу?",
+    "reply": "<p>Если токены не расходуются более 3 месяцев, мы приостанавливаем сервер. Баланс остаётся за вами — можно вернуться в любой момент.</p>",
+    "category": "pricing"
+  }
 ]

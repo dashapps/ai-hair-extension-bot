@@ -13,17 +13,18 @@ import Feature from '../../ui/Feature.astro'
 
 // Data
 import features from '../../../data/json-files/featuresData.json'
+
+const heading = {
+	title: 'Что уже есть в платформе',
+	text: 'Собрали основные модули: от ИИ-превью и токенов до витрины с товарами и интеграций с CRM.'
+}
 ---
 
 <Section id="features">
 	<Row>
 		<Col span="12" align="center" classes="mb-12 max-w-4xl mx-auto">
-			<h2 class="text-pretty">Whats included on <strong>all</strong> foxi plans</h2>
-			<p class="pb-0 text-lg">
-				Explore the suite of tools designed to streamline your workflow, enhance productivity, and
-				drive growth. Each product is crafted with precision to meet your needs and exceed your
-				expectations.
-			</p>
+			<h2 class="text-pretty">{heading.title}</h2>
+			<p class="pb-0 text-lg">{heading.text}</p>
 		</Col>
 	</Row>
 	<Row>

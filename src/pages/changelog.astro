@@ -13,9 +13,9 @@ import feedData from '../data/json-files/changelogData.json'
 // Content
 // - SEO
 const SEO = {
-	title: 'Foxi | Version Updates and Improvements',
+	title: 'AI Hair Extension | Этапы запуска платформы',
 	description:
-		"Explore Foxi's powerful features designed to enhance productivity, ensure top-notch security, and integrate seamlessly with your favorite tools. Join thousands of satisfied users and transform your workflow with Foxi today!"
+		'Как проходит внедрение AI Hair Extension: демо, брендинг, настройка токенов и запуск подписок. Пошаговый план с реальными сроками.'
 }
 // - Page Header
 const header = {
@@ -27,5 +27,12 @@ const header = {
 <Layout title={SEO.title} description={SEO.description}>
 	<Hero title={header.title} text={header.text} />
 	<SimpleFeed data={feedData} />
-	<CTA />
+	<CTA
+		sectionClasses="bg-neutral-100 dark:bg-neutral-900/40"
+		title="Готовы пройти этот путь?"
+		text="Покажем демо, обсудим задачи и составим дорожную карту внедрения именно под ваш бизнес."
+		buttonLabel="Забронировать демо"
+		buttonLink=""
+		buttonBooking={true}
+	/>
 </Layout>

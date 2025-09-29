@@ -22,12 +22,14 @@ type Props = {
   buttonLink?: string
   ctaClasses?: string
   sectionClasses?: string
+  buttonBooking?: boolean
 }
 const {
   title = 'Готова к трансформации?',
   text = 'Осторожно! После примерки может возникнуть острое желание записаться к мастеру — мы предупредили:)',
   buttonLabel = 'Примерь бесплатно',
   buttonLink = '/',
+  buttonBooking = false,
   ctaClasses,
   sectionClasses
 } = Astro.props
@@ -44,7 +46,7 @@ const finalCtaClasses = `${ctaClasses ? `${ctaClasses} ` : '!shadow-none ' }[&_.
 					<Image src={badge} alt="Trophy" class="h-12 w-12" slot="button" />
 					<strong>Мастера рекомендуют</strong>
 				</ChipNotification>
-				<Button size="lg" style="primary" link={buttonLink}>{buttonLabel}</Button>
+				<Button size="lg" style="primary" link={buttonLink} booking={buttonBooking}>{buttonLabel}</Button>
 			</CTA>
 		</Col>
 		<Col span="1" />

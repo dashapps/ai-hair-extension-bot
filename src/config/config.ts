@@ -21,13 +21,13 @@ export interface Config {
 }
 
 export const configData: Config = {
-	siteTitle: 'AI Hair Extension',
+	siteTitle: 'AI Hair Extension — платформа с ИИ-примеркой для бьюти',
 	siteDescription:
-		'AI-помощник для мастеров и бизнеса: лендинг, телеграм-бот и комьюнити-инструменты.',
+		'White Label-платформа для школ наращивания и бьюти-бизнеса: ИИ-превью «до/после», токены, PRO-подписки и автоматизация продаж.',
 	ogImage: '/og.jpg',
 	logo: {
 		src: '/logo.svg',
-		alt: 'Foxi. logo'
+		alt: 'AI Hair Extension'
 	},
 	canonical: true,
 	noindex: false,

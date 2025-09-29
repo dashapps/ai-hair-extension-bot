@@ -40,9 +40,9 @@ export const navigationBarData: NavData = {
         text: 'AI Hair Extension'
     },
     navItems: [
-        { name: 'Платформа', link: '/pricing' },
+        { name: 'Платформа', link: '/' },
         { name: 'Мастерам', link: '/features' },
-        { name: 'Телеграм‑бот', link: '/' },
+        { name: 'Телеграм‑бот', link: '/bot' },
         {
             name: 'Бизнесу',
             link: '#',

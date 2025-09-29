@@ -1,0 +1,41 @@
+---
+// Components
+// - Layout
+import Layout from '../layouts/Layout.astro'
+// - UI
+import Hero from '../components/blocks/hero/HomeCTA.astro'
+import FeatureRow from '../components/blocks/features/FeatureRow.astro'
+import Testimonial from '../components/blocks/testimonials/BasicDark.astro'
+import FAQ from '../components/blocks/FAQ/Basic.astro'
+import CTA from '../components/blocks/CTA/BasicLight.astro'
+
+// Content
+// - Testimonial background
+import testimonialBackground from '../assets/testimonial-bg-01.webp'
+// - SEO
+const SEO = {
+	title: 'AI Hair Extension Bot — Телеграм-бот с ИИ-превью',
+	description: 'Покажи клиенту результат до записи: ИИ-бот примеряет волосы, собирает запрос, продаёт услуги и ведёт на оплату. White Label-подключение под твой бренд.'
+}
+---
+
+<Layout title={SEO.title} description={SEO.description}>
+	<Hero />
+	<FeatureRow />
+    <Testimonial 
+      classes="bg-primary-800"
+      blockquote="Волосы — это оружие женщины. Они меняют не только образ, но и возраст в глазах окружающих."
+      figcaption=""
+      cite=""
+    />
+    <FAQ classes="bg-slate-50 dark:bg-neutral-900/40" />
+    <CTA 
+      sectionClasses="bg-neutral-100 dark:bg-neutral-900/40"
+      ctaClasses="!shadow-none"
+      title="Этот бот — демо. Хотите такой же под свой бренд?"
+      text="Покажем весь сценарий, обсудим токены, подключение и кастом. После встречи получите доступ к демо и чек-лист по запуску."
+      buttonLabel="Забронировать демо"
+      buttonLink=""
+      buttonBooking={true}
+    />
+</Layout>
