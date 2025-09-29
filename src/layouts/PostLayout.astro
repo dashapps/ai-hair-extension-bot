@@ -16,7 +16,7 @@ import BlogPostHero from '../components/blocks/blog/BlogPostHero.astro'
 // Content
 // - SEO
 const SEO = {
-	title: `${frontmatter.title} | Foxi`,
+	title: `${frontmatter.title} | AI Hair Extension`,
 	description: `${frontmatter.description}`
 }
 ---
@@ -26,11 +26,15 @@ const SEO = {
 		tags={frontmatter.tags}
 		title={frontmatter.title}
 		author={frontmatter.author}
-		publishDate={frontmatter.pubDate.toLocaleDateString('en-US', {
-			year: 'numeric',
-			month: 'long',
-			day: 'numeric'
-		})}
+		publishDate={frontmatter.pubDate
+			? frontmatter.pubDate
+					.toLocaleDateString('ru-RU', {
+						year: 'numeric',
+						month: 'long',
+						day: 'numeric'
+					})
+					.replace(' г.', '')
+			: ''}
 	/>
 
 	<div class="post-body basic-text basic-text--lg">

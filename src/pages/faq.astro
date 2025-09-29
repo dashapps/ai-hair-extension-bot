@@ -5,7 +5,11 @@ import Layout from '../layouts/Layout.astro'
 // - UI
 import Hero from '../components/blocks/hero/PageHeader.astro'
 import FAQ from '../components/blocks/FAQ/FaqSticky.astro'
-import CTA from '../components/blocks/CTA/BasicDark.astro'
+import Section from '../components/ui/Section.astro'
+import Row from '../components/ui/Row.astro'
+import Col from '../components/ui/Col.astro'
+import Button from '../components/ui/Button.astro'
+import { BOOKING_LINK } from '../config/bookingLink'
 
 // - SEO
 const SEO = {
@@ -213,14 +217,35 @@ const block9 = [
 
 <Layout title={SEO.title} description={SEO.description}>
 	<Hero title={header.title} text={header.text} />
-	<FAQ title="🔹 1. Общие вопросы" data={block1} />
-	<FAQ title="🔹 2. White Label и бренд" data={block2} classes="bg-neutral-50 dark:bg-neutral-900" />
-	<FAQ title="🔹 3. Тарифы и деньги" data={block3} />
-	<FAQ title="🔹 4. Функционал бота" data={block4} classes="bg-neutral-50 dark:bg-neutral-900" />
-	<FAQ title="🔹 5. Для мастеров" data={block5} />
-	<FAQ title="🔹 6. Для школ и салонов" data={block6} classes="bg-neutral-50 dark:bg-neutral-900" />
-	<FAQ title="🔹 7. Технические вопросы" data={block7} />
-	<FAQ title="🔹 8. Поддержка и запуск" data={block8} classes="bg-neutral-50 dark:bg-neutral-900" />
-	<FAQ title="🔹 9. Юридическое и лицензии" data={block9} />
-	<CTA />
+	<FAQ title="1. Общие вопросы" data={block1} />
+	<FAQ title="2. White Label и бренд" data={block2} classes="bg-neutral-50 dark:bg-neutral-900" />
+	<FAQ title="3. Тарифы и деньги" data={block3} />
+	<FAQ title="4. Функционал бота" data={block4} classes="bg-neutral-50 dark:bg-neutral-900" />
+	<FAQ title="5. Для мастеров" data={block5} />
+	<FAQ title="6. Для школ и салонов" data={block6} classes="bg-neutral-50 dark:bg-neutral-900" />
+	<FAQ title="7. Технические вопросы" data={block7} />
+	<FAQ title="8. Поддержка и запуск" data={block8} classes="bg-neutral-50 dark:bg-neutral-900" />
+	<FAQ title="9. Юридическое и лицензии" data={block9} />
+	<Section classes="bg-neutral-900">
+		<Row classes="max-w-4xl mx-auto">
+			<Col span="12" classes="rounded-3xl border border-neutral-800 bg-neutral-900/90 p-10 text-center shadow-lg shadow-black/30 backdrop-blur md:p-14">
+				<h2 class="text-pretty text-2xl font-bold text-neutral-50 md:text-3xl">
+					Хочешь понять, что использовать именно тебе?
+				</h2>
+				<p class="mt-4 text-base text-neutral-200 md:text-lg">
+					Запишись на консультацию. Расскажешь о своих процессах — подберём решение, посчитаем сроки и бюджет. От недели. От 30&nbsp;000&nbsp;₽.
+				</p>
+				<Button
+					type="link"
+					link={BOOKING_LINK}
+					booking
+					size="lg"
+					style="primary"
+					classes="mt-6"
+				>
+					Заказать консультацию
+				</Button>
+			</Col>
+		</Row>
+	</Section>
 </Layout>

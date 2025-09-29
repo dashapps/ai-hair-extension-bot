@@ -29,14 +29,15 @@ const { posts } = Astro.props
 
 // Content
 // - SEO
+const decodedTag = decodeURIComponent(tag)
 const SEO = {
-	title: `Maugli Beauty | Материалы по тегу ${tag}`,
+	title: `AI Hair Extension | Решения по тегу ${decodedTag}`,
 	description: 'Подборка материалов, решений и идей по выбранной теме.'
 }
 
 // - Page Header
 const header = {
-	title: `Решения по тегу <br><strong>${tag}</strong>`,
+	title: `Решения по тегу <br><strong>${decodedTag}</strong>`,
 	text: 'Все полезные статьи и кейсы, собранные по этой теме. Мы можем предложить инструмент почти в любой нише красоты — просто запишись на консультацию.'
 }
 ---

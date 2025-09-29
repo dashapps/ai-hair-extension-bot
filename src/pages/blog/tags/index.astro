@@ -1,5 +1,5 @@
 ---
-// Blog Tags Page
+// Solutions Tags Page
 // ------------
 // Description: The blog tags page.
 
@@ -13,9 +13,19 @@ import BlogPosts from '../../../components/blocks/blog/BlogPosts.astro'
 // Data
 import { getCollection } from 'astro:content'
 const allPosts = await getCollection('blog')
+
+const SEO = {
+	title: 'AI Hair Extension | Все решения',
+	description: 'Собрали все материалы и решения по тегам — выбирай тему и изучай, как платформа помогает твоему бизнесу.'
+}
+
+const header = {
+	title: 'Все <strong>решения и темы</strong>',
+	text: 'Выбери тег, чтобы посмотреть кейсы и продукты под конкретную задачу.'
+}
 ---
 
-<Layout>
-	<Hero title="Tags" />
+<Layout title={SEO.title} description={SEO.description}>
+	<Hero title={header.title} text={header.text} />
 	<BlogPosts data={allPosts} />
 </Layout>
