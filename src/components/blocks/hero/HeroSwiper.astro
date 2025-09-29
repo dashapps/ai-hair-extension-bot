@@ -65,6 +65,7 @@ const { screenshots = [], eager = false } = Astro.props
         activeIndex?: number
         slides?: ArrayLike<any>
       }
+      initialize?: () => void
     }
     const managed = new Set<HeroSwiperElement>()
 
@@ -89,6 +90,10 @@ const { screenshots = [], eager = false } = Astro.props
         })
       }
 
+      if (!el.swiper && typeof el.initialize === 'function') {
+        el.initialize()
+      }
+
       if (el.swiper) {
         ensureInitialState()
       } else {
@@ -106,9 +111,8 @@ const { screenshots = [], eager = false } = Astro.props
         if (!swiper) return
         const total = getSlidesCount()
         const current = swiper.activeIndex ?? 0
-        if (total > 0 && current >= total - 1) {
-          swiper.slideTo?.(0, 600)
-        } else {
+        if (total === 0) return
+        if (current < total - 1) {
           swiper.slideNext?.(600)
         }
       }
@@ -146,5 +150,11 @@ const { screenshots = [], eager = false } = Astro.props
     window.addEventListener('resize', () => {
       requestAnimationFrame(updateAll)
     })
+
+    const win = window as typeof window & { __heroSwiperBound?: boolean }
+    if (!win.__heroSwiperBound) {
+      document.addEventListener('astro:page-load', hydrateAll)
+      win.__heroSwiperBound = true
+    }
   }
 </script>
